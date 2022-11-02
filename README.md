@@ -1,4 +1,4 @@
-<h1>TITLE OF THE PROJECT</h1>             
+<h3>TITLE OF THE PROJECT</h3>             
 
 **Husky Events**
                                                 
@@ -7,7 +7,7 @@
                                                      INTRODUCTION
                                         ========================================
 
-<h4>Team Name: </h4> Web Surfers
+**Team Name:**  Web Surfers            
  
 **Team Members**
 1. Varsha Reddy Kumbham                        
