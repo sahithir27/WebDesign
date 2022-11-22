@@ -1,11 +1,11 @@
 import './Login.scss'
+import './../SignUp/SignUp.scss'
 import React from 'react'
 
 class LoginComponent extends React.Component{
 
     constructor(props){
             super(props);
-            
             this.state = {
                     username : '',
                     password : '',
@@ -45,19 +45,21 @@ class LoginComponent extends React.Component{
     render(){
         return(
                 <div className="login-outer-container">
+                    <div className='left-container'>
+                        <div className='logo-container'>
+                        </div>
+                    </div>
                     <div className="right-container">
                             <div className='right-inner'>
-                                    <form>
+                                    <form className="form-input">
                                             <h1>Login</h1>
                                             <p>Don't have an account yet?&nbsp;<a href="http://localhost:3000/SignUp">Sign Up!</a></p>
                                             <br/>
                                             <div className="username-container">
-                                                    <label><strong>Username</strong></label>
-                                                    <input type="text" name="username" className="form-input" placeholder="Enter your username..."/>
+                                                    <input type="text" name="username" className="form-input" placeholder="Username"/>
                                             </div>
                                             <div className="password-container">
-                                                    <label><strong>Password</strong></label>
-                                                    <input type="password" name="password" className="form-input" placeholder="Enter your password..."/>
+                                                    <input type="password" name="password" className="form-input" placeholder="Password"/>
                                             </div>
                                             <div className="button-container">
                                                     {/* <h4><a href="http://localhost:3000/forgot-password">Forgot Password?</a></h4> */}
