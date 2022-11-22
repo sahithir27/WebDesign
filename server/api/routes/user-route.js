@@ -10,15 +10,11 @@ router.route('/users')
 
 //add userController login method
 router.route('/users/login/:uuid')
-.post();
+.post(userController.login);
 
 //add userController update and get user by id methods
 router.route('/users/:uuid')
-.put()
-.get();
-
-//add userController verifySecurityAnswer method
-router.route('/users/verify-security/:uuid')
-.get();
+.put(userController.updateUser)
+.get(userController.getUserById);
 
 export default router;    

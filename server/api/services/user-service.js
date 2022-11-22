@@ -27,22 +27,7 @@ export const login = async (uuid, pwd)=>{
     } catch (error) {
         throw error
     }
-}
-
-export const verifySecurityAnswer = async (uuid,question, answer)=>{
-    try {
-    const user = await User.findOne({uuid:uuid});
     
-    if(user !== null){
-        const res1 = await user.compareSecQuestion(question);
-        const res2 = await user.compareSecAns(answer);
-        return (res1 && res2);
-    }else{
-        return false;
-    }
-    } catch (error) {
-        throw error
-    } 
 }
 
 export const updateUser = async (uuid, updatedUser) =>{
