@@ -4,7 +4,10 @@
     height: 1000px;
 }
 
-.right-container form {
+
+.right-container 
+{
+    form {
     width: 450px;
     h1,p {
         text-align: center;
@@ -13,7 +16,7 @@
         }
     }
 }
-
+}
 .username-container {
     padding: 8px;
 }
@@ -24,6 +27,9 @@
 
 .button-container {
     @extend .username-container;
+    button {
+        margin: 12px;
+    }
 }
 
 .form-input {
