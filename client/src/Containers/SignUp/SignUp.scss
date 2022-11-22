@@ -22,7 +22,7 @@
 }
 
 .right-container form {
-    width: 450px;
+    width: 600px;
 }
 
 .signupHeader{
@@ -110,6 +110,29 @@
 }
 .questionAnswerContainer {
     background-color: white;
+    width: 98%;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.answerContainer input{
+    border: 0px;
+    width: 99%;
+    font-size: 14px;
+}
+.questionContainer {
+    color: #757575;
+    font-size: 14px;
+    label {
+        padding: 8px;
+    }
+    div {
+        font-size: 14px;
+        div {
+            width: 98%;
+        }
+    }
 }
 
 .button-container 

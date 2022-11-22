@@ -248,33 +248,27 @@ class SignUpComponent extends React.Component{
                             <h1>SignUp</h1>
                             <div className = "userName_email_Container">
                                 <div className = "userName_Container">
-                                    <label>Username</label><br/>
-                                    <input type="text" name="uuid" className="form-input" placeholder="Enter your username..."  onChange={this.handleChange.bind(this)}/>
+                                    <input type="text" name="uuid" className="form-input" placeholder="Username"  onChange={this.handleChange.bind(this)}/>
                                     {this.state.usernameError && <p>{this.state.usernameError}</p>}
                                 </div>
                                 <div className = "email_Container">
-                                    <label>Email</label>
-                                    <input type="email" name="email" className="form-input" placeholder="yourname@domain.com" onChange={this.handleChange.bind(this)}/>
+                                    <input type="email" name="email" className="form-input" placeholder="Email" onChange={this.handleChange.bind(this)}/>
                                     {this.state.emailError && <p>{this.state.emailError}</p>}
                                 </div>
                             </div>
                             <div className = "frst_lst_names_container">
                                 <div className = "frst_name_container">
-                                    <label>First Name</label>
-                                    <input type="text" name="firstName" className="form-input" placeholder="Enter your first name..." onChange={this.handleChange.bind(this)}/>
+                                    <input type="text" name="firstName" className="form-input" placeholder="First Name" onChange={this.handleChange.bind(this)}/>
                                     {this.state.firstnameError && <p>{this.state.firstnameError}</p>}
                                 </div>
                                 <div className = "lst_name_container">
-                                    <label>Last Name</label>
-                                    <input type="text" name="lastName" className="form-input" placeholder="Enter your last name..." onChange={this.handleChange.bind(this)}/>
+                                    <input type="text" name="lastName" className="form-input" placeholder="Last Name" onChange={this.handleChange.bind(this)}/>
                                     {this.state.lastnameError && <p>{this.state.lastnameError}</p>}
                                 </div>
                             </div>
 
                             <div className="dob_gender_container">
                                 <div className="dob_container">
-                                    <label>Date of Birth</label>
-                                    <br></br>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DatePicker
                                             name='dob'
@@ -290,19 +284,16 @@ class SignUpComponent extends React.Component{
                                     {this.state.dobError && <p>{this.state.dobError}</p>}
                                 </div>
                                 <div className="radioButtonsContainer">
-                                    <label>Gender</label>
                                     <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
                                         <FormControlLabel value="Female" control={<Radio name="gender"  onChange={this.handleChange.bind(this)} size="small"/>} label="Female" />
                                         <FormControlLabel value="Male" control={<Radio name="gender"  onChange={this.handleChange.bind(this)} size="small"/>} label="Male" />
-                                        <FormControlLabel value="Non-binary" control={<Radio name="gender"  onChange={this.handleChange.bind(this)} size="small"/>} label="Non-binary" />
                                     </RadioGroup>
                                     {this.state.genderError && <p>{this.state.genderError}</p>}
                                 </div>
                             </div>
                             <div className = "passwordContainer">
                                 <div className="passcode">
-                                    <label>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="password" name="password" className="form-input" placeholder="Please enter your password..." value={this.state.password} onChange={this.handleChange.bind(this)}/>
+                                    <input type="password" name="password" className="form-input" placeholder="Password" value={this.state.password} onChange={this.handleChange.bind(this)}/>
                                     {this.state.passwordError && <p>{this.state.passwordError}</p>}
                                 </div>  
                             </div>
@@ -310,13 +301,12 @@ class SignUpComponent extends React.Component{
                             <div className = "questionAnswerContainer">
                                 <div className="questionContainer">
                                     <label>In case you forget your password</label>
-                                    <br></br>
                                     <FormControl sx={{ m: 1, minWidth: 575, minHeight: 25 }}>
-                                        <InputLabel id="demo-simple-select-helper-label">choose a security question...</InputLabel>
+                                        <InputLabel id="demo-simple-select-helper-label">Choose a security question</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
-                                            label="choose a security question..."
+                                            label="Choose a security question"
                                             name="securityQuestion"
                                             value={this.state.securityQuestion}
                                             onChange={this.handleChange.bind(this)}>
@@ -328,7 +318,7 @@ class SignUpComponent extends React.Component{
                                     {this.state.securityQuestionError && <p>{this.state.securityQuestionError}</p>}
                                 </div>
                                 <div className = "answerContainer">
-                                    <input type="text" name="securityAnswer" className="form-input" placeholder="Please choose the answer to your question..." value={this.state.answer} onChange={this.handleChange.bind(this)}/>
+                                    <input type="text" name="securityAnswer" className="form-input" placeholder="Please choose the answer to your question" value={this.state.answer} onChange={this.handleChange.bind(this)}/>
                                     {this.state.answerError && <p>{this.state.answerError}</p>}
                                 </div> 
                             </div>
