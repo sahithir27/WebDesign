@@ -27,43 +27,34 @@ class SignUp extends React.Component{
         return(
             <div className="signUp-outer-container">
                     <div className='left-container'>
-                        <div className="left-inner">
-                            <div className='logo-container'>
-                            </div>
+                        <div className='logo-container'>
                         </div>
                     </div>
                     <div className="right-container">
-                        <div className='right-inner'>
                         <form>
-                            <h1>SignUp</h1>
+                            <h1 className="signupHeader">SignUp</h1>
+                            <p className="signupPara">Sign up and start exploring NUevents</p>
                             <div className = "userName_email_Container">
                                 <div className = "userName_Container">
-                                    <label>Username</label><br/>
-                                    <input type="text" name="uuid" className="form-input" placeholder="Enter your username..." />
+                                    <input type="text" name="uuid" className="form-input" placeholder="Username" />
                                 </div>
                                 <div className = "email_Container">
-                                    <label>Email</label>
-                                    <input type="email" name="email" className="form-input" placeholder="yourname@domain.com" />
-                                    
+                                    <input type="email" name="email" className="form-input" placeholder="Email" />  
                                 </div>
                             </div>
                             <div className = "frst_lst_names_container">
                                 <div className = "frst_name_container">
-                                    <label>First Name</label>
-                                    <input type="text" name="firstName" className="form-input" placeholder="Enter your first name..."/>
+                                    <input type="text" name="firstName" className="form-input" placeholder="First Name"/>
                                     
                                 </div>
                                 <div className = "lst_name_container">
-                                    <label>Last Name</label>
-                                    <input type="text" name="lastName" className="form-input" placeholder="Enter your last name..." />
+                                    <input type="text" name="lastName" className="form-input" placeholder="Last Name" />
                                     
                                 </div>
                             </div>
 
                             <div className="dob_gender_container">
                                 <div className="dob_container">
-                                    <label>Date of Birth</label>
-                                    <br></br>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DatePicker
                                             name='dob'
@@ -76,29 +67,24 @@ class SignUp extends React.Component{
                                             renderInput={(params) => <TextField {...params} />}
                                         />
                                     </LocalizationProvider>
-                                    
                                 </div>
                                 <div className="radioButtonsContainer">
-                                    <label>Gender</label>
                                     <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
                                         <FormControlLabel value="Female" control={<Radio name="gender" />} label="Female" />
                                         <FormControlLabel value="Male" control={<Radio name="gender" />} label="Male" />
-                                        <FormControlLabel value="Non-binary" control={<Radio name="gender" />} label="Non-binary" />
                                     </RadioGroup>
                                     
                                 </div>
                             </div>
                             <div className = "passwordContainer">
                                 <div className="passcode">
-                                    <label>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <input type="password" name="password" className="form-input" placeholder="Please enter your password..." />
                                     
                                 </div>  
                             </div>
                             
-                            <div className = "questionAnswerContainer">
+                            {/* <div className = "questionAnswerContainer">
                                 <div className="questionContainer">
-                                    <label>In case you forget your password</label>
                                     <br></br>
                                     <FormControl sx={{ m: 1, minWidth: 575, minHeight: 25 }}>
                                         <InputLabel id="demo-simple-select-helper-label">choose a security question...</InputLabel>
@@ -117,7 +103,7 @@ class SignUp extends React.Component{
                                     <input type="text" name="securityAnswer" className="form-input" placeholder="Please choose the answer to your question..." value={this.state.answer}/>
                                     
                                 </div> 
-                            </div>
+                            </div> */}
                             <div className="SignUp-Container">
                                 <div className="button-container">
                                     <button type="submit">Join the club</button>
@@ -125,7 +111,6 @@ class SignUp extends React.Component{
                                 </div>
                             </div> 
                         </form>
-                        </div>
                     </div>
                 </div>       
         )
