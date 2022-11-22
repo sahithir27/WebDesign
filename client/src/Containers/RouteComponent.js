@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-//import Login from './Login/Login.js';
+import Login from './Login/Login.js';
 import SignUp from './SignUp/SignUp.js';
 import Header from '../components/Header/Header.js';
 //import ForgotPassword from './ForgotPassword/ForgotPassword.js';
@@ -10,7 +10,7 @@ const RoutesComponent = (props) => {
     return (
       <Router>
         <Routes>
-          {/* <Route path="/login" element = {<Login/>} /> */}
+          <Route path="/login" element = {<Login/>} />
           <Route element = {<Header/>}>
         <Route path="/" element = {<ProtectedRoute/>}>
           {/* <Route path="/" element = {<Dashboard/> }/> */}

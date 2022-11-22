@@ -3,7 +3,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import './Header.scss'
 //import AppLogo from "../../Assets/Images/fa-logo.svg"
 import { Button, IconButton, Typography } from "@mui/material";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import Notifications from "@mui/icons-material/Notifications";
 import { useState } from "react";
 
