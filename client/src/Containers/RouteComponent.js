@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './Login/Login.js';
 import SignUp from './SignUp/SignUp.js';
 import Header from '../components/Header/Header.js';
-//import ForgotPassword from './ForgotPassword/ForgotPassword.js';
+// import ForgotPassword from './ForgotPassword/ForgotPassword.js';
 import {ProtectedRoute} from './ProtectedRoute.js';
 //import Dashboard from './Dashboard/Dashboard.js';
 
@@ -17,7 +17,7 @@ const RoutesComponent = (props) => {
         </Route> 
         </Route>
           <Route path="/signup" element = {<SignUp/>} />
-          {/* <Route path="/forgot-password" element = {<ForgotPassword/>} /> */}
+          <Route path="/forgot-password" element = {<ForgotPassword/>} />
         </Routes>
     </Router>
     )

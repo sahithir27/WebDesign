@@ -5,7 +5,6 @@ class LoginComponent extends React.Component{
 
     constructor(props){
             super(props);
-            
             this.state = {
                     username : '',
                     password : '',
@@ -45,9 +44,12 @@ class LoginComponent extends React.Component{
     render(){
         return(
                 <div className="login-outer-container">
+                    <div className='logo-container'>
+                            </div>
                     <div className="right-container">
                             <div className='right-inner'>
-                                    <form>
+
+                                    <form className='loginForm'>
                                             <h1>Login</h1>
                                             <p>Don't have an account yet?&nbsp;<a href="http://localhost:3000/SignUp">Sign Up!</a></p>
                                             <br/>
