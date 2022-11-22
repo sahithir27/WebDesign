@@ -237,7 +237,9 @@ class SignUpComponent extends React.Component{
         return(
             <div className="signUp-outer-container">
                     <div className='left-container'>
-                        <div className='logo-container'>
+                        <div className="left-inner">
+                            <div className='logo-container'>
+                            </div>
                         </div>
                     </div>
                     <div className="right-container">
@@ -258,17 +260,21 @@ class SignUpComponent extends React.Component{
                             </div>
                             <div className = "frst_lst_names_container">
                                 <div className = "frst_name_container">
-                                    <input type="text" name="firstName" className="form-input" placeholder="First Name"/>
-                                    
+                                    <label>First Name</label>
+                                    <input type="text" name="firstName" className="form-input" placeholder="Enter your first name..." onChange={this.handleChange.bind(this)}/>
+                                    {this.state.firstnameError && <p>{this.state.firstnameError}</p>}
                                 </div>
                                 <div className = "lst_name_container">
-                                    <input type="text" name="lastName" className="form-input" placeholder="Last Name" />
-                                    
+                                    <label>Last Name</label>
+                                    <input type="text" name="lastName" className="form-input" placeholder="Enter your last name..." onChange={this.handleChange.bind(this)}/>
+                                    {this.state.lastnameError && <p>{this.state.lastnameError}</p>}
                                 </div>
                             </div>
 
                             <div className="dob_gender_container">
                                 <div className="dob_container">
+                                    <label>Date of Birth</label>
+                                    <br></br>
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <DatePicker
                                             name='dob'
@@ -281,40 +287,29 @@ class SignUpComponent extends React.Component{
                                             renderInput={(params) => <TextField {...params} />}
                                         />
                                     </LocalizationProvider>
-<<<<<<< HEAD
-=======
                                     {this.state.dobError && <p>{this.state.dobError}</p>}
->>>>>>> login
                                 </div>
                                 <div className="radioButtonsContainer">
+                                    <label>Gender</label>
                                     <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group">
-<<<<<<< HEAD
-                                        <FormControlLabel value="Female" control={<Radio name="gender" />} label="Female" />
-                                        <FormControlLabel value="Male" control={<Radio name="gender" />} label="Male" />
-=======
                                         <FormControlLabel value="Female" control={<Radio name="gender"  onChange={this.handleChange.bind(this)} size="small"/>} label="Female" />
                                         <FormControlLabel value="Male" control={<Radio name="gender"  onChange={this.handleChange.bind(this)} size="small"/>} label="Male" />
                                         <FormControlLabel value="Non-binary" control={<Radio name="gender"  onChange={this.handleChange.bind(this)} size="small"/>} label="Non-binary" />
->>>>>>> login
                                     </RadioGroup>
                                     {this.state.genderError && <p>{this.state.genderError}</p>}
                                 </div>
                             </div>
                             <div className = "passwordContainer">
                                 <div className="passcode">
-<<<<<<< HEAD
-                                    <input type="password" name="password" className="form-input" placeholder="Please enter your password" />
-                                    
-=======
                                     <label>Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                     <input type="password" name="password" className="form-input" placeholder="Please enter your password..." value={this.state.password} onChange={this.handleChange.bind(this)}/>
                                     {this.state.passwordError && <p>{this.state.passwordError}</p>}
->>>>>>> login
                                 </div>  
                             </div>
                             
-                            {/* <div className = "questionAnswerContainer">
+                            <div className = "questionAnswerContainer">
                                 <div className="questionContainer">
+                                    <label>In case you forget your password</label>
                                     <br></br>
                                     <FormControl sx={{ m: 1, minWidth: 575, minHeight: 25 }}>
                                         <InputLabel id="demo-simple-select-helper-label">choose a security question...</InputLabel>
@@ -336,7 +331,7 @@ class SignUpComponent extends React.Component{
                                     <input type="text" name="securityAnswer" className="form-input" placeholder="Please choose the answer to your question..." value={this.state.answer} onChange={this.handleChange.bind(this)}/>
                                     {this.state.answerError && <p>{this.state.answerError}</p>}
                                 </div> 
-                            </div> */}
+                            </div>
                             <div className="SignUp-Container">
                                 <div className="button-container">
                                     <button type="submit">Join the club</button>
@@ -345,6 +340,7 @@ class SignUpComponent extends React.Component{
                                 </div>
                             </div> 
                         </form>
+                        </div>
                     </div>
                 </div>
                    
