@@ -36,11 +36,46 @@ export const post = async (request, response) =>{
     }
 }
 
+export const login = async (request, response) =>{
+    try {
+        const uuid = request.params.uuid
+        const pwd = request.body.password;
+        const user = await userService.login(uuid, pwd);
+        httpUtils.setSuccessResponse(user, response);
+    } catch (error) {
+        httpUtils.setUnauthorizedResponse({"authenticated": false, "message" : "No user found"}, response);
+    }
+}
 
+export const updateUser = async (request, response)=>{
+    try {
+        const uuid = request.params.uuid;
+        const updatedUser = request.body;
+        if(updatedUser.password){    
+            updatedUser.password = await encryptField(updatedUser.password)  
+        }if(updatedUser.securityAnswer){    
+            updatedUser.securityAnswer = await encryptField(updatedUser.securityAnswer)
+        }
+        const user = await userService.updateUser(uuid, updatedUser);
+        httpUtils.setSuccessResponse({"userUpdated": true, "user":user}, response);
+    } catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+}
+
+export const getUserById = async (request, response)=>{
+    try {
+        const uuid = request.params.uuid;
+        const user = await userService.getUserById(uuid);
+        httpUtils.setSuccessResponse(user, response);
+    } catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+}
 
 export const getUsers = async (request, response)=>{
     try {
-        const users = await userService.getUsers(uuid);
+        const users = await userService.getUsers();
         httpUtils.setSuccessResponse(users, response);
     } catch (error) {
         httpUtils.setErrorResponse(error, response);
