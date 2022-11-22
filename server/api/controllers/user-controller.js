@@ -36,6 +36,8 @@ export const post = async (request, response) =>{
     }
 }
 
+
+
 export const getUsers = async (request, response)=>{
     try {
         const users = await userService.getUsers(uuid);
