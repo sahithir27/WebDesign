@@ -115,6 +115,7 @@
 .button-container 
     {
         width: 98%;
+        padding: 0px;
         h4 {
             text-align: center;
         }
@@ -131,4 +132,9 @@
 .SignUp-Container {
     padding: 10px;
     width: 100%;
+    h4 {
+        a {
+            color: white;
+        }
+    }
 }
