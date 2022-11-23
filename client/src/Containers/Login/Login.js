@@ -126,7 +126,7 @@ class LoginComponent extends React.Component{
 										</div>
 								</div>  						
 						)
-				}	
+				}
 }
 const Login = connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
 export default Login;

@@ -332,6 +332,7 @@ class SignUpComponent extends React.Component{
                                     <button type="submit">Join the club</button>
                                     {signUpError && <p>{signUpError}</p>}
                                     <p>Already have an account? Login &nbsp;<a href="http://localhost:3000/login">here</a></p>
+
                                 </div>
                             </div> 
                         </form>

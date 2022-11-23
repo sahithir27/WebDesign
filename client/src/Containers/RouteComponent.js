@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './Login/Login.js';
 import SignUp from './SignUp/SignUp.js';
-import Header from '../components/Header/Header.js';
 import ForgotPassword from './ForgotPassword/ForgotPassword.js';
+import SideNav from '../components/SideNav/SideNav.js';
 import {ProtectedRoute} from './ProtectedRoute.js';
 // import Dashboard from './Dashboard/Dashboard.js';
 
@@ -10,8 +10,7 @@ const RoutesComponent = (props) => {
     return (
       <Router>
         <Routes>
-          
-          <Route element = {<Header/>}>
+          <Route element = {<SideNav/>}>
         <Route path="/" element = {<ProtectedRoute/>}>
           {/* <Route path="/" element = {<Dashboard/> }/> */}
         </Route> 

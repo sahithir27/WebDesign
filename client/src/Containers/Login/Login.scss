@@ -25,10 +25,18 @@
     @extend .username-container;
 }
 
-.button-container {
-    @extend .username-container;
+.login-button-container {
+    width: 98%;
+    padding: 0px;
     button {
-        margin: 12px;
+        border: 0px;
+        background-color: #dd182d;
+        height: 35px;
+        width: 100%;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        margin: 10px;
     }
 }
 
