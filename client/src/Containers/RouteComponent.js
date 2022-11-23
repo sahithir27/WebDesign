@@ -4,15 +4,15 @@ import SignUp from './SignUp/SignUp.js';
 import ForgotPassword from './ForgotPassword/ForgotPassword.js';
 import SideNav from '../components/SideNav/SideNav.js';
 import {ProtectedRoute} from './ProtectedRoute.js';
-// import Dashboard from './Dashboard/Dashboard.js';
+import UserProfile from './UserProfile/UserProfile.js';
 
 const RoutesComponent = (props) => {
     return (
       <Router>
         <Routes>
           <Route element = {<SideNav/>}>
-        <Route path="/" element = {<ProtectedRoute/>}>
-          {/* <Route path="/" element = {<Dashboard/> }/> */}
+        <Route path="/profile" element = {<ProtectedRoute/>}>
+          <Route path="/profile" element = {<UserProfile/> }/>
         </Route> 
         </Route>
          <Route path="/login" element = {<Login/>} />
