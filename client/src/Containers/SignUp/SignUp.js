@@ -9,7 +9,8 @@ import {signUpUser} from '../../Store/Actions/LoginAction';
 import {connect} from 'react-redux';
 import './SignUp.scss';
 import { Navigate } from "react-router-dom";
- import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const mapStateToProps = (state) => ({
@@ -50,7 +51,7 @@ class SignUpComponent extends React.Component{
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-        });
+        }); 
     }
 
     handleChange(e){
@@ -228,8 +229,12 @@ class SignUpComponent extends React.Component{
         
         let signUpError = '';
         if (this.props.isUserSignedUp) {
-            // { this.notify() }
-            return <Navigate to="/login"></Navigate>
+            this.notify()
+            return (<div>
+                    <ToastContainer />
+
+                <Navigate to="/login"></Navigate>
+                </div>)
         } else if (this.props.signedUpUserDetails === 'username already exists') {
             signUpError = "Sorry,couldn't signUp, username already existing"
         }
@@ -326,7 +331,7 @@ class SignUpComponent extends React.Component{
                                 <div className="button-container">
                                     <button type="submit">Join the club</button>
                                     {signUpError && <p>{signUpError}</p>}
-                                    <h4>Already have an account? Login &nbsp;<a href="http://localhost:3000">here</a></h4>
+                                    <p>Already have an account? Login &nbsp;<a href="http://localhost:3000/login">here</a></p>
                                 </div>
                             </div> 
                         </form>
