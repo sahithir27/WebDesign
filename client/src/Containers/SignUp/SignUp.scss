@@ -88,16 +88,20 @@
         div {
             background-color: white;
         }
+        input {
+            font-size: 14px;
+            font-family: arial;
+        }
     }
 }
 
 .radioButtonsContainer{
     span {
         color: #757575;
-        font: 14px;
+        font-size: 14px;
+        font-family: arial;
     }
     div {
-        width: 95%;
         border-radius: 5px;
         background-color: white;
         height: 100%;
@@ -129,6 +133,10 @@
     }
     div {
         font-size: 14px;
+        label {
+            font-size: 14px;
+            font-family: arial;
+        }
         div {
             width: 98%;
         }
@@ -144,12 +152,14 @@
         }
         button {
             border: 0px;
-            background-color: #E50914;
+            background-color: #dd182d;
             height: 35px;
             width: 100%;
             border-radius: 5px;
             color: white;
             font-size: 14px;
+            margin: 0px;
+            margin-top: 15px;
     }
 }
 .SignUp-Container {

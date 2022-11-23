@@ -61,7 +61,7 @@ class LoginComponent extends React.Component{
                                             <div className="password-container">
                                                     <input type="password" name="password" className="form-input" placeholder="Password"/>
                                             </div>
-                                            <div className="button-container">
+                                            <div className="login-button-container">
                                                     {/* <h4><a href="http://localhost:3000/forgot-password">Forgot Password?</a></h4> */}
                                                     <button type="submit">Login</button>
                                             </div>
