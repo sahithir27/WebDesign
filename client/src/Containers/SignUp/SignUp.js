@@ -326,7 +326,7 @@ class SignUpComponent extends React.Component{
                                 <div className="button-container">
                                     <button type="submit">Join the club</button>
                                     {signUpError && <p>{signUpError}</p>}
-                                    <h4>Already have an account? Login &nbsp;<a href="http://localhost:3000">here</a></h4>
+                                    <h4>Already have an account? Login &nbsp;<a href="http://localhost:3000/login">here</a></h4>
                                 </div>
                             </div> 
                         </form>

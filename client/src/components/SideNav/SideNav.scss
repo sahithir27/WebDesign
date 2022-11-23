@@ -14,9 +14,23 @@
         background-color: black;
         width: 85%;
         height: 100px;
+        display: flex;
+        justify-content: space-between;
+        h1 {
+            color: white;
+            width: 90%;
+            text-align: center;
+        }
         button {
-            margin-left: 1100px;
+            height: 30px;
+            width: 100px;
             margin-top: 30px;
+            margin-right: 10px;
+            background-color: #dd182d;
+            border: black;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
         }
     }
         .side-nav {

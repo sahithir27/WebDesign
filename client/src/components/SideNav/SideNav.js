@@ -32,7 +32,7 @@ const SideNav = (props) => {
   return (
     <div className="main-layout-container"> 
         <div className="side-wrapper">
-        <div class="logo-container"></div>
+        <div className="logo-container"></div>
             <nav className="side-nav"> 
                 <Typography paddingRight={2} color='secondary.light'><Link to="/profile">My Profile</Link></Typography>
                 <Typography paddingRight={2} color='secondary.light'><Link to="/">Explore</Link></Typography>
@@ -55,9 +55,10 @@ const SideNav = (props) => {
                 {/* <IconButton size={"large"} 
                 children ={<Notifications className="notifications-btn"/>} 
                 onClick={onClickOfNotififcation}/> */}
-                <Typography paddingRight={2} color='secondary.light'><Button  
+                <h1>NU Events</h1>
+                <button  
                 // onClick={signoutClick} 
-                variant="outlined" size="small" className="signout-btn">Sign Out</Button></Typography>
+                >Sign Out</button>
         </div>
         <Outlet/>
     </div> 
