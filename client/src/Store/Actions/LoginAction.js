@@ -106,7 +106,7 @@ export const updateUserDetails = (payload, callingComponent) => {
     return async (dispatch) => {
         let username = payload.uuid;
         try {
-            const url = 'http://localhost:9000/users/' + username;
+            const url = 'http://localhost:9002/users/' + username;
             const response = await HTTP.put(url, payload)
       
             if(response.status===200){
