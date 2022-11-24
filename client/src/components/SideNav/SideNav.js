@@ -31,36 +31,40 @@ const SideNav = (props) => {
 
   return (
     <div className="main-layout-container"> 
-        <div className="side-wrapper">
-        <div className="logo-container"></div>
-            <nav className="side-nav"> 
-                <Typography paddingRight={2} color='secondary.light'><Link to="/profile">My Profile</Link></Typography>
-                <Typography paddingRight={2} color='secondary.light'><Link to="/">Explore</Link></Typography>
-                <Typography paddingRight={2} color='secondary.light'><Link to="/events">My Events</Link></Typography>
-                <Typography color='secondary.light'><Link to="/calendar">Calendar</Link></Typography>
-                <Typography color='secondary.light'><Link to="/blogs">Blogs</Link></Typography>
-                
-                <IconButton size={"large"} 
-                // children ={<Notifications className="notifications-btn"/>} 
-                // onClick={onClickOfNotififcation}
-                />
-                {/* <Typography paddingRight={2} color='secondary.light'><Button  
-                // onClick={signoutClick}
-                variant="outlined" size="small" className="signout-btn">Sign Out</Button></Typography> */}
-            </nav>
+      <div className="layout-container">
+          <div className="side-wrapper">
+          <div className="logo-container"></div>
+              <nav className="side-nav"> 
+                  <Typography paddingRight={2} color='secondary.light'><Link to="/profile">My Profile</Link></Typography>
+                  <Typography paddingRight={2} color='secondary.light'><Link to="/">Explore</Link></Typography>
+                  <Typography paddingRight={2} color='secondary.light'><Link to="/events">My Events</Link></Typography>
+                  <Typography color='secondary.light'><Link to="/calendar">Calendar</Link></Typography>
+                  <Typography color='secondary.light'><Link to="/blogs">Blogs</Link></Typography>
+                  
+                  <IconButton size={"large"} 
+                  // children ={<Notifications className="notifications-btn"/>} 
+                  // onClick={onClickOfNotififcation}
+                  />
+                  {/* <Typography paddingRight={2} color='secondary.light'><Button  
+                  // onClick={signoutClick}
+                  variant="outlined" size="small" className="signout-btn">Sign Out</Button></Typography> */}
+              </nav>
+            </div>
+          {/* <NotificationDialog open={openNotif} handleClose={handleNotificationClose} content={<EventNotificationContent/>}/> */}
+          <div className="header-content-wrapper">
+            <div className="header-wrapper">
+                {/* <div class="logo-container"></div> */}
+                    {/* <IconButton size={"large"} 
+                    children ={<Notifications className="notifications-btn"/>} 
+                    onClick={onClickOfNotififcation}/> */}
+                    <h1>NU Events</h1>
+                    <button  
+                    // onClick={signoutClick} 
+                    >Sign Out</button>
+            </div>
+            <Outlet/>
           </div>
-        {/* <NotificationDialog open={openNotif} handleClose={handleNotificationClose} content={<EventNotificationContent/>}/> */}
-        <div className="header-wrapper">
-            {/* <div class="logo-container"></div> */}
-                {/* <IconButton size={"large"} 
-                children ={<Notifications className="notifications-btn"/>} 
-                onClick={onClickOfNotififcation}/> */}
-                <h1>NU Events</h1>
-                <button  
-                // onClick={signoutClick} 
-                >Sign Out</button>
-        </div>
-        <Outlet/>
+      </div>
     </div> 
   )
   
