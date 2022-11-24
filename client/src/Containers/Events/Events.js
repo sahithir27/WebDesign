@@ -51,7 +51,7 @@ const Events = (props) => {
             <span>Date : {dates?.start?.localDate}</span>
             <span>Time : {dates?.start?.localTime}</span>
             <div className="right-bottom">
-              { _embedded && _embedded.venues && <a target="_blank" href="https://www.google.com/maps/place/The+Cabaret+Theatre/@41.4907997,-72.0910041,17z/data=!3m2!4b1!5s0x89e673ab8f5f95f5:0xbb811745902c4520!4m5!3m4!1s0x89e673ab7efcef35:0xbb48f13d9c3876dc!8m2!3d41.4907997!4d-72.0888154">
+              { _embedded && _embedded.venues && <a target="_blank" href="#">
                 Venue : {_embedded?.venues[0]?.name}
               </a> }
             <div>

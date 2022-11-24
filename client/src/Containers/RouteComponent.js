@@ -11,20 +11,19 @@ const RoutesComponent = (props) => {
     return (
       <Router>
         <Routes>
-          <Route element = {<SideNav/>}>
-        <Route path="/" element = {<ProtectedRoute/>}>
-          {/* <Route path="/" element = {<Dashboard/> }/> */}
-        </Route> 
-        </Route>
-         <Route path="/login" element = {<Login/>} />
-          <Route path="/signup" element = {<SignUp/>} />
-          <Route path="/forgot-password" element = {<ForgotPassword/>} />
-          <Route path="/events" element = {<ProtectedRoute/>}>
-          <Route path="/events" element = {<Events/>} />
-        </Route>
+            <Route element = {<SideNav/>}>
+              <Route path="/events" element = {<ProtectedRoute/>}>
+                 <Route path="/events" element = {<Events/> }/>
+              </Route> 
+            </Route>
+
+            <Route path="/login" element = {<Login/>} />
+            <Route path="/signup" element = {<SignUp/>} />
+            <Route path="/forgot-password" element = {<ForgotPassword/>} />
         </Routes>
-    </Router>
+      </Router>
     )
+
   }
   
   export default RoutesComponent;

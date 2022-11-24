@@ -5,7 +5,8 @@
     background-color: #42240C;
 
     .event-title {
-        color: #42240C;
+        // color: #42240C;
+        color: white;
         margin: 0;
         padding: 40px 0 20px 0;
     }
@@ -16,7 +17,7 @@
       padding: 20px;
       margin: 60px;
       cursor: pointer;
-      background-color:#42240C;
+      background-color:#ffff;
       color: #ffff;
 
       .left-part {
@@ -46,7 +47,7 @@
               align-items: center;
 
               .event-button {
-                background-color: #cc3d38;
+                background-color: #ffffff;
                 padding: 10px;
                 border-radius: 10px;
                 border: none;
