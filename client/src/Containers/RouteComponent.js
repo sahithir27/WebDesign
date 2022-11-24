@@ -5,21 +5,21 @@ import ForgotPassword from './ForgotPassword/ForgotPassword.js';
 import SideNav from '../components/SideNav/SideNav.js';
 import Events from './Events/Events.js';
 import {ProtectedRoute} from './ProtectedRoute.js';
-// import Dashboard from './Dashboard/Dashboard.js';
+import UserProfile from './UserProfile/UserProfile.js';
 
 const RoutesComponent = (props) => {
     return (
       <Router>
         <Routes>
-            <Route element = {<SideNav/>}>
-              <Route path="/events" element = {<ProtectedRoute/>}>
-                 <Route path="/events" element = {<Events/> }/>
-              </Route> 
-            </Route>
-
-            <Route path="/login" element = {<Login/>} />
-            <Route path="/signup" element = {<SignUp/>} />
-            <Route path="/forgot-password" element = {<ForgotPassword/>} />
+          <Route element = {<SideNav/>}>
+            <Route path="/profile" element = {<ProtectedRoute/>}>
+              <Route path="/profile" element = {<UserProfile/> }/>
+            </Route> 
+            
+        </Route>
+         <Route path="/login" element = {<Login/>} />
+          <Route path="/signup" element = {<SignUp/>} />
+          <Route path="/forgot-password" element = {<ForgotPassword/>} />
         </Routes>
       </Router>
     )

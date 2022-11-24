@@ -1,5 +1,6 @@
+
 import './Loader.scss'
-import Loader from '../../Assets/Images/NU Logo.png'
+import Loader from '../../Assets/Images/loader.gif'
 
 const Header = () => {
   return (
