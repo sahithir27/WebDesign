@@ -15,6 +15,15 @@ const RoutesComponent = (props) => {
             <Route path="/profile" element = {<ProtectedRoute/>}>
               <Route path="/profile" element = {<UserProfile/> }/>
             </Route> 
+            <Route path="/events" element = {<ProtectedRoute/>}>
+              <Route path="/events" element = {<Events/> }/>
+            </Route>
+            <Route path="/calendar" element = {<ProtectedRoute/>}>
+              <Route path="/calendar" element = {<Events/> }/>
+            </Route>
+            <Route path="/events" element = {<ProtectedRoute/>}>
+              <Route path="/events" element = {<Events/> }/>
+            </Route> 
             
         </Route>
          <Route path="/login" element = {<Login/>} />
