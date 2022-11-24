@@ -33,6 +33,11 @@
                 font-size: 14px;
             }
         }
+        .header-wrapper ~ div {
+            height: 675px;
+            width: 1150px;
+            margin-left: 30px;
+        }
     }
     // .header-wrapper {
     //     background-color: black;

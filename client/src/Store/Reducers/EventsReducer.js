@@ -7,7 +7,7 @@ const EventsReducer = (state=AppState, action) =>{
     switch(type) {
         case 'GET_DATA' :
             newEventList = []
-            let eventlist = action.todolist
+            let eventlist = action.eventlist
             eventlist.forEach(function (item) {
                 newEventList.push(item);
               });

@@ -17,6 +17,11 @@ const eventSchema = new mongoose.Schema({
         required: "eventId is required",
     },
 
+    eventImage: {
+        type: String,
+        default: ""
+    },
+
     eventTime: {
         type: String,
         required: "Event Time is required"
