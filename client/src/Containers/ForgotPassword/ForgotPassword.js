@@ -221,22 +221,22 @@ render(){
             </div>
         </div>
         <div className="right-container">
-            <div className='right-inner'>
+            <div className='forgot-password-right-inner'>
             <form onSubmit={this.handleSubmit.bind(this)}>
-                <h1>Forgot Password</h1>
+                <h2><center>Forgot Password ?</center></h2>
                 <div className="username-container">
-                    <label><strong>Username</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input type="text" name="username" className="form-input" placeholder="Enter your username..." onChange={this.handleChange.bind(this)}/>
+                    {/* <label><strong>Username</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> */}
+                    <input type="text" name="username" className="form-input" placeholder="Enter your username" onChange={this.handleChange.bind(this)}/>
                     {this.state.usernameError && <p>{this.state.usernameError}</p>}
                 </div>
                 <div className = "fp-questionAnswerContainer">
-                    <div className="questionContainer">
+                    <div className="forgot-password-questionContainer">
                             <FormControl sx={{ m: 1, minWidth: 570, minHeight: 25 }}>
-                                <InputLabel id="demo-simple-select-helper-label">Choose a security question...</InputLabel>
+                                <InputLabel id="demo-simple-select-helper-label">Choose a security question</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
-                                            label="Choose a security question..."
+                                            label="Choose a security question"
                                             name="securityQuestion"
                                             onChange={this.handleChange.bind(this)}>
                                             {securityQuestions.map(function(question, index){
@@ -247,7 +247,7 @@ render(){
                                     {this.state.securityQuestionError && <p>{this.state.securityQuestionError}</p>}
                         </div>
                         <div className = "answerContainer">
-                                    <input type="text" name="answer" className="form-input" placeholder="Please choose the answer to your question..."  onChange={this.handleChange.bind(this)}/>
+                                    <input type="text" name="answer" className="form-input" placeholder="Please choose the answer to your question"  onChange={this.handleChange.bind(this)}/>
                                     {this.state.answerError && <p>{this.state.answerError}</p>}
                         </div> 
                 </div>
@@ -256,12 +256,12 @@ render(){
                             <div>
                                 <div className="fp-password-container">
                                     <label><strong>New Password</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="password" name="password" className="form-input" placeholder="Enter your password..." onChange={this.handleChange.bind(this)}/>
+                                    <input type="password" name="password" className="form-input" placeholder="Enter your password" onChange={this.handleChange.bind(this)}/>
                                     {this.state.passwordError && <p>{this.state.passwordError}</p>}
                                 </div>
                                 <div className="fp-password-container2">
                                     <label><strong>Confirm Password</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="password" name="password2" className="form-input" placeholder="Enter your password..."  onChange={this.handleChange.bind(this)}/>
+                                    <input type="password" name="password2" className="form-input" placeholder="Enter your password"  onChange={this.handleChange.bind(this)}/>
                                     {this.state.password2Error && <p>{this.state.password2Error}</p>}
                                 </div>
                                 <div className="fp-button-container">

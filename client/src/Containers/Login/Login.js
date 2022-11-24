@@ -107,16 +107,16 @@ class LoginComponent extends React.Component{
 																<p>Don't have an account yet?&nbsp;<a href="http://localhost:3000/SignUp">Sign Up!</a></p>
 																<br/>
 																<div className="username-container">
-																		<label><strong>Username</strong></label>
-																		<input type="text" name="username" className="form-input" placeholder="Enter your username..." onChange={this.handleChange.bind(this)}/>
+																		{/* <label><strong>Username</strong></label> */}
+																		<input type="text" name="username" className="form-input" placeholder="Username" onChange={this.handleChange.bind(this)}/>
 																		{this.state.usernameError && <p>{this.state.usernameError}</p>}
 																</div>
 																<div className="password-container">
-																		<label><strong>Password</strong></label>
-																		<input type="password" name="password" className="form-input" placeholder="Enter your password..." onChange={this.handleChange.bind(this)}/>
+																		{/* <label><strong>Password</strong></label> */}
+																		<input type="password" name="password" className="form-input" placeholder="Password" onChange={this.handleChange.bind(this)}/>
 																		{this.state.passwordError && <p>{this.state.passwordError}</p>}
 																</div>
-																<div className="button-container">
+																<div className="login-button-container">
 																		<p><a href="http://localhost:3000/forgot-password">Forgot Password?</a></p>
 																		<button type="submit">Login</button>
 																		{loginError && <p>{loginError}</p>}
