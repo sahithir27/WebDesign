@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import {updateUserDetails} from './../../Store/Actions/LoginAction';
 import 'react-toastify/dist/ReactToastify.css';
-import {Countries, Genders, feet, inches} from './Utils.js';
+import { Genders} from './Utils.js';
 import axios from "axios";
 import MiniLoader from "../../components/Loader/MiniLoader";
 
@@ -226,7 +226,7 @@ class UserProfileComponent extends React.Component{
                                 <h2>Profile Settings</h2>
                                 <hr></hr>
                             </div>
-                            <div className = "userName_email_Container">
+                            <div className = "userName_email_Container_profile">
                                     <div className = "userName_Container">
                                     <input type="text" name="username" className="form-input" placeholder="Username*" value={this.state.username} disabled/>
                                         {this.state.usernameError && <p>{this.state.usernameError}</p>}
@@ -236,7 +236,7 @@ class UserProfileComponent extends React.Component{
                                         {this.state.emailError && <p>{this.state.emailError}</p>}
                                     </div>
                                 </div>
-                                <div className = "frst_lst_names_container">
+                                <div className = "frst_lst_names_container_profile">
                                     <div className = "frst_name_container">
                                     <input type="text" name="firstname" className="form-input" placeholder="First Name*" value={this.state.firstname} onChange={this.handleChange.bind(this)}/>
                                         {this.state.firstnameError && <p>{this.state.firstnameError}</p>}
@@ -246,11 +246,11 @@ class UserProfileComponent extends React.Component{
                                         {this.state.lastnameError && <p>{this.state.lastnameError}</p>}
                                     </div>
                                 </div>
-                                <div className = "phone_Container">
+                                <div className = "phone_Container_profile">
                                 <input type="text" name="phonenumber" className="form-input" placeholder="Phone Number*" value={this.state.phonenumber} onChange={this.handleChange.bind(this)}/>
                                     {this.state.phoneError && <p>{this.state.phoneError}</p>}
                                 </div>
-                                <div className = "dob_gender_container">
+                                <div className = "dob_gender_container_profile">
                                     <div className = "dob_container">
                                     <input type="text" name="dob" className="form-input" placeholder="Date of Birth (MM/DD/YYYY)" value={this.state.dob} onChange={this.handleChange.bind(this)}/>
                                         {this.state.dobError && <p>{this.state.dobError}</p>}
@@ -266,8 +266,8 @@ class UserProfileComponent extends React.Component{
                                             value={this.state.gender} 
                                             onChange={this.handleChange.bind(this)}
                                             >
-                                            {Genders.map(function (country, index) {
-                                                return <MenuItem key={index} value={country}>{country}</MenuItem>
+                                            {Genders.map(function (gender, index) {
+                                                return <MenuItem key={index} value={gender}>{gender}</MenuItem>
                                             })}
                                             </Select>
                                         </FormControl>
@@ -275,7 +275,7 @@ class UserProfileComponent extends React.Component{
                                 </div>
                                 <div className="footer-container">
                                     <hr></hr>
-                                    <div className='button-container'>
+                                    <div className='update-cancel-button-container'>
                                         <button onClick={this.updateUserProfile}>Update</button>
                                         <button onClick={this.cancelChanges}>Cancel</button>
                                     </div>
