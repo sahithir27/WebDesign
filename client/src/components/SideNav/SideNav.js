@@ -11,15 +11,15 @@ import { useState } from "react";
 //import EventNotificationContent from "../../Containers/NotificationDialog/EventNotificationContent";
 
 const SideNav = (props) => {
-  // const navigate = useNavigate();
-  // const [openNotif, setOpenNotif] = useState(false);
+  const navigate = useNavigate();
+  const [openNotif, setOpenNotif] = useState(false);
 
-  // const signoutClick =async()=>{
-  //   let res = await props.logout();
-  //   if(res){
-  //     navigate("/login");
-  //   }
-  // }
+  const signoutClick =async()=>{
+    let res = await props.logout();
+    if(res){
+      navigate("/login");
+    }
+  }
 
   // const onClickOfNotififcation=()=>{
   //   setOpenNotif(true);
@@ -59,7 +59,7 @@ const SideNav = (props) => {
                     onClick={onClickOfNotififcation}/> */}
                     <h1>NU Events</h1>
                     <button  
-                    // onClick={signoutClick} 
+                     onClick={signoutClick} 
                     >Sign Out</button>
             </div>
             <Outlet/>

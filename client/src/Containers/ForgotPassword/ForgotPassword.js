@@ -68,7 +68,7 @@ class ForgotPasswordComponent extends React.Component{
     validateUsername(){
         if(this.state.username.trim().length === 0){
             this.setState({
-                usernameError : "User Name is required"
+                usernameError : "User Name is required!"
             })
             return false
         }else{
@@ -87,12 +87,12 @@ class ForgotPasswordComponent extends React.Component{
     validatePassword(){
         if(this.state.password.trim().length === 0){
             this.setState({
-                passwordError : "Password is required"
+                passwordError : "Password is required!"
             })
             return false;
         }else if(this.state.password.length < 6){
             this.setState({
-                passwordError : "Password needs to be 6 characters or more"
+                passwordError : "Password needs to be 6 characters or more!"
             })
             return false;
         }else{
@@ -111,12 +111,12 @@ class ForgotPasswordComponent extends React.Component{
     validatePassword2(){
         if(this.state.password.trim().length === 0){
             this.setState({
-                password2Error : "Confirm Password required"
+                password2Error : "Confirm Password required!"
             })
                 return false
         }else if(this.state.password !== this.state.password2){
             this.setState({
-                password2Error : "Password mismatch"
+                password2Error : "Password mismatch!"
             })
                 return false;
         }else{
@@ -130,7 +130,7 @@ class ForgotPasswordComponent extends React.Component{
     validateSecurityQuestion(){
         if(this.state.securityQuestion.trim().length === 0){
             this.setState({
-                securityQuestionError : "Security question is required"
+                securityQuestionError : "Security question is required!"
             })
                 return false;
         }else{
@@ -149,7 +149,7 @@ class ForgotPasswordComponent extends React.Component{
     validateAnswer(){
         if(this.state.answer.trim().length === 0){
             this.setState({
-                answerError : "Answer is required"
+                answerError : "Answer is required!"
             })
                 return false
         }else{
@@ -255,13 +255,13 @@ render(){
                         {isCorrectDetails? 
                             <div>
                                 <div className="fp-password-container">
-                                    <label><strong>New Password</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="password" name="password" className="form-input" placeholder="Enter your password" onChange={this.handleChange.bind(this)}/>
+                                    {/* <label><strong>New Password</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> */}
+                                    <input type="password" name="password" className="form-input" placeholder="New password" onChange={this.handleChange.bind(this)}/>
                                     {this.state.passwordError && <p>{this.state.passwordError}</p>}
                                 </div>
                                 <div className="fp-password-container2">
-                                    <label><strong>Confirm Password</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="password" name="password2" className="form-input" placeholder="Enter your password"  onChange={this.handleChange.bind(this)}/>
+                                    {/* <label><strong>Confirm Password</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> */}
+                                    <input type="password" name="password2" className="form-input" placeholder="Confirm password"  onChange={this.handleChange.bind(this)}/>
                                     {this.state.password2Error && <p>{this.state.password2Error}</p>}
                                 </div>
                                 <div className="fp-button-container">
