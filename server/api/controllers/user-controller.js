@@ -47,6 +47,23 @@ export const login = async (request, response) =>{
     }
 }
 
+export const verifySecurityAnswer = async (request, response) =>{
+    try {
+        const uuid = request.params.uuid;
+        const secQuestion = request.query.securityQuestion;
+        const secAnswer = request.query.securityAnswer;
+        const user = await userService.verifySecurityAnswer(uuid, secQuestion,secAnswer);
+        if(user){
+            httpUtils.setSuccessResponse({ "isUserCorrectDetails": true, "message": "correct user details" }, response);
+        }else{
+            httpUtils.setErrorResponse({ "isUserCorrectDetails": false, "message": "Incorrect user details" }, response);
+        }
+        
+    } catch (error) {
+        httpUtils.setErrorResponse({"isUserCorrectDetails": false, "message" : "Incorrect user details"}, response);
+    }
+}
+
 export const updateUser = async (request, response)=>{
     try {
         const uuid = request.params.uuid;

@@ -17,4 +17,8 @@ router.route('/users/:uuid')
 .put(userController.updateUser)
 .get(userController.getUserById);
 
- export default router;
+
+router.route('/users/verify-security/:uuid')
+.get(userController.verifySecurityAnswer);
+
+export default router;    
