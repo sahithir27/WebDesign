@@ -17,4 +17,4 @@ router.route('/users/:uuid')
 .put(userController.updateUser)
 .get(userController.getUserById);
 
-export default router;    
+ export default router;
