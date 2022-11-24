@@ -1,1 +1,2 @@
-export const currentUserDetails = {};
+ const currentUserDetails = {};
+ export default currentUserDetails;
