@@ -5,7 +5,6 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
 import {updateUserDetails} from './../../Store/Actions/LoginAction';
 import 'react-toastify/dist/ReactToastify.css';
 import {Countries, Genders, feet, inches} from './Utils.js';
@@ -59,13 +58,8 @@ class UserProfileComponent extends React.Component{
                 firstname: loggedInUserDetails["firstName"],
                 lastname: loggedInUserDetails["lastName"],
                 phonenumber: loggedInUserDetails["phone"],
-                country: loggedInUserDetails["country"],
                 dob: loggedInUserDetails["dateOfBirth"].split("T")[0],
                 gender: loggedInUserDetails["gender"],
-                feet: loggedInUserDetails["feet"] ,
-                inches: loggedInUserDetails["inches"],
-                weight: loggedInUserDetails["weight"],
-                bio: loggedInUserDetails["bio"],
                 sendEmailVerification: false,
                 profileImageUrl: loggedInUserDetails["profilePicture"] 
             }
@@ -146,28 +140,6 @@ class UserProfileComponent extends React.Component{
                 return true;
             }      
     }
-
-    validateWeight() {
-        if (this.state.weight) {
-            var lbs = /^\d{2,3}$/;
-            if (this.state.weight.match(lbs)) {
-                this.setState({
-                    weightError: ""
-                })
-                return true;
-            } else {
-                this.setState({
-                    weightError: "Invalid weight"
-                })
-                return false;
-            }
-        } else {
-            this.setState({
-                weightError: ""
-            })
-            return true;
-        }
-    }
     
     validateEmail() {
 
@@ -195,9 +167,9 @@ class UserProfileComponent extends React.Component{
 
         let validatePhoneNumber = this.validatePhoneNumber();
         let validateEmail = this.validateEmail();
-        let validateWeight = this.validateWeight();
+        // let validateWeight = this.validateWeight();
 
-        if(validatePhoneNumber && validateEmail && validateWeight){
+        if(validatePhoneNumber && validateEmail){
 
             this.props.updateUserDetails(
                 { uuid: this.state.username, 
@@ -240,8 +212,8 @@ class UserProfileComponent extends React.Component{
 
     render(){
         
-        // if (this.state.userloggedIn) {
-            if (true) {
+        if (this.state.userloggedIn) {
+        //if (true) {
             
             return(
                 <div className='mainContainer'>
@@ -274,27 +246,9 @@ class UserProfileComponent extends React.Component{
                                         {this.state.lastnameError && <p>{this.state.lastnameError}</p>}
                                     </div>
                                 </div>
-                                <div className = "phone_country_Container">
-                                    <div className = "phone_Container">
-                                    <input type="text" name="phonenumber" className="form-input" placeholder="Phone Number*" value={this.state.phonenumber} onChange={this.handleChange.bind(this)}/>
-                                        {this.state.phoneError && <p>{this.state.phoneError}</p>}
-                                    </div>
-                                    <div className = "country_Container">
-                                        <FormControl fullWidth>
-                                            <InputLabel id="demo-simple-select-label">Country</InputLabel>
-                                            <Select
-                                            labelId="demo-simple-select-label"
-                                            id="demo-simple-select"
-                                            name="country"
-                                            label="Country"
-                                            value={this.state.country} 
-                                            onChange={this.handleChange.bind(this)}>
-                                            {Countries.map(function (country, index) {
-                                                return <MenuItem key={index} value={country}>{country}</MenuItem>
-                                            })}
-                                            </Select>
-                                        </FormControl>
-                                    </div>
+                                <div className = "phone_Container">
+                                <input type="text" name="phonenumber" className="form-input" placeholder="Phone Number*" value={this.state.phonenumber} onChange={this.handleChange.bind(this)}/>
+                                    {this.state.phoneError && <p>{this.state.phoneError}</p>}
                                 </div>
                                 <div className = "dob_gender_container">
                                     <div className = "dob_container">
@@ -317,49 +271,6 @@ class UserProfileComponent extends React.Component{
                                             })}
                                             </Select>
                                         </FormControl>
-                                    </div>
-                                </div>
-                                <div className = "height_weight_container">
-                                    <div className = "height_container">
-                                        <div className='ft-container'>
-                                            <FormControl fullWidth>
-                                                <InputLabel id="demo-simple-select-label">ft.</InputLabel>
-                                                <Select
-                                                labelId="demo-simple-select-label"
-                                                id="demo-simple-select" 
-                                                name="feet"                                             
-                                                label="ft."
-                                                value={this.state.feet} 
-                                                onChange={this.handleChange.bind(this)}
-                                                >
-                                                {feet.map(function (foot, index) {
-                                                    return <MenuItem key={index} value={foot}>{foot}</MenuItem>
-                                                })}
-                                                </Select>
-                                            </FormControl>
-                                        </div>
-                                        <div className='in-container'>
-                                            <FormControl fullWidth>
-                                                <InputLabel id="demo-simple-select-label">in.</InputLabel>
-                                                <Select
-                                                labelId="demo-simple-select-label"
-                                                name="inches"
-                                                id="demo-simple-select"
-                                                label="in."
-                                                value={this.state.inches} 
-                                                onChange={this.handleChange.bind(this)}
-                                                >
-                                                {inches.map(function (inch, index) {
-                                                    return <MenuItem key={index} value={inch}>{inch}</MenuItem>
-                                                })}
-                                                </Select>
-                                            </FormControl>
-                                        </div>
-                                        
-                                    </div>
-                                    <div className = "weight_container">
-                                        <input type="text" name="weight" className="form-input" placeholder="lbs" value={this.state.weight} onChange={this.handleChange.bind(this)} />
-                                        {this.state.weightError && <p>{this.state.weightError}</p>}
                                     </div>
                                 </div>
                                 <div className="footer-container">

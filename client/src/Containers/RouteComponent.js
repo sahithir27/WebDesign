@@ -11,9 +11,10 @@ const RoutesComponent = (props) => {
       <Router>
         <Routes>
           <Route element = {<SideNav/>}>
-        <Route path="/profile" element = {<ProtectedRoute/>}>
-          <Route path="/profile" element = {<UserProfile/> }/>
-        </Route> 
+            <Route path="/profile" element = {<ProtectedRoute/>}>
+              <Route path="/profile" element = {<UserProfile/> }/>
+            </Route> 
+            
         </Route>
          <Route path="/login" element = {<Login/>} />
           <Route path="/signup" element = {<SignUp/>} />
