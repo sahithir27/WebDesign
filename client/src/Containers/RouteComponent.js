@@ -3,6 +3,7 @@ import Login from './Login/Login.js';
 import SignUp from './SignUp/SignUp.js';
 import ForgotPassword from './ForgotPassword/ForgotPassword.js';
 import SideNav from '../components/SideNav/SideNav.js';
+import Events from './Events/Events.js';
 import {ProtectedRoute} from './ProtectedRoute.js';
 // import Dashboard from './Dashboard/Dashboard.js';
 
@@ -18,6 +19,9 @@ const RoutesComponent = (props) => {
          <Route path="/login" element = {<Login/>} />
           <Route path="/signup" element = {<SignUp/>} />
           <Route path="/forgot-password" element = {<ForgotPassword/>} />
+          <Route path="/events" element = {<ProtectedRoute/>}>
+          <Route path="/events" element = {<Events/>} />
+        </Route>
         </Routes>
     </Router>
     )
