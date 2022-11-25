@@ -3,22 +3,32 @@ import Login from './Login/Login.js';
 import SignUp from './SignUp/SignUp.js';
 import ForgotPassword from './ForgotPassword/ForgotPassword.js';
 import SideNav from '../components/SideNav/SideNav.js';
+import ExploreEvents from './ExploreEvents/ExploreEvents.js';
 import {ProtectedRoute} from './ProtectedRoute.js';
 import UserProfile from './UserProfile/UserProfile.js';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 
 const RoutesComponent = (props) => {
-  const calendarID = process.env.REACT_APP_CALENDAR_ID;
-  const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
-  const accessToken = process.env.REACT_APP_GOOGLE_ACCESS_TOKEN;
     return (
       <Router>
         <Routes>
           <Route element = {<SideNav/>}>
+
             <Route path="/profile" element = {<ProtectedRoute/>}>
               <Route path="/profile" element = {<UserProfile/> }/>
+            </Route> 
+            <Route path="/" element = {<ProtectedRoute/>}>
+              <Route path="/" element = {<ExploreEvents/> }/>
             </Route>
+            {/* <Route path="/calendar" element = {<ProtectedRoute/>}>
+              <Route path="/calendar" element = {<Events/> }/>
+            </Route>
+            <Route path="/events" element = {<ProtectedRoute/>}>
+              <Route path="/events" element = {<Events/> }/>
+            </Route>  */}
+            
+            
             <Route path="/calendar" element = {<ProtectedRoute/>}>
               <Route path="/calendar" element = {<FullCalendar
               plugins={[ dayGridPlugin ]}
