@@ -274,7 +274,6 @@ class UserProfileComponent extends React.Component{
                                     </div>
                                 </div>
                                 <div className="footer-container">
-                                    <hr></hr>
                                     <div className='update-cancel-button-container'>
                                         <button onClick={this.updateUserProfile}>Update</button>
                                         <button onClick={this.cancelChanges}>Cancel</button>
@@ -300,9 +299,6 @@ class UserProfileComponent extends React.Component{
                             </div>
                             <div className="empty-space">
 
-                            </div>
-                            <div className="line">
-                                <hr></hr>
                             </div>
                         </div>
                         

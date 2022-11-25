@@ -8,13 +8,15 @@
         background-color: black;
         width: 15%;
         height: 800px;
-        position: sticky;
+        position: fixed;
     }
     .header-content-wrapper {
-        width: 85%;
+        width: 100%;
+        margin-left: 210px;
         .header-wrapper {
             height: 100px;
             display: flex;
+            position: sticky;
             background-color: black;
             h1 {
                 width: 90%;
