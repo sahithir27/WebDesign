@@ -1,0 +1,41 @@
+.blogs-container {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 450px 450px;
+    gap: 30px 30px;
+    margin: 50px;
+    .blogitem {
+        background-color: white;
+        box-shadow: 0 0 25px #0000004d;
+        position: relative;
+        display: block;
+        flex: 1 1 0px;
+        transition: transform 500ms;
+        text-align: center;
+        color: #0000008c;
+        .text ~ p {
+            font-style: italic;
+            font-weight: bold;
+        }
+        img {
+            height: 300px;
+            width: 450px;
+            display: block;
+            max-width: 100%;
+        }
+        .blogtitle {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffffcc;
+            font-size: 25px;
+        }
+    }
+}
+
+.blogitem:focus,
+.blogitem:hover {
+    transform: scale(1.5);
+    z-index: 1;
+}
