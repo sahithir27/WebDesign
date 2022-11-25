@@ -1,6 +1,8 @@
 import './EventDetails.scss'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+// import image from './images';
+
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
@@ -30,23 +32,24 @@ export class EventDetailsComponent extends Component {
 //     this.props.update(todoItem, updated_todoItem,`http://localhost:9000/todoitems/${id}`)
 //   }
   render() {
-    var dateString = this.props.eventitem.eventDate
-    var year = dateString.substr(0,4);
-    var month = dateString.substr(5,2);
-    var day = dateString.substr(8,2);
-    var eventDate = month + "-" + day + "-" + year
+    // var dateString = this.props.eventitem.eventDate
+    // var year = dateString.substr(0,4);
+    // var month = dateString.substr(5,2);
+    // var day = dateString.substr(8,2);
+    // var eventDate = month + "-" + day + "-" + year
 
     return (
         <div className='detailsDiv'>
-            <div>Id : {this.props.eventitem.id}</div>
-            <div>Image : {this.props.eventitem.eventImage}</div>
+            {/* <div>Id : {this.props.eventitem.id}</div> */}
+            <div><img src={this.props.eventitem.eventImage} alt="event" width="100" height="100"/></div>
+           
             <div>Name : {this.props.eventitem.eventName}</div>
-            <div>Event Date : {eventDate}</div>
+            <div>Event Date : {this.props.eventitem.eventDate}</div>
             <div>Event Time : {this.props.eventitem.eventTime}</div>
             {/* <div>Status : {this.props.eventitem.status}</div> */}
             <div className='buttons'>
-                <button className = "viewBtn" onClick={this.setSelected.bind(this)}>View</button>
-                <button className = "registerBtn" onClick={this.setSelected.bind(this)}>Register</button>
+                <button className = "viewBtn">View</button>
+                <button className = "registerBtn">Register</button>
                 
                 {/* { this.props.eventitem.status === "Open"  && (<button className = "markAsCompleteBtn" onClick={this.setCompleted.bind(this)}>Mark as Completed</button>) } */}
             </div>

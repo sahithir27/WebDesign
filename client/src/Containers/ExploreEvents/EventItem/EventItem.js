@@ -1,7 +1,7 @@
 import './EventItem.scss'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import EventDetails from '../EventDetails/EventDetails.js'
+import EventDetails from '../../EventDetails/EventDetails.js'
 
 //component to show details of selected to-do item
 export class EventItemComponent extends Component {
@@ -26,18 +26,12 @@ export class EventItemComponent extends Component {
     render() {
         return (
         <div className='eventitem'>
-          <li >
-              {this.props.eventitem.title}
-
-          </li>
-            { this.state.showDetails && (
-            <EventDetails eventitem = {this.props.todoitem}></EventDetails>
-            )}
+            <EventDetails eventitem = {this.props.eventitem}></EventDetails>
         </div>
         )
     }
 }
 
-const TodoItem = connect(null, null)(EventItemComponent);
+const EventItem = connect(null, null)(EventItemComponent);
 
-export default TodoItem
+export default EventItem

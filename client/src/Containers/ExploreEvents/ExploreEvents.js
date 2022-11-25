@@ -1,5 +1,5 @@
 import './ExploreEvents.scss'
-import EventItem from '../EventItem/EventItem.js'
+import EventItem from './EventItem/EventItem.js'
 import getEvents from '../../Store/Actions/EventsAction.js'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -28,9 +28,9 @@ class EventListComponent extends Component {
 
   render() {
     const eventlist = this.props.eventlist
-    const items = eventlist.map((c,i) => <EventItem 
+    const items = eventlist.map((event,i) => <EventItem 
     key={i}
-    todoitem={c} 
+    eventitem={event} 
     index={i}>
     </EventItem>)
     return (
