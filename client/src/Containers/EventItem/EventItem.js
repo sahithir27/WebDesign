@@ -1,14 +1,14 @@
 import './EventItem.scss'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import EventDetails from '../../EventDetails/EventDetails.js'
+import EventDetails from '../EventDetails/EventDetails.js'
 
 //component to show details of selected to-do item
 export class EventItemComponent extends Component {
-    constructor() {
-      super(); 
-     // this.state = { showDetails: false }
-    }
+    // constructor() {
+    //   super(); 
+    //  // this.state = { showDetails: false }
+    // }
 
     //method to display and hide details div
     // _showDetails = () => {
@@ -25,9 +25,10 @@ export class EventItemComponent extends Component {
     // }
     render() {
         return (
-        <div className='eventitem'>
+            <div className='eventitem'>
             <EventDetails eventitem = {this.props.eventitem}></EventDetails>
         </div>
+        
         )
     }
 }
