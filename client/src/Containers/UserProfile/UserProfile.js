@@ -292,9 +292,9 @@ class UserProfileComponent extends React.Component{
                                     </div> :  <img src={this.state.profileImageUrl}></img>}
                                 </div>
                                 <div className="input-holder">
-                                    <input  type="file" accept="image/*" onChange={this.fileSelectedHandler.bind(this)} ref={fileInput => this.fileInput = fileInput}></input>
-                                    <button onClick={() => this.fileInput.click()}>Select Image</button>
-                                    
+                                    Select Image
+                                    <input type="file" accept="image/*" onChange={this.fileSelectedHandler.bind(this)} ref={fileInput => this.fileInput = fileInput}></input>
+                                    {/* <button onClick={() => this.fileInput.click()}>Select Image</button> */}
                                 </div>
                             </div>
                             <div className="empty-space">
