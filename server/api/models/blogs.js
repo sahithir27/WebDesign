@@ -20,6 +20,7 @@ const blogSchema = new mongoose.Schema({
     imgUrl: {
         type: String,
         required: "Image is required",
+        default: "https://ask.sqlservercentral.com/themes/base/admin/img/default-coverImage.png",
     }
 })
 
