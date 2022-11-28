@@ -1,15 +1,16 @@
 .blogs-container {
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: 450px 450px;
-    gap: 30px 30px;
-    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     .blogitem {
+        width: 40%;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
         background-color: white;
         box-shadow: 0 0 25px #0000004d;
         position: relative;
         display: block;
-        flex: 1 1 0px;
         transition: transform 500ms;
         text-align: center;
         color: #0000008c;
@@ -18,10 +19,8 @@
             font-weight: bold;
         }
         img {
-            height: 300px;
-            width: 450px;
             display: block;
-            max-width: 100%;
+            width: 100%;
             filter: brightness(50%);
         }
         .blogtitle {
