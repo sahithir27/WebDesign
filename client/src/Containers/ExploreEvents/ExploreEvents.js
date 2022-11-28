@@ -4,8 +4,6 @@ import getEvents from '../../Store/Actions/EventsAction.js'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Item from './Item.js'
-import Carousel from "react-elastic-carousel"
 
 const breakPoints = [{
   width :1 , itemsToShow:1,
