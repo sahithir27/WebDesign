@@ -7,4 +7,7 @@ const router = express.Router();
 router.route('/eventsData')
     .get(eventsData.getEvents)
 
+router.route('/eventsData/:eventId')
+    .get(eventsData.getEventById)
+
 export default router
