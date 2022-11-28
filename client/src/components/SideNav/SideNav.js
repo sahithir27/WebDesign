@@ -62,6 +62,7 @@ const SideNav = (props) => {
                      onClick={signoutClick} 
                     >Sign Out</button>
             </div>
+            <br/><br/><br/><br/><br/>
             <Outlet/>
           </div>
       </div>

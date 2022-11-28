@@ -5,13 +5,13 @@ import ReadMore from './../ReadMore/ReadMore.js'
 
 //component to show details of selected to-do item
 export class BlogItemComponent extends Component {
-    constructor() {
-      super(); 
-    }
+    // constructor() {
+    //   super(); 
+    // }
     render() {
         return (
         <div className='blogitem'>
-            <img src={this.props.blogitem.imgUrl}></img>
+            <img src={this.props.blogitem.imgUrl} alt=""></img>
             <div className='blogtitle'>{this.props.blogitem.blogTitle}</div>
             <ReadMore id='blogdescription' className='blogdescription'>{this.props.blogitem.description}</ReadMore>
             <p>Author : {this.props.blogitem.author}</p>

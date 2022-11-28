@@ -2,9 +2,11 @@ import express from "express";
 import * as eventsData from '../controllers/eventList-controller.js';
 
 
-const router = express.Router();
+const router1 = express.Router();
 
-router.route('/eventsData')
+router1.route('/eventsData')
     .get(eventsData.getEvents)
+    // .get(eventsData.fetch)
 
-export default router
+
+export default router1

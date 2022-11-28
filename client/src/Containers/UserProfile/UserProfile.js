@@ -289,7 +289,7 @@ class UserProfileComponent extends React.Component{
                                 <div className="image-holder">
                                     {this.state.imageUploadStatus ? <div className="Mini-loader">
                                         <MiniLoader height={230} width={305} />
-                                    </div> :  <img src={this.state.profileImageUrl}></img>}
+                                    </div> :  <img src={this.state.profileImageUrl} alt=""></img>}
                                 </div>
                                 <div className="input-holder">
                                     <input  type="file" accept="image/*" onChange={this.fileSelectedHandler.bind(this)} ref={fileInput => this.fileInput = fileInput}></input>

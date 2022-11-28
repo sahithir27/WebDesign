@@ -7,7 +7,7 @@
     .side-wrapper {
         background-color: black;
         width: 15%;
-        height: 800px;
+        height: 100%;
         position: fixed;
     }
     .header-content-wrapper {
@@ -16,8 +16,11 @@
         .header-wrapper {
             height: 100px;
             display: flex;
-            position: sticky;
+            // position: sticky;
+            position: fixed;
+            width:86%;
             background-color: black;
+            z-index: 1;
             h1 {
                 width: 90%;
                 color: white;
@@ -33,6 +36,7 @@
                 border-radius: 5px;
                 color: white;
                 font-size: 14px;
+
             }
         }
         .header-wrapper ~ div {
@@ -65,11 +69,13 @@
     //     }
     // }
         .side-nav {
+            
             min-width: 40%;
             align-items: center;
-            margin-top: 120px;
+            margin-top: 180px;
             p {
                 height: 50px;
+                font-family: Arial, Helvetica, sans-serif;
             }
             a {
                 color: white;
