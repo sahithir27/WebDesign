@@ -6,11 +6,9 @@
 
 .innerContainer {
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    margin-left: 50px;
     box-shadow: 0 0 25px #0000004d;
     border-radius: 5px;
+    margin: 30px;
     .detailsContainer {
         width: 70%;
     }
@@ -43,7 +41,6 @@
     }
 }
 
-
 .update-cancel-button-container {
     display: flex;
     width: 100%;
@@ -56,6 +53,7 @@
         height: 30px;
         color: white;
         font-size: 14px;
+        margin-top: 30px;
     }
 }
 

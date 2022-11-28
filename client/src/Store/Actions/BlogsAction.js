@@ -3,6 +3,25 @@ export const BlogActionType = {
     UPDATE_BLOG : '[BlogItem] Update Blog item'
 }
 
+export const addTodoItemAction = (url,payload) => {
+    return dispatch => {
+        return fetch(url,{
+            method: 'POST',
+            headers: {
+                        'Content-Type': 'application/json',
+                      },
+            body: JSON.stringify(payload),
+        }).then(res => {
+            return res.json();
+        }).then(res => {
+            dispatch({type : BlogActionType.ADD_BLOG,
+                to_be_added_payload : res })
+        }).catch(err => {
+            console.log('API failed')
+        })
+    }
+}
+
 //Action method to Get Blogs to the api using Fetch
 const getBlogs = (url) => {
     return dispatch => {
