@@ -20,4 +20,7 @@ router.route('/users/:uuid')
 router.route('/users/verify-security/:uuid')
 .get(userController.verifySecurityAnswer);
 
+router.route('/users/save-event/:uuid')
+.put(userController.saveRegisteredEvent);
+
 export default router;    

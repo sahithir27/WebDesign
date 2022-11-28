@@ -11,9 +11,13 @@ export class BlogItemComponent extends Component {
     render() {
         return (
         <div className='blogitem'>
-            <img src={this.props.blogitem.imgUrl} alt=""></img>
-            <div className='blogtitle'>{this.props.blogitem.blogTitle}</div>
-            <ReadMore id='blogdescription' className='blogdescription'>{this.props.blogitem.description}</ReadMore>
+            <div>
+                <div>
+                    <img src={this.props.blogitem.imgUrl}></img>
+                    <div className='blogtitle'>{this.props.blogitem.blogTitle}</div>
+                </div>
+                <ReadMore id='blogdescription' className='blogdescription'>{this.props.blogitem.description}</ReadMore>
+            </div>
             <p>Author : {this.props.blogitem.author}</p>
         </div>
         )

@@ -29,4 +29,12 @@ export const getEvents = async (request, response) => {
     }
 }
 
-
+export const getEventById = async (request, response) => {
+    try{
+        const eventId = request.params.eventId;
+        const event = await eventData.getEventById(eventId);
+        httpUtils.setSuccessResponse(event, response);
+    }catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+}

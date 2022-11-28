@@ -9,5 +9,11 @@ export const getEvents = async (query) => {
     }
 } 
 
- 
-
+export const getEventById = async (eventId) => {
+    try{
+        const event = Event.find({eventId: eventId});
+        return event;
+    }catch (error) {
+        throw error;
+    }
+}

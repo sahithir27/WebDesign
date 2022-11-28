@@ -1,16 +1,17 @@
 .blogs-container {
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: 450px 450px;
-    gap: 30px 30px;
-    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     .blogitem {
+        width: 40%;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
         background-color: white;
         box-shadow: 0 0 25px #0000004d;
         position: relative;
         display: block;
-        flex: 1 1 0px;
-        //transition: transform 500ms;
+        transition: transform 500ms;
         text-align: center;
         color: #0000008c;
         .text ~ p {
@@ -18,10 +19,8 @@
             font-weight: bold;
         }
         img {
-            height: 300px;
-            width: 450px;
             display: block;
-            max-width: 100%;
+            width: 100%;
             filter: brightness(50%);
         }
         .blogtitle {
@@ -35,8 +34,61 @@
     }
 }
 
-.blogitem:focus,
-.blogitem:hover {
-    //transform: scale(1.5);
-    //z-index: 1;
+.new-blog-form {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    color: black;
+    margin-top: 25px;
+    box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 10%);
+    li {
+        list-style-type: none;
+        input {
+            margin-bottom: 20px;
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom: 1px solid #0000003b;
+            background-color: transparent;
+            font-size:14pt;
+            font-family: Arial;
+        }
+        textarea {
+            margin-bottom: 30px;
+            background-color: transparent;
+        }
+    }
+    .post-button {
+        background-color: #dd182d;
+        height: 35px;
+        width: 70px;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        border: 0px;
+        margin-left: 4%;
+    }
+    .title {
+        width: 600px;
+    }
+    .description {
+        height:200px;
+        width: 100%;
+        font-size:14pt;
+        font-family: Arial;
+    }
+    .imgUrl {
+        width: 800px;
+    }
+}
+
+.write-blog-button {
+    background-color: #dd182d;
+    height: 35px;
+    width: 120px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    border: 0px;
+    margin-left: 515px;
 }

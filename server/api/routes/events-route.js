@@ -8,5 +8,7 @@ router1.route('/eventsData')
     .get(eventsData.getEvents)
     // .get(eventsData.fetch)
 
+router.route('/eventsData/:eventId')
+    .get(eventsData.getEventById)
 
-export default router1
+export default router

@@ -1,4 +1,5 @@
 import User from '../models/user.js';
+import Event from '../models/eventList.js';
 
 /**
  * Function to add a new user
@@ -54,6 +55,17 @@ export const updateUser = async (uuid, updatedUser) =>{
         throw error;
     }
 }
+
+export const saveRegisteredEvent = async (uuid, eventID) => {
+    try{
+        const user = await User.findOneAndUpdate({uuid : uuid}, 
+            { $push: { eventsRegistered:  eventID} }, {returnDocument:'after'});
+        return user;
+    } catch(error){
+        throw error;
+    }
+}
+
 
 export const getUsers = async () => {
     try {

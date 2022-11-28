@@ -50,6 +50,10 @@ const Schema = new mongoose.Schema({
     securityAnswer:{
         type: String,
         required: "Security Answer is required"
+    },
+    eventsRegistered:{
+        type: Array,
+        default: []
     }
 })
 
