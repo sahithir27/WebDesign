@@ -44,8 +44,6 @@ class EventListComponent extends Component {
     
     return ( 
       <div className="event" >
-        <br/><br/>
-        
         <EventSearchBar/>
         <div className='event-container'>
             {items}

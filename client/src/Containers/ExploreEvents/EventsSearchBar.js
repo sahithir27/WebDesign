@@ -26,8 +26,8 @@ const mapStateToProps = (state) => {
   
   return (
     <div className='eventSearchBar'>
-         {/* <input className="search-bar" type="text" placeholder="Search here"  /> */}
-         <TextField
+         <input className="search-bar" type="text" placeholder="Search here"  />
+         {/* <TextField
         className='event-text-field'
           label="Search Events"
           id="textfield"
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => {
           placeholder="Search Events"
           value={inputText}
           onChange={(e) => onInputChange(e.target.value)}
-        />
+        /> */}
     </div>
   );
   }
