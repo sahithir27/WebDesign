@@ -4,12 +4,12 @@ import { eventData } from './../services/index.js';
 
 export const getEvents = async (request, response) => {
     try{
-        
+        //const events = await eventData.getEvents();
         const eventDate = request.query.eventDate;
         const eventName = request.query.eventName;
         const eventTime = request.query.eventTime;
-        console.log("fetch method");
-        //const query = {};
+        //console.log("fetch method");
+        const query = {};
         //appends data to query string
 
         if(eventDate) {
