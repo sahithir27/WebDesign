@@ -5,9 +5,9 @@ import ReadMore from './../ReadMore/ReadMore.js'
 
 //component to show details of selected to-do item
 export class BlogItemComponent extends Component {
-    constructor() {
-      super(); 
-    }
+    // constructor() {
+    //   super(); 
+    // }
     render() {
         return (
         <div className='blogitem'>

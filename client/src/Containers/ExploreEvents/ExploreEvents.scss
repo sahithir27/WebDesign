@@ -1,7 +1,22 @@
-.ol{
-    display: flex;
-    // flex-wrap: wrap;
-   overflow-y: hidden;
-   overflow-x: scroll;
-   padding: 5px;
+// .ol{
+//     display: flex;
+//     flex-wrap: wrap;
+//    overflow-y: hidden;
+//    overflow-x: scroll;
+//    padding: 5px;
+// }
+
+.search-bar {
+     width: 60%;
+     margin-left: 25%;
+     height: 35px;
+     border-radius: 20px;
 }
+.event-container{
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 320px 320px 320px;
+    gap: 30px 30px;
+    margin:15px;
+}
+

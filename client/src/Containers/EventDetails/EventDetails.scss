@@ -8,11 +8,17 @@
 
 .details{
     padding: 10px;
-    border: 1px solid rgb(103, 100, 100);
-    box-shadow: 2px 2px 2px #dd182d;
-    background-color: black;
-    color: white;
+    //border: 1px solid rgb(103, 100, 100);
+    box-shadow: 0 0 25px #0000004d;
+    background-color: white;
+    //color: white;
     transition: transform 450ms;
+    border-radius: 10px;
+    // width: 500px;
+    // height: 400px;
+    width: 300px;
+    height: 320px;
+
 
 }
 .details::-webkit-scrollbar{
@@ -21,6 +27,9 @@
 .details:hover {
     transform: scale(1.08);
 
+}
+.row__poster{
+    border-radius: 10px; 
 }
 .buttons{
     button {
@@ -31,6 +40,7 @@
         border-radius: 5px;
         color: white;
         font-size: 14px;
-        margin: 10px;
+        margin: 3%;
+        margin-left: -1%;
     }
 }

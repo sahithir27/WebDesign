@@ -1,17 +1,14 @@
 import './ExploreEvents.scss'
-import EventItem from '../EventItem/EventItem.js'
+import EventItem from './EventItem/EventItem.js'
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
 import getEvents from '../../Store/Actions/EventsAction.js'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import EventSearchBar from './EventsSearchBar.js'
 
-const breakPoints = [{
-  width :1 , itemsToShow:1,
-  width :250 , itemsToShow:2,
-  width :768 , itemsToShow:6,
-  width :1200 , itemsToShow:4,
-  width :1200 , itemsToShow:5
-}];
+
 const mapStoreToProps = (state) => ( state.eventlist ) 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -36,7 +33,7 @@ class EventListComponent extends Component {
   callApi = () => {    
     this.props.getEvents('http://localhost:9002/eventsData')
   };
-
+  
   render() {
     const eventlist = this.props.eventlist
     const items = eventlist.map((event,i) => <EventItem 
@@ -44,17 +41,28 @@ class EventListComponent extends Component {
     eventitem={event} 
     index={i}>
     </EventItem>)
-    return (
-      
-     
-          <ol className='ol'>
+    
+    return ( 
+      <div className="event" >
+        <br/><br/>
+        
+        <EventSearchBar/>
+        <div className='event-container'>
             {items}
-         </ol>
+        </div>
+      </div>
 
+      // <div>
+      //   <h2><center>Sports Events</center></h2>
+      //    <ol className='ol'>        
+      //       {items}
+      //    </ol>
+      //    <h2><center>Career Events</center></h2>
+      //    <ol className='ol'>        
+      //       {items}
+      //    </ol> 
+      // </div>       
          
-         
-
-
     )
   }
 }
