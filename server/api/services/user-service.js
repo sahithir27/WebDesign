@@ -58,9 +58,18 @@ export const updateUser = async (uuid, updatedUser) =>{
 
 export const saveRegisteredEvent = async (uuid, eventID) => {
     try{
-        const user = await User.findOneAndUpdate({uuid : uuid}, 
-            { $push: { eventsRegistered:  eventID} }, {returnDocument:'after'});
-        return user;
+        const findUser = await User.findOne({uuid : uuid});
+        if(!findUser.eventsRegistered.includes(eventID)){
+            const user = await User.findOneAndUpdate({uuid : uuid}, 
+                { $push: { eventsRegistered:  eventID} }, {returnDocument:'after'});
+                return user;
+        }
+        else{
+            return {message: 'Event Already Registered!' };
+        }
+        // const user = await User.findOneAndUpdate({uuid : uuid}, 
+        //     { $push: { eventsRegistered:  eventID} }, {returnDocument:'after'});
+        // return user;
     } catch(error){
         throw error;
     }
