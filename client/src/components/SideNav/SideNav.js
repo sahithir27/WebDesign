@@ -70,6 +70,7 @@ const SideNav = (props) => {
                 </div>
               </div>
             </div>
+            <br/><br/>
             <Outlet/>
           </div>
       </div>

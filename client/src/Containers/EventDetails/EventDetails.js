@@ -29,23 +29,19 @@ export class EventDetailsComponent extends Component {
 
     return (
         <div className='eventDetails'>
-            {/* <div>Id : {this.props.eventitem.id}</div> */}
-            {/* <div><img src={this.props.eventitem.eventImage} alt="event" width="100" height="100"/></div>
-            <div>Name : {this.props.eventitem.eventName}</div>
-            <div>Event Date : {this.props.eventitem.eventDate}</div>
-            <div>Event Time : {this.props.eventitem.eventTime}</div>
-            <div className='buttons'>
-                <button className = "viewBtn">View</button>
-                <button className = "registerBtn">Register</button> */}
+              
             <div className='details'>
-              <img src={this.props.eventitem.eventImage} alt="event" width="250" height="200" className='row__poster row__posterLarge'/>
+              {/* <img src={this.props.eventitem.eventImage} alt="event" width="480" height="300" className='row__poster'/> */}
+              <img src={this.props.eventitem.eventImage} alt="event" width="295" height="200" className='row__poster'/>
               Name : {this.props.eventitem.eventName}<br></br>
               Event Date : {this.props.eventitem.eventDate}<br></br>
               Event Time : {this.props.eventitem.eventTime}<br></br>
               <div className='buttons'>
                 <button className = "viewBtn">View</button>
-                <button className = "registerBtn">Register</button></div>
-              </div>
+                <button className = "registerBtn">Register</button> 
+                <button className = "interestedBtn">Interested</button></div>
+              </div><br></br>
+              
         </div>
     )
   }
