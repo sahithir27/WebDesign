@@ -6,7 +6,7 @@ import getEvents from '../../Store/Actions/EventsAction.js'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import EventSearchBar from './EventsSearchBar.js'
+import EventSearchBar from './EventSearchBar/EventsSearchBar.js'
 
 
 const mapStoreToProps = (state) => ( state.eventlist ) 
@@ -36,6 +36,7 @@ class EventListComponent extends Component {
   
   render() {
     const eventlist = this.props.eventlist
+    console.log(JSON.stringify(eventlist));
     const items = eventlist.map((event,i) => <EventItem 
     key={i}
     eventitem={event} 

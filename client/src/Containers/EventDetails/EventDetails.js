@@ -6,24 +6,6 @@ import { connect } from 'react-redux'
 /*Component to display to-do item details, Delete to-do item 
 and Mark the status of to-do item to Completed*/
 export class EventDetailsComponent extends Component {
-    
-//   setSelected() {
-//     const todoItem = this.props.todoitem
-//     const id = todoItem.id
-//     this.props.delete(todoItem,`http://localhost:9000/todoitems/${id}`)
-//   }
-//   setCompleted() {
-//     const todoItem = this.props.todoitem
-//     const id = todoItem.id
-//     const updated_todoItem = {
-//         title : todoItem.title,
-//         description : todoItem.description,
-//         dueDate : todoItem.duedate,
-//         dueTime : todoItem.duetime,
-//         status : "Completed"
-//     }
-//     this.props.update(todoItem, updated_todoItem,`http://localhost:9000/todoitems/${id}`)
-//   }
 
   render() {
 
