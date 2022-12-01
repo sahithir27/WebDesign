@@ -7,11 +7,17 @@ const mapStateToProps = (state) => ({
   currentUserDetails: state.Login.currentUserDetails
 })
 
+
+/*Component to display to-do item details, Delete to-do item 
+and Mark the status of to-do item to Completed*/
+export class EventDetailsComponent extends Component {
+
 const mapDispatchToProps = (dispatch) => {
   return {
     register: (url, eventid) => dispatch(updateUserEventDetails(url, eventid))
   }
 }
+
 
 export class EventDetailsComponent extends Component {
   constructor(props) {
