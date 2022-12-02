@@ -26,6 +26,7 @@ const RoutesComponent = (props) => {
             <Route path="/blogs" element = {<ProtectedRoute/>}>
               <Route path="/blogs" element = {<Blogs/> }/>
             </Route>
+            
             <Route path="/calendar" element = {<ProtectedRoute/>}>
               <Route path="/calendar" element = {<FullCalendar
               plugins={[ dayGridPlugin ]}

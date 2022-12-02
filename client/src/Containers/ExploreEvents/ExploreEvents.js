@@ -1,5 +1,5 @@
 import './ExploreEvents.scss'
-import EventItem from './EventItem/EventItem.js'
+//import EventItem from './EventItem/EventItem.js'
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import getEvents from '../../Store/Actions/EventsAction.js'
@@ -37,18 +37,18 @@ class EventListComponent extends Component {
   render() {
     const eventlist = this.props.eventlist
     console.log(JSON.stringify(eventlist));
-    const items = eventlist.map((event,i) => <EventItem 
-    key={i}
-    eventitem={event} 
-    index={i}>
-    </EventItem>)
+    // const items = eventlist.map((event,i) => <EventItem 
+    // key={i}
+    // eventitem={event} 
+    // index={i}>
+    // </EventItem>)
     
     return ( 
       <div className="event" >
         <EventSearchBar/>
-        <div className='event-container'>
+        {/* <div className='event-container'>
             {items}
-        </div>
+        </div> */}
       </div>
 
       // <div>

@@ -10,11 +10,12 @@ const mapStateToProps = (state) => ({
 
 /*Component to display to-do item details, Delete to-do item 
 and Mark the status of to-do item to Completed*/
-export class EventDetailsComponent extends Component {
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
     register: (url, eventid) => dispatch(updateUserEventDetails(url, eventid))
+
   }
 }
 
@@ -36,6 +37,13 @@ export class EventDetailsComponent extends Component {
     }
     this.props.register(uuid, payload, "EventDetails")
   }
+
+  callView(){
+    alert('clicked View button');
+    window.open("/event/view");
+
+  }
+
   render() {
     return (
         <div className='eventDetails'>
@@ -46,7 +54,7 @@ export class EventDetailsComponent extends Component {
               Event Date : {this.props.eventitem.eventDate}<br></br>
               Event Time : {this.props.eventitem.eventTime}<br></br>
               <div className='buttons'>
-                <button className = "viewBtn">View</button>
+                <button onClick={this.callView.bind(this)} className = "viewBtn">View</button>
                 <button onClick={this.callRegister.bind(this)} className = "registerBtn">Register</button> 
                 <button className = "interestedBtn">Interested</button></div>
               </div><br></br>
