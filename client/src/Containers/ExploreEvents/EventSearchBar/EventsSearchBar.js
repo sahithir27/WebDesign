@@ -3,11 +3,20 @@ import React, { useEffect, useState } from "react";
 import './EventsSearchBar.scss'
 import { useNavigate } from "react-router-dom";
 import { id } from "date-fns/locale";
-export default function App() {
+import { Link } from "react-router-dom";
+import { EventDetailsComponent } from "../../EventDetails/EventDetails";
+
+import { connect } from 'react-redux'
+
+const mapStoreToProps = (state) => ( state.eventlist ) 
+
+function AppComponent() {
   let [searchParam, setSearchParam] = useState("");
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
+  const events = this.state.eventlist;
+  console.log(events)
   useEffect(() => {
     fetch('http://localhost:9002/eventsData')
       .then((res) => res.json())
@@ -60,10 +69,19 @@ export default function App() {
               Event Date : {event.eventDate}<br></br>
               Event Time : {event.eventTime}<br></br>
               <div className='buttons' >
-                <button  className = "viewBtn" onClick={()=>{
-                  window.open('http://localhost:9002/eventsData/'+event.eventId)
+                {/* <button  className = "viewBtn" onClick={()=>{
+                  //window.open('http://localhost:9002/eventsData/'+event.eventId)
                   
-              }}>View</button>
+                  
+              }}>View</button> */}
+              <Link
+              to={{
+                pathname: `/view-event/${event.eventId}`,
+                state: {events : event }
+              }}
+            >
+              <button>View</button>
+            </Link>
                 <button  className = "registerBtn" >Register</button> 
                {/* <button className = "interestedBtn">Interested</button> */}
                </div>
@@ -76,3 +94,6 @@ export default function App() {
     </div>
   );
 }
+
+
+export default connect(mapStoreToProps)(AppComponent);

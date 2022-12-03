@@ -9,7 +9,7 @@ import {ProtectedRoute} from './ProtectedRoute.js';
 import UserProfile from './UserProfile/UserProfile.js';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
-
+import ViewEvent from './ExploreEvents/ViewEvent/ViewEvent.js'
 
 const RoutesComponent = (props) => {
     return (
@@ -26,7 +26,14 @@ const RoutesComponent = (props) => {
             <Route path="/blogs" element = {<ProtectedRoute/>}>
               <Route path="/blogs" element = {<Blogs/> }/>
             </Route>
-            
+            {/* <Route
+              exact
+              path="/view-event/:id"
+              component={ViewEvent}
+            /> */}
+            <Route path="/view-event/:id" element= {<ProtectedRoute/>}>
+              <Route path="/view-event/:id" element = {<ViewEvent/> }/>
+            </Route>
             <Route path="/calendar" element = {<ProtectedRoute/>}>
               <Route path="/calendar" element = {<FullCalendar
               plugins={[ dayGridPlugin ]}
