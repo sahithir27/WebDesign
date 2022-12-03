@@ -4,13 +4,8 @@ import './EventsSearchBar.scss'
 import { useNavigate } from "react-router-dom";
 import { id } from "date-fns/locale";
 import { Link } from "react-router-dom";
-import { EventDetailsComponent } from "../../EventDetails/EventDetails";
 
-import { connect } from 'react-redux'
-
-const mapStoreToProps = (state) => ( state.eventlist ) 
-
-function AppComponent() {
+export default function App() {
   let [searchParam, setSearchParam] = useState("");
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -39,14 +34,7 @@ function AppComponent() {
       setFilteredData([...data]);
     }
   }, [searchParam]);
-   const history=useNavigate();
-    function viewEvent(){
-      console.log(">>>>>>>>>")
-    
-      alert("Hello");
-      window.open('http://localhost:9002/eventsData/'+id)
-      //history.push("/events/"+ event.eventName);
-  }
+   
   return (
     <div className="App">
       <input
@@ -60,7 +48,7 @@ function AppComponent() {
       <div className="events">
         {filteredData.map((event, index) => {
           return (
-            <div key="index">
+            <div key={index}>
               <div className='eventDetails'>
             <div className='details' >
               {/* <img src={event.eventImage} alt="event" width="480" height="300" className='row__poster'/> */}
@@ -69,19 +57,10 @@ function AppComponent() {
               Event Date : {event.eventDate}<br></br>
               Event Time : {event.eventTime}<br></br>
               <div className='buttons' >
-                {/* <button  className = "viewBtn" onClick={()=>{
-                  //window.open('http://localhost:9002/eventsData/'+event.eventId)
-                  
-                  
-              }}>View</button> */}
-              <Link
-              to={{
-                pathname: `/view-event/${event.eventId}`,
-                state: {events : event }
-              }}
-            >
-              <button>View</button>
-            </Link>
+                <Link to={`/events/${event.eventId}`}>
+                  <button  className = "viewBtn">View</button>
+                </Link>
+                {/* <button  className = "viewBtn">View</button> */}
                 <button  className = "registerBtn" >Register</button> 
                {/* <button className = "interestedBtn">Interested</button> */}
                </div>
@@ -96,4 +75,3 @@ function AppComponent() {
 }
 
 
-export default connect(mapStoreToProps)(AppComponent);
