@@ -44,7 +44,7 @@ const SideNav = (props) => {
                 <nav className="side-nav">
                     <Typography paddingRight={2} color='secondary.light'><FaUserEdit className="myprofile-icon" size="3.0vmin"/><Link to="/profile">Profile</Link></Typography>
                     <Typography paddingRight={2} color='secondary.light'><MdExplore className="explore-icon" size="3.0vmin"/><Link to="/">Explore</Link></Typography>
-                    <Typography paddingRight={2} color='secondary.light'><RiBookmark3Fill className="myevents-icon" size="3.0vmin"/><Link to="/events">My Events</Link></Typography>
+                    <Typography paddingRight={2} color='secondary.light'><RiBookmark3Fill className="myevents-icon" size="3.0vmin"/><Link to="/myevents">My Events</Link></Typography>
                     <Typography paddingRight={2} color='secondary.light'><FaRegCalendarCheck className="calendar-icon" size="3.0vmin"/><Link to="/calendar">Calendar</Link></Typography>
                     <Typography paddingRight={2} color='secondary.light'><SiBloglovin className="blogs-icon" size="3.0vmin"/><Link to="/blogs">Blogs</Link></Typography>
                     
