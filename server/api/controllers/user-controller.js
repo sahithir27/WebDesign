@@ -11,7 +11,6 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-
 export const post = async (request, response) =>{
     try {
         const payload = request.body;
@@ -57,8 +56,7 @@ export const verifySecurityAnswer = async (request, response) =>{
             httpUtils.setSuccessResponse({ "isUserCorrectDetails": true, "message": "correct user details" }, response);
         }else{
             httpUtils.setErrorResponse({ "isUserCorrectDetails": false, "message": "Incorrect user details" }, response);
-        }
-        
+        }   
     } catch (error) {
         httpUtils.setErrorResponse({"isUserCorrectDetails": false, "message" : "Incorrect user details"}, response);
     }
