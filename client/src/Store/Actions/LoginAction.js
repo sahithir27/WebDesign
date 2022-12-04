@@ -44,6 +44,8 @@ const loginAction = (payload) => {
     }
 }
 
+
+
 const updateUserDetailsAction = (payload, callingComponent) => {
     if(callingComponent === 'UserProfile'){
         notify();
@@ -100,6 +102,7 @@ export const loginUser = (payload) => {
         }
     }
 }
+
 
 
 export const updateUserDetails = (payload, callingComponent) => {

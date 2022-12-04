@@ -4,7 +4,7 @@ export class EventItem extends Component {
   render() {
     return (
       <div>
-        <EventDetails eventitem = {this.props.eventitem}></EventDetails>
+        <EventDetails eventItem = {this.props.eventItem}></EventDetails>
       </div>
     )
   }

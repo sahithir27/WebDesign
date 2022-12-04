@@ -44,6 +44,7 @@ class UserProfileComponent extends React.Component{
                 inches: "",
                 weight: "",
                 bio: '',
+                //eventsRegistered: [], 
                 sendEmailVerification: false,
                 selectedImage : '',
                 profileImageUrl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
@@ -61,7 +62,8 @@ class UserProfileComponent extends React.Component{
                 dob: loggedInUserDetails["dateOfBirth"].split("T")[0],
                 gender: loggedInUserDetails["gender"],
                 sendEmailVerification: false,
-                profileImageUrl: loggedInUserDetails["profilePicture"] 
+                profileImageUrl: loggedInUserDetails["profilePicture"],
+                //eventsRegistered: loggedInUserDetails["eventsRegistered"]
             }
         }
         

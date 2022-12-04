@@ -1,19 +1,45 @@
 import { HTTP } from "../../HTTP"
 import {showLoaderAction, hideLoaderAction} from './LoaderAction.js';
-export const EventsActionTypes = {
-    ADD_EVENT : '[EventItem] Add MyEvent item',
-    UPDATE_EVENT : '[EventItem] Update MyEvent item',
-    SET_EVENTS_DATA: "SET_MYEVENTS_DATA"
+export const MyEventsActionTypes = {
+    GET_MYEVENT : '[EventItem] Get MyEvent item'
 }
+// export const getEventByIdAction = (payload) => {
+//     return {
+//         type: MyEventsActionTypes.GET_MYEVENT,
+//         payload
+//     }
+// }
 
-export const getUserById = (url) => {
-        return fetch(url, { method: 'GET'}).then(res => {
-            return res.json();
-    }).catch(err => {
-        console.log('API failed')
-    })
+const getEventByIdAction = (payload) => {
+    
+    return{
+        type: MyEventsActionTypes.GET_MYEVENT, 
+        payload : payload
+    }
 }
+export const getEventById = (url) => {
 
-export const myEvents = (url, eventId) => {
+    return async(dispatch) => {
+        try{
+            const response = await HTTP.get(url)
+            dispatch(getEventByIdAction(response.data));
+        }catch(error){
+            console.log('error in handle user forgot password Action :'+error)
+        }
+    }
+    // return dispatch => {
+    //     return fetch(url, {method: 'GET'}).then(res => {
+    //         return res.json();
+    //     }).catch(err => {
+    //         console.log('API failed')
+    //     })
+        // try{
+        //     const response = await HTTP.get(url)
+        //     dispatch(getEventByIdAction(response.data))
+        // }catch(error){
+        //     console.log('error in getEventById Action :'+error)
+        // }
+    }
 
-}
+
+export default getEventById
