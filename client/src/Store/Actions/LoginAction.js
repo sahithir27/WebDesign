@@ -19,6 +19,17 @@ const notify = () => {
         progress: undefined,
     });
 }
+const notifyLoginSuccess = () => {
+    toast.success('Login Successful', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+}
 const SignUpAction = (payload) => {
     return{
         type: LoginActionTypes.SIGNUP_USER, 
@@ -41,6 +52,9 @@ const updateUserDetailsAction = (payload, callingComponent) => {
     if(callingComponent === 'UserProfile'){
         notify();
     }
+    else if(callingComponent === 'App') {
+        notifyLoginSuccess();
+    }
     return {
         type: LoginActionTypes.UPDATE_USER,
         payload: payload
@@ -51,6 +65,9 @@ export const signUpUser = (payload) => {
         try{
             const url = 'http://localhost:9002/users';
             const response = await HTTP.post(url,payload)
+            if (response.status === 200) {
+                sessionStorage.setItem("user", JSON.stringify(response.data.user));
+            }
             dispatch(SignUpAction(response.data));
         }catch(error){
             console.log('error in signUpUser Action :'+error)

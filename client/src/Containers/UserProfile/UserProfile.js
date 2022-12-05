@@ -6,10 +6,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import {updateUserDetails} from './../../Store/Actions/LoginAction';
-import 'react-toastify/dist/ReactToastify.css';
 import { Genders} from './Utils.js';
 import axios from "axios";
 import MiniLoader from "../../components/Loader/MiniLoader";
+import { ToastContainer } from 'react-toastify';
 const mapStateToProps = (state) => ({
     isUserUpdated: state.Login.isUserUpdated,
     currentUserDetails: state.Login.currentUserDetails
@@ -190,6 +190,7 @@ class UserProfileComponent extends React.Component{
         //if (true) {
             return(
                 <div className='mainContainer'>
+                    <ToastContainer></ToastContainer>
                     <div className='header'>
                         <h2>Profile Page</h2>
                     </div>
