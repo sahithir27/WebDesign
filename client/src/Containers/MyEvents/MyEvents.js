@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export class MyEventsComponent extends Component {
     constructor(props) {
         super(props)
-        let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
+        let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
         this.state = {
             myEvents : [],
             eventsRegistered: loggedInUserDetails["eventsRegistered"],

@@ -25,14 +25,14 @@ const mapStateToProps = (state) => {
 
 const App = (props) => {
 
-  // const [userSet, setUserSet] = useState(false);
-  // useEffect(() => {
-  //   async function getUserStats(){
-  //     await props.setUserToStoreOnRefresh(props.currentUserDetails);
-  //     setUserSet(true);
-  //   }
-  //   getUserStats();
-  // }, [])
+  const [userSet, setUserSet] = useState(false);
+  useEffect(() => {
+    async function getUserStats(){
+      await props.setUserToStoreOnRefresh(props.currentUserDetails);
+      setUserSet(true);
+    }
+    getUserStats();
+  }, [])
   
   return (
     <div className='App'>

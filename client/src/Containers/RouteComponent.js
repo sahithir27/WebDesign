@@ -10,11 +10,22 @@ import UserProfile from './UserProfile/UserProfile.js';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import MyEvents from "./MyEvents/MyEvents.js";
+import Calendar from "./Calendar/Calendar.js";
 
 import EventInfo from "./ExploreEvents/EventInfo/EventInfo.js";
 import { Switch } from "@mui/material";
 
 const RoutesComponent = (props) => {
+  // let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
+  // let eventslist = loggedInUserDetails["eventsRegistered"]
+  // let events = []
+  // eventslist.forEach(event => {
+  //   let input = {
+  //     title: event.eventName,
+  //     start: event.eventDate + "T" + event.eventTime
+  //   }
+  //   events.push(input)
+  // });
     return (
       <Router>
         <Routes>
@@ -39,10 +50,13 @@ const RoutesComponent = (props) => {
 
             
             <Route path="/calendar" element = {<ProtectedRoute/>}>
-              <Route path="/calendar" element = {<FullCalendar
-              plugins={[ dayGridPlugin ]}
-              initialView="dayGridMonth"
-              /> }/>
+              <Route path="/calendar" element = {<Calendar/>}
+              // {<FullCalendar
+              // plugins={[ dayGridPlugin ]}
+              // initialView="dayGridMonth"
+              // events={events}
+              // /> }
+              />
             </Route>  
         </Route>
          <Route path="/login" element = {<Login/>} />

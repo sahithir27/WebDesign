@@ -65,7 +65,7 @@ export const saveRegisteredEvent = async (uuid, eventID) => {
                 return user;
         }
         else{
-            return {message: 'Event Already Registered!' };
+            return findUser;
         }
         // const user = await User.findOneAndUpdate({uuid : uuid}, 
         //     { $push: { eventsRegistered:  eventID} }, {returnDocument:'after'});

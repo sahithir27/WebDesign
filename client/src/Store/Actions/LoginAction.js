@@ -44,8 +44,6 @@ const loginAction = (payload) => {
     }
 }
 
-
-
 const updateUserDetailsAction = (payload, callingComponent) => {
     if(callingComponent === 'UserProfile'){
         notify();
@@ -92,8 +90,8 @@ export const loginUser = (payload) => {
             const url = 'http://localhost:9002/users/login/' + username;
             const response = await HTTP.post(url, payload)
             if (response.status === 200) {
-                localStorage.setItem("isUserAuthenticated", response.data.authenticated )
-                localStorage.setItem("user", JSON.stringify(response.data.user));
+                sessionStorage.setItem("isUserAuthenticated", response.data.authenticated )
+                sessionStorage.setItem("user", JSON.stringify(response.data.user));
             }
             dispatch(loginAction(response.data));
         }
@@ -113,7 +111,7 @@ export const updateUserDetails = (payload, callingComponent) => {
             const response = await HTTP.put(url, payload)
       
             if(response.status===200){
-                localStorage.setItem("user",JSON.stringify(response.data.user));
+                sessionStorage.setItem("user",JSON.stringify(response.data.user));
             }
           dispatch(updateUserDetailsAction(response.data, callingComponent));
         }
@@ -130,7 +128,7 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
             const response = await HTTP.put(url, payload)
       
             if(response.status===200){
-                localStorage.setItem("user",JSON.stringify(response.data.user));
+                sessionStorage.setItem("user",JSON.stringify(response.data.user));
             }
           dispatch(updateUserDetailsAction(response.data.user, callingComponent));
         }
@@ -143,7 +141,7 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
 export const logout = () => {
     return async (dispatch, getState) => {
         try {
-            localStorage.removeItem("user");
+            sessionStorage.removeItem("user");
             dispatch(loginAction({authenticated: false, user: null}));
             return true;
         }
@@ -157,8 +155,8 @@ export const logout = () => {
 export const setUserToStoreOnRefresh = (reduxUser) => {
     return async (dispatch, getState) => {
         try {
-            if(localStorage.getItem("user")&&reduxUser===null){
-                const user = JSON.parse(localStorage.getItem("user"));
+            if(sessionStorage.getItem("user")&&reduxUser===null){
+                const user = JSON.parse(sessionStorage.getItem("user"));
                 dispatch(loginAction({authenticated: true, user: user}))
               }
         }

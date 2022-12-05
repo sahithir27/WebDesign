@@ -29,7 +29,7 @@ class UserProfileComponent extends React.Component{
     constructor(props){
         super(props);
        
-        if (!localStorage.getItem("isUserAuthenticated")){
+        if (!sessionStorage.getItem("isUserAuthenticated")){
             this.state = {
                 userloggedIn: false,
                 username: "",
@@ -51,9 +51,9 @@ class UserProfileComponent extends React.Component{
             }
         }
         else{
-            let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
+            let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
             this.state = {
-                userloggedIn: localStorage.getItem("isUserAuthenticated"),
+                userloggedIn: sessionStorage.getItem("isUserAuthenticated"),
                 username: loggedInUserDetails["uuid"],
                 email: loggedInUserDetails["email"],
                 firstname: loggedInUserDetails["firstName"],
@@ -192,9 +192,9 @@ class UserProfileComponent extends React.Component{
     }
 
     cancelChanges = () => {
-        let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
+        let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
         this.state = {
-            userloggedIn: localStorage.getItem("user"),
+            userloggedIn: sessionStorage.getItem("user"),
             username: loggedInUserDetails["uuid"],
             email: loggedInUserDetails["email"],
             firstname: loggedInUserDetails["firstName"],
