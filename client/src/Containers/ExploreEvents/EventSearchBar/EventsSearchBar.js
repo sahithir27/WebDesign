@@ -10,15 +10,13 @@ export default function App() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const dispatch = useDispatch();
+  let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
   function callRegister(eventId) {
-    alert('clicked register');
-    let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
     let uuid = loggedInUserDetails["uuid"]
     let payload = {
       'eventId' : eventId
     }
-    dispatch(updateUserEventDetails())
-    this.props.register(uuid, payload, "EventDetails")
+    dispatch(updateUserEventDetails(uuid, payload, "App"))
   }
   useEffect(() => {
     fetch('http://localhost:9002/eventsData')
@@ -70,7 +68,7 @@ export default function App() {
                       <button className="viewBtn">View</button>
                     </Link>
                     {/* <button  className = "viewBtn">View</button> */}
-                    <button onClick={callRegister(event.eventId)} className = "registerBtn">Register</button> 
+                    <button onClick={() => callRegister(event.eventId)} className = "registerBtn">Register</button> 
                     {/* <button className = "interestedBtn">Interested</button> */}
                   </div>
                 </div>

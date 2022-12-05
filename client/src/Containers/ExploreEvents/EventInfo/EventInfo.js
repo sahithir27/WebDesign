@@ -14,7 +14,6 @@ const EventInfo = () => {
   const event = events.find(obj => {
     return obj.eventId === id;
   });
-  alert(event.eventName)
   return (
     <div className='event-info-outer'>
       <button className='backBtn' onClick={() => navigate("/")}>Go back</button>
