@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Maps from '../Maps/Maps.js'
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
@@ -14,6 +15,9 @@ const EventInfo = () => {
   const event = events.find(obj => {
     return obj.eventId === id;
   });
+  function showMap(){
+    <div>Hi</div>
+  }
   return (
     <div className='event-info-outer'>
       <button className='backBtn' onClick={() => navigate("/")}>Go back</button>
@@ -26,6 +30,7 @@ const EventInfo = () => {
           </div>
         </div>
         <p className='event-description'>{event.eventDescription}</p>
+        <Maps/>
       </div>
     </div>
   );
