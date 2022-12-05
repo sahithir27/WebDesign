@@ -26,9 +26,9 @@ export const post = async (request, response) =>{
             }
             console.log("sent :" + info.response);
         })
-        httpUtils.setSuccessResponse({"isSignedUp": true, "message": "user signed up"}, response);
+        httpUtils.setSuccessResponse({"isSignedUp": true, "message": "user signed up", user: user}, response);
     } catch (error) {
-        httpUtils.setConflictResponse({"isSignedUp": false, "message" : "username already exists"}, response);
+        httpUtils.setConflictResponse({"isSignedUp": false, "message" : "username already exists", user: null}, response);
     }
 }
 export const login = async (request, response) =>{
