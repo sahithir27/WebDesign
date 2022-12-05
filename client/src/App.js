@@ -27,6 +27,7 @@ const App = (props) => {
     }
     getUserStats();
   }, [])
+
   return (
     <div className='App'>
       <ThemeProvider theme={mainTheme}>
