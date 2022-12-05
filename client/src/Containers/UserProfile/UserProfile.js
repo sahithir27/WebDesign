@@ -10,26 +10,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Genders} from './Utils.js';
 import axios from "axios";
 import MiniLoader from "../../components/Loader/MiniLoader";
-
 const mapStateToProps = (state) => ({
     isUserUpdated: state.Login.isUserUpdated,
     currentUserDetails: state.Login.currentUserDetails
 })
-
 const mapDispatchToProps = (dispatch) => {
-    
     return {
         updateUserDetails: (user) => dispatch(updateUserDetails(user, 'UserProfile'))
     }
 }
-
 class UserProfileComponent extends React.Component{
-    
-    
     constructor(props){
         super(props);
-       
-        if (!localStorage.getItem("isUserAuthenticated")){
+        if (!sessionStorage.getItem("isUserAuthenticated")){
             this.state = {
                 userloggedIn: false,
                 username: "",
@@ -51,9 +44,9 @@ class UserProfileComponent extends React.Component{
             }
         }
         else{
-            let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
+            let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
             this.state = {
-                userloggedIn: localStorage.getItem("isUserAuthenticated"),
+                userloggedIn: sessionStorage.getItem("isUserAuthenticated"),
                 username: loggedInUserDetails["uuid"],
                 email: loggedInUserDetails["email"],
                 firstname: loggedInUserDetails["firstName"],
@@ -66,20 +59,15 @@ class UserProfileComponent extends React.Component{
                 //eventsRegistered: loggedInUserDetails["eventsRegistered"]
             }
         }
-        
     }
-
     handleChange(e){
         if (e !== null && e.target.name !== null && e.target.value !== null) {
             this.setState({
                 [e.target.name]: e.target.value
             })
         }
-        
     }
-
     fileSelectedHandler = (e) =>{
-        
         this.setState({
             selectedImage: e.target.files[0]
         }, async ()=> {
@@ -95,13 +83,11 @@ class UserProfileComponent extends React.Component{
                             this.setState({
                                 imageUploadStatus: percentageCompleted
                             })
-
                             if(percentageCompleted === 100){
                                 this.setState({
                                     imageUploadStatus: ""
                                 }) 
                             }
-                            
                         }
                     }
                     const response = await axios.post("https://api.cloudinary.com/v1_1/sid-web-designing-project/image/upload", formData, config);
@@ -114,13 +100,9 @@ class UserProfileComponent extends React.Component{
                 console.log('error while uploading image to cloudinary');
             }
         })
-        
     }
-
     fileUploadHandler = () => {
-
     }
-
     validatePhoneNumber(){
             if(this.state.phonenumber){
                 var phoneno = /^\d{10}$/;
@@ -142,9 +124,7 @@ class UserProfileComponent extends React.Component{
                 return true;
             }      
     }
-    
     validateEmail() {
-
         if (this.state.email.trim().length === 0) {
             this.setState({
                 emailError: "email required"
@@ -163,16 +143,11 @@ class UserProfileComponent extends React.Component{
             return true;
         }
     }
-
-
     updateUserProfile = () => {
-
         let validatePhoneNumber = this.validatePhoneNumber();
         let validateEmail = this.validateEmail();
         // let validateWeight = this.validateWeight();
-
         if(validatePhoneNumber && validateEmail){
-
             this.props.updateUserDetails(
                 { uuid: this.state.username, 
                 firstName: this.state.firstname,
@@ -190,11 +165,10 @@ class UserProfileComponent extends React.Component{
                 });
         }
     }
-
     cancelChanges = () => {
-        let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
+        let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
         this.state = {
-            userloggedIn: localStorage.getItem("user"),
+            userloggedIn: sessionStorage.getItem("user"),
             username: loggedInUserDetails["uuid"],
             email: loggedInUserDetails["email"],
             firstname: loggedInUserDetails["firstName"],
@@ -211,18 +185,15 @@ class UserProfileComponent extends React.Component{
             profileImageUrl: loggedInUserDetails["profilePicture"]
         }
     }
-
     render(){
-        
         if (this.state.userloggedIn) {
         //if (true) {
-            
             return(
                 <div className='mainContainer'>
                     <div className='header'>
                         <h2>Profile Page</h2>
                     </div>
-                    <div className='innerContainer'>   
+                    <div className='innerContainer'>
                         <div className='detailsContainer'>
                             <div className='header'>
                                 <h2>Profile Settings</h2>
@@ -300,10 +271,8 @@ class UserProfileComponent extends React.Component{
                                 </div>
                             </div>
                             <div className="empty-space">
-
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             ) 
@@ -317,6 +286,5 @@ class UserProfileComponent extends React.Component{
         }
     }
 }
-
 const UserProfile = connect(mapStateToProps, mapDispatchToProps)(UserProfileComponent);
 export default UserProfile;
