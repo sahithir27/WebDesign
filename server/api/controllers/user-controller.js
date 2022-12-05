@@ -2,7 +2,6 @@ import {userService}  from "../services/index.js";
 import { httpUtils } from "../utils/index.js";
 import { encryptField } from "../models/user.js";
 import nodemailer from 'nodemailer';
-
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -10,7 +9,6 @@ const transporter = nodemailer.createTransport({
         pass: "gmzlepiwqaizkgpq"
     }
 });
-
 export const post = async (request, response) =>{
     try {
         const payload = request.body;
@@ -21,7 +19,6 @@ export const post = async (request, response) =>{
             subject: "Welcome to NUevents!",
             text: "Hi " +request.body.firstName +"!! welcome to NUevents, start exploring the upcoming events!"
         };
-
         transporter.sendMail(options, function (err, info) {
             if (err) {
                 console.log(err);
@@ -34,7 +31,6 @@ export const post = async (request, response) =>{
         httpUtils.setConflictResponse({"isSignedUp": false, "message" : "username already exists"}, response);
     }
 }
-
 export const login = async (request, response) =>{
     try {
         const uuid = request.params.uuid
@@ -45,7 +41,6 @@ export const login = async (request, response) =>{
         httpUtils.setUnauthorizedResponse({"authenticated": false, "message" : "No user found"}, response);
     }
 }
-
 export const verifySecurityAnswer = async (request, response) =>{
     try {
         const uuid = request.params.uuid;
@@ -61,7 +56,6 @@ export const verifySecurityAnswer = async (request, response) =>{
         httpUtils.setErrorResponse({"isUserCorrectDetails": false, "message" : "Incorrect user details"}, response);
     }
 }
-
 export const updateUser = async (request, response)=>{
     try {
         const uuid = request.params.uuid;
@@ -77,19 +71,16 @@ export const updateUser = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
-
 export const saveRegisteredEvent = async (request, response)=>{
     try{
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
-
         const user = await userService.saveRegisteredEvent(uuid, eventId);
         httpUtils.setSuccessResponse({"userUpdated": true, "user":user}, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
     }
 }
-
 export const getUserById = async (request, response)=>{
     try {
         const uuid = request.params.uuid;
@@ -99,7 +90,6 @@ export const getUserById = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
-
 export const getUsers = async (request, response)=>{
     try {
         const users = await userService.getUsers();
@@ -108,5 +98,3 @@ export const getUsers = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
-
- 

@@ -11,10 +11,8 @@ import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import MyEvents from "./MyEvents/MyEvents.js";
 import Calendar from "./Calendar/Calendar.js";
-
 import EventInfo from "./ExploreEvents/EventInfo/EventInfo.js";
 import { Switch } from "@mui/material";
-
 const RoutesComponent = (props) => {
   // let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
   // let eventslist = loggedInUserDetails["eventsRegistered"]
@@ -30,7 +28,6 @@ const RoutesComponent = (props) => {
       <Router>
         <Routes>
           <Route element = {<SideNav/>}>
-
             <Route path="/profile" element = {<ProtectedRoute/>}>
               <Route path="/profile" element = {<UserProfile/> }/>
             </Route> 
@@ -47,8 +44,6 @@ const RoutesComponent = (props) => {
               <Route path="/events/:id" element = {<EventInfo/> }/>
             </Route>
             {/* <Route path="/events/:id" component={EventInfo} /> */}
-
-            
             <Route path="/calendar" element = {<ProtectedRoute/>}>
               <Route path="/calendar" element = {<Calendar/>}
               // {<FullCalendar
@@ -66,5 +61,4 @@ const RoutesComponent = (props) => {
     </Router>
     )
   }
-  
   export default RoutesComponent;

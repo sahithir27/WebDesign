@@ -1,6 +1,5 @@
 import User from '../models/user.js';
 import Event from '../models/eventList.js';
-
 /**
  * Function to add a new user
  * @param {*} newUser 
@@ -14,7 +13,6 @@ import Event from '../models/eventList.js';
         throw error
     }
 }
-
 export const login = async (uuid, pwd)=>{
     try {
     const user = await User.findOne({uuid:uuid});
@@ -24,17 +22,13 @@ export const login = async (uuid, pwd)=>{
     }else{
         return { authenticated: res, message: 'Incorrect Password!'};
     }
-    
     } catch (error) {
         throw error
     }
-    
 }
-
 export const verifySecurityAnswer = async (uuid,question, answer)=>{
     try {
     const user = await User.findOne({uuid:uuid});
-    
     if(user !== null){
         const res1 = await user.compareSecQuestion(question);
         const res2 = await user.compareSecAns(answer);
@@ -46,7 +40,6 @@ export const verifySecurityAnswer = async (uuid,question, answer)=>{
         throw error
     } 
 }
-
 export const updateUser = async (uuid, updatedUser) =>{
     try {
         const user = await User.findOneAndUpdate({uuid: uuid}, updatedUser , {returnDocument:'after'});
@@ -55,7 +48,6 @@ export const updateUser = async (uuid, updatedUser) =>{
         throw error;
     }
 }
-
 export const saveRegisteredEvent = async (uuid, eventID) => {
     try{
         const findUser = await User.findOne({uuid : uuid});
@@ -74,8 +66,6 @@ export const saveRegisteredEvent = async (uuid, eventID) => {
         throw error;
     }
 }
-
-
 export const getUsers = async () => {
     try {
         const users = await User.find({});
@@ -84,7 +74,6 @@ export const getUsers = async () => {
         throw error;
     }
 }
-
 export const getUserById = async (uuid) => {
     try {
         const user = await User.findOne({uuid: uuid});
@@ -93,5 +82,3 @@ export const getUserById = async (uuid) => {
         throw error;
     }
 }
-
- 

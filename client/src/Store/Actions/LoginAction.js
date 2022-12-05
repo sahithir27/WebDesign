@@ -1,7 +1,6 @@
 import { HTTP } from './../../HTTP';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 export const LoginActionTypes = {
     LOGIN_USER : "[User] logged in user",
     SIGNUP_USER : "[User] signup a user",
@@ -9,7 +8,6 @@ export const LoginActionTypes = {
     VERIFY_USER : "[User] verify user with uuid, security question and answer",
     UPDATE_USER : "[User] update user details"
 };
-
 const notify = () => {
     toast.success('Profile Updated Successfully', {
         position: "top-right",
@@ -21,29 +19,24 @@ const notify = () => {
         progress: undefined,
     });
 }
-
 const SignUpAction = (payload) => {
     return{
         type: LoginActionTypes.SIGNUP_USER, 
         payload : payload
     }
 }
-
 const verifyUserAction = (payload) => {
-    
     return{
         type: LoginActionTypes.VERIFY_USER, 
         payload : payload
     }
 }
-
 const loginAction = (payload) => {
     return {
         type: LoginActionTypes.LOGIN_USER,
         payload: payload
     }
 }
-
 const updateUserDetailsAction = (payload, callingComponent) => {
     if(callingComponent === 'UserProfile'){
         notify();
@@ -53,9 +46,7 @@ const updateUserDetailsAction = (payload, callingComponent) => {
         payload: payload
     }
 }
-
 export const signUpUser = (payload) => {
-    
     return async(dispatch) => {
         try{
             const url = 'http://localhost:9002/users';
@@ -66,9 +57,7 @@ export const signUpUser = (payload) => {
         } 
     }
 }
-
 export const handleUserVerification = (payload) => {
-    
     return async(dispatch) => {
         let username = payload.username;
         const body = {username: username, password : payload.password}
@@ -81,11 +70,9 @@ export const handleUserVerification = (payload) => {
         }
     }
 }
-
 export const loginUser = (payload) => {
     return async (dispatch) => {
         let username = payload.username;
-        
         try {
             const url = 'http://localhost:9002/users/login/' + username;
             const response = await HTTP.post(url, payload)
@@ -100,16 +87,12 @@ export const loginUser = (payload) => {
         }
     }
 }
-
-
-
 export const updateUserDetails = (payload, callingComponent) => {
     return async (dispatch) => {
         let username = payload.uuid;
         try {
             const url = 'http://localhost:9002/users/' + username;
             const response = await HTTP.put(url, payload)
-      
             if(response.status===200){
                 sessionStorage.setItem("user",JSON.stringify(response.data.user));
             }
@@ -120,13 +103,11 @@ export const updateUserDetails = (payload, callingComponent) => {
         }
     }
 }
-
 export const updateUserEventDetails = (uuid, payload, callingComponent) => {
     return async (dispatch) => {
         try {
             const url = 'http://localhost:9002/users/save-event/' + uuid;
             const response = await HTTP.put(url, payload)
-      
             if(response.status===200){
                 sessionStorage.setItem("user",JSON.stringify(response.data.user));
             }
@@ -137,7 +118,6 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
         }
     }
 }
-
 export const logout = () => {
     return async (dispatch, getState) => {
         try {
@@ -151,7 +131,6 @@ export const logout = () => {
         }
     }
 }
-
 export const setUserToStoreOnRefresh = (reduxUser) => {
     return async (dispatch, getState) => {
         try {
@@ -166,5 +145,3 @@ export const setUserToStoreOnRefresh = (reduxUser) => {
         }
     }
 }
-
-

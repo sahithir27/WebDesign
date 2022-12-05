@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import getEventById from './../../Store/Actions/MyEventsAction.js'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
 const mapStoreToProps = (state) => ( state.myEventlist ) 
-
 const mapDispatchToProps = dispatch => bindActionCreators({
     getEventById
   },dispatch);
-
 export class MyEventsComponent extends Component {
     constructor(props) {
         super(props)
@@ -19,12 +16,9 @@ export class MyEventsComponent extends Component {
         }
         this.callApi = this.callApi.bind(this);
     }
-
     componentDidMount(){
         this.callApi();
-        
     }
-
     callApi = async () => {
         let i=0;
         let eventlist=[]
@@ -37,7 +31,6 @@ export class MyEventsComponent extends Component {
             myEvents : eventlist
         })
        }
-
     render() {
         return(
             <div className="events">
