@@ -7,33 +7,26 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import { setUserToStoreOnRefresh } from './Store/Actions/LoginAction';
-
 //toast.configure();
-
 const mapDisptchToProps = (dispatch) => {
   return {
     setUserToStoreOnRefresh : (reduxUser) => dispatch(setUserToStoreOnRefresh(reduxUser)),
   }
 } 
-
 const mapStateToProps = (state) => {
   return {
     currentUserDetails : state.Login.currentUserDetails,
   }
 }
-
-
 const App = (props) => {
-
-  // const [userSet, setUserSet] = useState(false);
-  // useEffect(() => {
-  //   async function getUserStats(){
-  //     await props.setUserToStoreOnRefresh(props.currentUserDetails);
-  //     setUserSet(true);
-  //   }
-  //   getUserStats();
-  // }, [])
-  
+  const [userSet, setUserSet] = useState(false);
+  useEffect(() => {
+    async function getUserStats(){
+      await props.setUserToStoreOnRefresh(props.currentUserDetails);
+      setUserSet(true);
+    }
+    getUserStats();
+  }, [])
   return (
     <div className='App'>
       <ThemeProvider theme={mainTheme}>
@@ -42,6 +35,5 @@ const App = (props) => {
     </div>
   )
 }
-
 // export default App;
 export default connect(mapStateToProps, mapDisptchToProps)(App);
