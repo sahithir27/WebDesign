@@ -1,7 +1,13 @@
 import AppState from '../State';
 import {MyEventsActionTypes} from '../Actions/MyEventsAction'
 
-const MyEventsReducer = (state=AppState, action) => {
+const getInitialState = () => {
+    return {
+        myEventlist: []
+    };
+  }
+
+const MyEventsReducer = (state=getInitialState(), action) => {
     const type = action.type
     let temp=[];
     let newMyEventList = []
