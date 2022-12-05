@@ -1,15 +1,25 @@
-
 import React, { useEffect, useState } from "react";
 import './EventsSearchBar.scss'
 import { useNavigate } from "react-router-dom";
 import { id } from "date-fns/locale";
 import { Link } from "react-router-dom";
-
+import {updateUserEventDetails} from "../../../Store/Actions/LoginAction"
+import { useDispatch } from "react-redux";
 export default function App() {
   let [searchParam, setSearchParam] = useState("");
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-
+  const dispatch = useDispatch();
+  function callRegister(eventId) {
+    alert('clicked register');
+    let loggedInUserDetails = JSON.parse(localStorage.getItem("user"));
+    let uuid = loggedInUserDetails["uuid"]
+    let payload = {
+      'eventId' : eventId
+    }
+    dispatch(updateUserEventDetails())
+    this.props.register(uuid, payload, "EventDetails")
+  }
   useEffect(() => {
     fetch('http://localhost:9002/eventsData')
       .then((res) => res.json())
@@ -32,7 +42,6 @@ export default function App() {
       setFilteredData([...data]);
     }
   }, [searchParam]);
-   
   return (
     <div className="App">
       <input
@@ -48,22 +57,24 @@ export default function App() {
           return (
             <div key={index}>
               <div className='eventDetails'>
-            <div className='details' >
-              {/* <img src={event.eventImage} alt="event" width="480" height="300" className='row__poster'/> */}
-              <img src={event.eventImage} alt="event" width="295" height="200" className='row__poster'/>
-              Name : {event.eventName}<br></br>
-              Event Date : {event.eventDate}<br></br>
-              Event Time : {event.eventTime}<br></br>
-              <div className='buttons' >
-                <Link to={`/events/${event.eventId}`}>
-                  <button  className = "viewBtn">View</button>
-                </Link>
-                {/* <button  className = "viewBtn">View</button> */}
-                <button  className = "registerBtn" >Register</button> 
-               {/* <button className = "interestedBtn">Interested</button> */}
-               </div>
+                <div className='details' >
+                  {/* <img src={event.eventImage} alt="event" width="480" height="300" className='row__poster'/> */}
+                  <img src={event.eventImage} alt="event" width="295" height="200" className='row__poster' />
+                  <p className="event-name">{event.eventName}</p>
+                  <div className="event-date-time">
+                    <p className="event-date">{event.eventDate}</p>
+                    <p className="event-time">{event.eventTime}</p>
+                  </div>
+                  <div className='buttons' >
+                    <Link to={`/events/${event.eventId}`}>
+                      <button className="viewBtn">View</button>
+                    </Link>
+                    {/* <button  className = "viewBtn">View</button> */}
+                    <button onClick={callRegister(event.eventId)} className = "registerBtn">Register</button> 
+                    {/* <button className = "interestedBtn">Interested</button> */}
+                  </div>
+                </div>
               </div>
-        </div>
             </div>
           );
         })}
