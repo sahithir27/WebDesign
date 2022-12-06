@@ -19,8 +19,8 @@ const notify = () => {
         progress: undefined,
     });
 }
-const notifyLoginSuccess = () => {
-    toast.success('Login Successful', {
+const notifyLoginSuccess = (message) => {
+    toast.success(message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -53,11 +53,11 @@ const updateUserDetailsAction = (payload, callingComponent) => {
         notify();
     }
     else if(callingComponent === 'App') {
-        notifyLoginSuccess();
+        notifyLoginSuccess(payload.message);
     }
     return {
         type: LoginActionTypes.UPDATE_USER,
-        payload: payload
+        payload: payload.user
     }
 }
 export const signUpUser = (payload) => {
@@ -128,7 +128,7 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
             if(response.status===200){
                 sessionStorage.setItem("user",JSON.stringify(response.data.user));
             }
-          dispatch(updateUserDetailsAction(response.data.user, callingComponent));
+          dispatch(updateUserDetailsAction(response.data, callingComponent));
         }
         catch (error) {
             console.log("error in updateUserDetails action :" + error);
