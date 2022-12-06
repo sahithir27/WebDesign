@@ -29,6 +29,11 @@ const eventSchema = new mongoose.Schema({
     eventDescription: {
         type: String,
         default: "A social event is defined as an event characteristic of people forming groups. This can refer to events, shows, social functions and parties, contests and competitions."
+    },
+
+    eventLocation: {
+        type: String,
+        default: "https://maps.google.com/maps?q=Northeastern%20University&t=&z=13&ie=UTF8&iwloc=&output=embed"
     }
 })
 const model = mongoose.model('eventMasterData', eventSchema);

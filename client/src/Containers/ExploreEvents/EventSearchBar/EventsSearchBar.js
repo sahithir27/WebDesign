@@ -5,6 +5,7 @@ import { id } from "date-fns/locale";
 import { Link } from "react-router-dom";
 import {updateUserEventDetails} from "../../../Store/Actions/LoginAction"
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from 'react-toastify';
 export default function App() {
   let [searchParam, setSearchParam] = useState("");
   const [data, setData] = useState([]);
@@ -42,6 +43,7 @@ export default function App() {
   }, [searchParam]);
   return (
     <div className="App">
+      <ToastContainer></ToastContainer>
       <input
         className="search-bar"
         type="text"

@@ -19,6 +19,17 @@ const notify = () => {
         progress: undefined,
     });
 }
+const notifyLoginSuccess = (message) => {
+    toast.success(message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+}
 const SignUpAction = (payload) => {
     return{
         type: LoginActionTypes.SIGNUP_USER, 
@@ -41,9 +52,12 @@ const updateUserDetailsAction = (payload, callingComponent) => {
     if(callingComponent === 'UserProfile'){
         notify();
     }
+    else if(callingComponent === 'App') {
+        notifyLoginSuccess(payload.message);
+    }
     return {
         type: LoginActionTypes.UPDATE_USER,
-        payload: payload
+        payload: payload.user
     }
 }
 export const signUpUser = (payload) => {
@@ -51,6 +65,9 @@ export const signUpUser = (payload) => {
         try{
             const url = 'http://localhost:9002/users';
             const response = await HTTP.post(url,payload)
+            if (response.status === 200) {
+                sessionStorage.setItem("user", JSON.stringify(response.data.user));
+            }
             dispatch(SignUpAction(response.data));
         }catch(error){
             console.log('error in signUpUser Action :'+error)
@@ -111,7 +128,7 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
             if(response.status===200){
                 sessionStorage.setItem("user",JSON.stringify(response.data.user));
             }
-          dispatch(updateUserDetailsAction(response.data.user, callingComponent));
+          dispatch(updateUserDetailsAction(response.data, callingComponent));
         }
         catch (error) {
             console.log("error in updateUserDetails action :" + error);

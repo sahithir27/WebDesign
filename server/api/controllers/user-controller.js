@@ -2,6 +2,7 @@ import {userService}  from "../services/index.js";
 import { httpUtils } from "../utils/index.js";
 import { encryptField } from "../models/user.js";
 import nodemailer from 'nodemailer';
+import { request } from "express";
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -26,9 +27,9 @@ export const post = async (request, response) =>{
             }
             console.log("sent :" + info.response);
         })
-        httpUtils.setSuccessResponse({"isSignedUp": true, "message": "user signed up"}, response);
+        httpUtils.setSuccessResponse({"isSignedUp": true, "message": "user signed up", user: user}, response);
     } catch (error) {
-        httpUtils.setConflictResponse({"isSignedUp": false, "message" : "username already exists"}, response);
+        httpUtils.setConflictResponse({"isSignedUp": false, "message" : "username already exists", user: null}, response);
     }
 }
 export const login = async (request, response) =>{
@@ -76,11 +77,22 @@ export const saveRegisteredEvent = async (request, response)=>{
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
         const user = await userService.saveRegisteredEvent(uuid, eventId);
-        httpUtils.setSuccessResponse({"userUpdated": true, "user":user}, response);
+        httpUtils.setSuccessResponse(user, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
     }
 }
+
+export const unregisterEvent = async (request, response)=>{
+    try{
+        const uuid = request.params.uuid;
+        const eventId = Object.values(request.body)[0];
+        const user = await userService.unregisterEvent(uuid, eventId);
+        httpUtils.setSuccessResponse(user, response);
+    }catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+} 
 export const getUserById = async (request, response)=>{
     try {
         const uuid = request.params.uuid;

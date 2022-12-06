@@ -39,7 +39,6 @@ const EventInfo = () => {
         <p className='event-description'>{event.eventDescription}</p>
         
         <Maps/>
-        
       </div>
     </div>
   );

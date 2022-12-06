@@ -12,21 +12,16 @@ import { Navigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 const mapStateToProps = (state) => ({
     isUserSignedUp: state.Login.isUserSignedUp,
     signedUpUserDetails: state.Login.signedUpUserDetails
 })
-
 const mapDispatchToProps = (dispatch) => {
     return {
         signUpUser : (user) => dispatch(signUpUser(user))
     }
 }
-
-
 class SignUpComponent extends React.Component{
-    
     constructor(props){
         super(props); 
         this.state = {
@@ -41,7 +36,6 @@ class SignUpComponent extends React.Component{
             securityAnswer : ''
         }
     }
-
     notify() {
         toast.success('SignUp Successful', {
             position: "top-right",
@@ -53,16 +47,13 @@ class SignUpComponent extends React.Component{
             progress: undefined,
         }); 
     }
-
     handleChange(e){
-        
         if(e !== null && e.target.name !== null && e.target.value !== null){
                 this.setState({
                     [e.target.name]: e.target.value
                 })
         }
     }
-
     validateUsername(){
         if(this.state.uuid.trim().length === 0){
             this.setState({
@@ -76,7 +67,6 @@ class SignUpComponent extends React.Component{
             return true;
         }
     }
-
     validateEmail(){
         if(this.state.email.trim().length === 0){
             this.setState({
@@ -109,7 +99,6 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
-
     validateLastname(){
         if(this.state.lastName.trim().length === 0){
             this.setState({
@@ -123,7 +112,6 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
-
     validateDob(){
         if(!this.state.dateOfBirth){
             this.setState({
@@ -137,7 +125,6 @@ class SignUpComponent extends React.Component{
             return true;
         }
     }
-
     validateGender(){
         if(this.state.gender.trim().length === 0){
             this.setState({
@@ -151,7 +138,6 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
-
     validatePassword(){
         if(this.state.password.trim().length === 0){
             this.setState({
@@ -196,7 +182,6 @@ class SignUpComponent extends React.Component{
             return true;
         }
     }
-
     async handleSubmit(e){
         e.preventDefault();
         let validUsername = this.validateUsername();
@@ -208,7 +193,6 @@ class SignUpComponent extends React.Component{
         let validPassword = this.validatePassword();
         let validSecurityQuestion = this.validateSecurityQuestion();
         let validAnswer = this.validateAnswer();
-        
         if(validUsername && validEmail && validFirstname && validLastname && validDob &&
             validGender && validPassword && validSecurityQuestion && validAnswer){
                 this.props.signUpUser({
@@ -224,21 +208,15 @@ class SignUpComponent extends React.Component{
                 });
             }
     }
-
     render(){
-        
         let signUpError = '';
         if (this.props.isUserSignedUp) {
-            this.notify()
-            return (<div>
-                    <ToastContainer />
-
-                <Navigate to="/login"></Navigate>
-                </div>)
+            {this.notify()}
+            return (<Navigate replace to="/">
+                </Navigate>)
         } else if (this.props.signedUpUserDetails === 'username already exists') {
             signUpError = "Sorry,couldn't signUp, username already existing"
         }
-        
         return(
             <div className="signUp-outer-container">
                     <div className='left-container'>
@@ -271,7 +249,6 @@ class SignUpComponent extends React.Component{
                                     {this.state.lastnameError && <p>{this.state.lastnameError}</p>}
                                 </div>
                             </div>
-
                             <div className="dob_gender_container">
                                 <div className="dob_container">
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -302,7 +279,6 @@ class SignUpComponent extends React.Component{
                                     {this.state.passwordError && <p>{this.state.passwordError}</p>}
                                 </div>  
                             </div>
-                            
                             <div className = "questionAnswerContainer">
                                 <div className="questionContainer">
                                     <label>In case you forget your password</label>
@@ -332,18 +308,14 @@ class SignUpComponent extends React.Component{
                                     <button type="submit">Join the club</button>
                                     {signUpError && <p>{signUpError}</p>}
                                     <p>Already have an account? Login &nbsp;<a href="http://localhost:3000/login">here</a></p>
-
                                 </div>
                             </div> 
                         </form>
                         </div>
                     </div>
                 </div>
-                   
         )
     }
-
     }
-
 const SignUp = connect(mapStateToProps, mapDispatchToProps)(SignUpComponent);
 export default SignUp;
