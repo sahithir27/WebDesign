@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {updateUserEventDetails} from "../../../Store/Actions/LoginAction"
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
+import TextField from '@mui/material/TextField';
 export default function App() {
   let [searchParam, setSearchParam] = useState("");
   const [data, setData] = useState([]);
@@ -44,6 +45,8 @@ export default function App() {
   return (
     <div className="App">
       <ToastContainer></ToastContainer>
+      
+      
       <input
         className="search-bar"
         type="text"

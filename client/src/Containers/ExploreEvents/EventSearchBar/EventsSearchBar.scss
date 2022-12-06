@@ -1,6 +1,7 @@
 .events{
     display: flex;
     flex-wrap: wrap;
+    margin-left: 5%;
 }
 
 .eventDetails {
@@ -66,4 +67,8 @@
         margin: 3%;
         //margin-left: -1%;
     }
+}
+.search{
+    margin-left: 22%;
+    margin-bottom: 20px;
 }

@@ -20,15 +20,11 @@ const EventInfo = () => {
   return (
     
     <div className='event-info-outer'>
-      
-      
       <div className='event-info-inner'>
         <div className='view-header'>
         <div><button className='backBtn' onClick={() => navigate("/")}>Go back</button></div>
         <div className='share-container'><Share/></div>
         </div>
-        
-      
         <div className="event-wrap">
           <img src={event.eventImage} alt="eventImage" className='event-image' />
           <div className='event-info'>
