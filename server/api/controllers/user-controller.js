@@ -76,7 +76,7 @@ export const saveRegisteredEvent = async (request, response)=>{
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
         const user = await userService.saveRegisteredEvent(uuid, eventId);
-        httpUtils.setSuccessResponse({"userUpdated": true, "user":user}, response);
+        httpUtils.setSuccessResponse(user, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
     }
