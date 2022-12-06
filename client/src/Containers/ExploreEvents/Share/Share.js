@@ -5,9 +5,6 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import './Share.scss'
-
-
-
 //     constructor() {
 //         super(); 
 //         this.state = { showShareButtons: false }
