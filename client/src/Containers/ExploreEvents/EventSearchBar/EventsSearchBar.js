@@ -46,15 +46,24 @@ export default function App() {
     <div className="App">
       <ToastContainer></ToastContainer>
       
-      
-      <input
+      <div className="search">
+      <TextField
+        className='search-bar'
+          label="Search Events"
+          onChange={(e) => {
+            setSearchParam(e.target.value);
+          }}
+          placeholder= "search your event"
+        />
+      </div>
+      {/* <input
         className="search-bar"
         type="text"
         onChange={(e) => {
           setSearchParam(e.target.value);
         }}
         placeholder="search your event"
-      />
+      /> */}
       <div className="events">
         {filteredData.map((event, index) => {
           return (
