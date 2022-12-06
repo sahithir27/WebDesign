@@ -7,6 +7,7 @@ import {updateUserEventDetails} from "../../../Store/Actions/LoginAction"
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
 export default function App() {
   let [searchParam, setSearchParam] = useState("");
   const [data, setData] = useState([]);
@@ -49,12 +50,14 @@ export default function App() {
       <div className="search">
       <TextField
         className='search-bar'
-          label="Search Events"
+
+          label="&#128269; Search Events"
           onChange={(e) => {
             setSearchParam(e.target.value);
           }}
-          placeholder= "search your event"
-        />
+          placeholder=  "search your event"
+          >
+        </TextField>
       </div>
       {/* <input
         className="search-bar"
