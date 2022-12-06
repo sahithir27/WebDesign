@@ -23,4 +23,7 @@ router.route('/users/verify-security/:uuid')
 router.route('/users/save-event/:uuid')
 .put(userController.saveRegisteredEvent);
 
+router.route('/users/unregister-event/:uuid')
+.put(userController.unregisterEvent);
+
 export default router;    
