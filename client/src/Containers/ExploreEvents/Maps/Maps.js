@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-// import './Maps.scss'
+import './Maps.scss'
 export class Maps extends Component {
     constructor() {
         super(); 
         this.state = { showMap: false }
     }
+  
     _showMap = () => {
     if(this.state.showMap === true) {
         this.setState({
