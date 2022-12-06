@@ -19,7 +19,7 @@ const notify = () => {
         progress: undefined,
     });
 }
-const notifyLoginSuccess = (message) => {
+const notifyRegistration = (message) => {
     toast.success(message, {
         position: "top-right",
         autoClose: 5000,
@@ -53,8 +53,14 @@ const updateUserDetailsAction = (payload, callingComponent) => {
         notify();
     }
     else if(callingComponent === 'App') {
-        notifyLoginSuccess(payload.message);
+        notifyRegistration(payload.message);
+        //window.location.reload(false);
     }
+    else if(callingComponent === 'MyEventsComponent') {
+        notifyRegistration(payload.message);
+        window.location.reload(false);
+    }
+
     return {
         type: LoginActionTypes.UPDATE_USER,
         payload: payload.user
@@ -135,6 +141,23 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
         }
     }
 }
+
+export const updateUserEventUnregisterDetails = (uuid, payload, callingComponent) => {
+    return async (dispatch) => {
+        try {
+            const url = 'http://localhost:9002/users/unregister-event/' + uuid;
+            const response = await HTTP.put(url, payload)
+            if(response.status===200){
+                sessionStorage.setItem("user",JSON.stringify(response.data.user));
+            }
+          dispatch(updateUserDetailsAction(response.data, callingComponent));
+        }
+        catch (error) {
+            console.log("error in updateUserDetails action :" + error);
+        }
+    }
+}
+
 export const logout = () => {
     return async (dispatch, getState) => {
         try {
