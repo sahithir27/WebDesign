@@ -59,9 +59,22 @@ export const saveRegisteredEvent = async (uuid, eventID) => {
         else{
             return findUser;
         }
-        // const user = await User.findOneAndUpdate({uuid : uuid}, 
-        //     { $push: { eventsRegistered:  eventID} }, {returnDocument:'after'});
-        // return user;
+    } catch(error){
+        throw error;
+    }
+}
+
+export const unregisterEvent = async (uuid, eventID) => {
+    try{
+        const findUser = await User.findOne({uuid : uuid});
+        if(findUser.eventsRegistered.includes(eventID)){
+            const user = await User.findOneAndUpdate({uuid : uuid}, 
+                { $pull: { eventsRegistered:  eventID} }, {returnDocument:'after'});
+                return {user: user, message: "Event Unregistered Successfully"};
+        }
+        else{
+            return {user: findUser, message: "Event not Registered"};
+        }
     } catch(error){
         throw error;
     }

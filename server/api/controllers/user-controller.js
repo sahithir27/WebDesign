@@ -2,6 +2,7 @@ import {userService}  from "../services/index.js";
 import { httpUtils } from "../utils/index.js";
 import { encryptField } from "../models/user.js";
 import nodemailer from 'nodemailer';
+import { request } from "express";
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -81,6 +82,17 @@ export const saveRegisteredEvent = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
+
+export const unregisterEvent = async (request, response)=>{
+    try{
+        const uuid = request.params.uuid;
+        const eventId = Object.values(request.body)[0];
+        const user = await userService.unregisterEvent(uuid, eventId);
+        httpUtils.setSuccessResponse(user, response);
+    }catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+} 
 export const getUserById = async (request, response)=>{
     try {
         const uuid = request.params.uuid;
