@@ -10,5 +10,6 @@ router.route('/eventsData')
 
 router.route('/eventsData/:eventId')
     .get(eventsData.getEventById)
+    .delete(eventsData.deleteEventById)
 
 export default router
