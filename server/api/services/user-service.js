@@ -1,5 +1,4 @@
 import User from '../models/user.js';
-import Event from '../models/eventList.js';
 /**
  * Function to add a new user
  * @param {*} newUser 
@@ -70,6 +69,33 @@ export const unregisterEvent = async (uuid, eventID) => {
         { $pull: { eventsRegistered:  eventID} }, {returnDocument:'after'});
         return {user: user, message: "Event Unregistered Successfully"};
     } catch(error){
+        throw error;
+    }
+}
+
+export const deleteEventFromUser = async (eventId) => {
+    try{
+        const users = await getUsers()
+
+        for(let i = 0; i<users.length; i++){
+            if(users[i].eventsRegistered.includes(eventId)){
+                const user = await User.findOneAndUpdate({uuid : users[i].uuid}, 
+                    { $pull: { eventsRegistered:  eventId} }, {returnDocument:'after'});
+            }
+        }
+        // users.forEach(user => {
+        //     let userEvents = user.eventsRegistered
+        //     // if(user.eventsRegistered.includes(eventId)){
+        //     //     const list = user.eventsRegistered.filter(event => event!=eventId)
+        //     //     console.log(list)
+        //     //     //user.eventsRegistered = [...list]
+        //     //     //user.update({eventsRegistered: [...list]})
+                
+        //     // }
+        // });
+        const updatedUsers = getUsers();
+        return updatedUsers;
+    }catch(error){
         throw error;
     }
 }

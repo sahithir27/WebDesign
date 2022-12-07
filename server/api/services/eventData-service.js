@@ -25,3 +25,12 @@ export const getEventById = async (eventId) => {
         throw error;
     }
 }
+
+export const deleteEventById = async (id) => {
+    try{
+        const event = Event.findOneAndDelete({eventId: id})
+        return event;
+    }catch(error){
+        throw error;
+    }
+}
