@@ -2,6 +2,16 @@ import { httpUtils } from './../utils/index.js';
 import { eventData } from './../services/index.js';
 // import * as eventService from '../services/eventData-service.js'
 
+export const addEvent = async (request, response) => {
+    try{
+        const payload = request.body
+        const event = await eventData.addEvent(payload)
+        httpUtils.setSuccessResponse(event, response);
+    }catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+}
+
 export const getEvents = async (request, response) => {
     try{
         //const events = await eventData.getEvents();

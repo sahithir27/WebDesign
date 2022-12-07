@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route('/eventsData')
     .get(eventsData.getEvents)
-    // .get(eventsData.fetch)
+    .post(eventsData.addEvent)
 
 router.route('/eventsData/:eventId')
     .get(eventsData.getEventById)

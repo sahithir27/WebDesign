@@ -20,6 +20,26 @@ export const getEvents = (url) => {
         })
     }
 }
+
+export const addEventAction = (url, payload) => {
+    return dispatch => {
+        return fetch(url,{
+            method: 'POST',
+            headers: {
+                        'Content-Type': 'application/json',
+                      },
+            body: JSON.stringify(payload),
+        }).then(res => {
+            return res.json();
+        }).then(res => {
+            dispatch({type : EventsActionTypes.ADD_EVENT,
+                to_be_added_payload : res })
+        }).catch(err => {
+            console.log('API failed')
+        })
+    }
+}
+
 export default getEvents
 
 export const setEventsData = (payload) => {

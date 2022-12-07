@@ -14,6 +14,7 @@ const eventSchema = new mongoose.Schema({
     eventId: {
         type: String,
         required: "eventId is required",
+        unique:true,
     },
 
     eventImage: {
