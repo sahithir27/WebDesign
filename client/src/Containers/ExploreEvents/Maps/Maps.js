@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Maps.scss'
+import { FaMapMarkerAlt } from 'react-icons/fa';
 export class Maps extends Component {
     constructor() {
         super(); 
@@ -24,7 +25,7 @@ export class Maps extends Component {
     render(){
     return (
         <div>
-            <button className='viewMapBtn' onClick={this._showMap.bind(null)}>View Map</button>
+            <button className='viewMapBtn' onClick={this._showMap.bind(null)}><FaMapMarkerAlt/>View Map</button>
             <div>
             { this.state.showMap && (
                     <iframe title="map" width="979"

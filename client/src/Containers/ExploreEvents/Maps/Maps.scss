@@ -4,8 +4,12 @@
 .viewMapBtn{
     @include button;
     @include button-container;
-    width: 100px;
+    width: 125px;
     margin-left: 45%;
     margin-bottom: 50px;
-
+    
+   svg{
+    margin-top: 0px;;
+   }
+    
 }
