@@ -1,7 +1,8 @@
 @import '../../Styles/variables.scss';
+@import '../../Styles/mixins.scss';
 .login-outer-container {
-    background-color: black;
-    display: flex;
+    background-color: $black-colour;
+   @include display;
     height: 1000px;
 }
 
@@ -33,7 +34,7 @@
         border: 0px;
         background-color: $text-red;
         height: 35px;
-        width: 100%;
+        width: $width;
         border-radius: 5px;
         color: $white-colour;
         font-size: 14px;
@@ -42,7 +43,7 @@
 }
 
 .form-input {
-    width: 100%;
+    width: $width;
     height: 35px;
     border-radius: 5px;
     font-size: 14px;

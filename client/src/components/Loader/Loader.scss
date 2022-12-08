@@ -1,10 +1,12 @@
 
+@use "sass:math";
 @import '../../Styles/_variables.scss';
+@import '../../Styles/_mixins.scss';
 
 .loader-container {
-    width: 100%;
+    @include display;
+    width: $width;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     background-color: $primary-beige-opacity;
@@ -16,6 +18,6 @@
 }
 
 .mini-loader{
-    width: 100%;
-    height: 50%;
+    width: $width;
+    height: math.div($width, 2);
 }
