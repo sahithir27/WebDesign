@@ -79,7 +79,7 @@ const updateUserDetailsAction = (payload, callingComponent) => {
     }
     return {
         type: LoginActionTypes.UPDATE_USER,
-        payload: payload.user
+        payload: payload
     }
 }
 export const signUpUser = (payload) => {
