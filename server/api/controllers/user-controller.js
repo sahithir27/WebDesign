@@ -3,6 +3,8 @@ import { eventData } from './../services/index.js';
 import { httpUtils } from "../utils/index.js";
 import { encryptField } from "../models/user.js";
 import nodemailer from 'nodemailer';
+
+//transporter to send mail to signedup users
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -10,6 +12,8 @@ const transporter = nodemailer.createTransport({
         pass: "gmzlepiwqaizkgpq"
     }
 });
+
+//controller method to sign up new user
 export const post = async (request, response) =>{
     try {
         const payload = request.body;
@@ -20,6 +24,8 @@ export const post = async (request, response) =>{
             subject: "Welcome to NUevents!",
             text: "Hi " +request.body.firstName +"!! welcome to NUevents, start exploring the upcoming events!"
         };
+
+        //send mail after signup
         transporter.sendMail(options, function (err, info) {
             if (err) {
                 console.log(err);
@@ -32,6 +38,8 @@ export const post = async (request, response) =>{
         httpUtils.setConflictResponse({"isSignedUp": false, "message" : "username already exists", user: null}, response);
     }
 }
+
+//controller method to check uuid and password for login
 export const login = async (request, response) =>{
     try {
         const uuid = request.params.uuid
@@ -42,6 +50,8 @@ export const login = async (request, response) =>{
         httpUtils.setUnauthorizedResponse({"authenticated": false, "message" : "No user found"}, response);
     }
 }
+
+//controller method to verify security answer for password update
 export const verifySecurityAnswer = async (request, response) =>{
     try {
         const uuid = request.params.uuid;
@@ -57,6 +67,8 @@ export const verifySecurityAnswer = async (request, response) =>{
         httpUtils.setErrorResponse({"isUserCorrectDetails": false, "message" : "Incorrect user details"}, response);
     }
 }
+
+//controller method to update the user details
 export const updateUser = async (request, response)=>{
     try {
         const uuid = request.params.uuid;
@@ -72,6 +84,8 @@ export const updateUser = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
+
+//controller method to save event registered by user
 export const saveRegisteredEvent = async (request, response)=>{
     try{
         const uuid = request.params.uuid;
@@ -83,6 +97,8 @@ export const saveRegisteredEvent = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
+
+//controller method to save event bookmarked by user
 export const saveInterestedEvent = async (request, response)=>{
     try{
         const uuid = request.params.uuid;
@@ -93,6 +109,8 @@ export const saveInterestedEvent = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
+
+//controller method to delete event unregistered by user
 export const unregisterEvent = async (request, response)=>{
     try{
         const uuid = request.params.uuid;
@@ -103,6 +121,8 @@ export const unregisterEvent = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 } 
+
+//controller method to delete event unbookmarked by user
 export const unbookmarkEvent = async (request, response)=>{
     try{
         const uuid = request.params.uuid;
@@ -113,6 +133,8 @@ export const unbookmarkEvent = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 } 
+
+//controller method to get user by uuid
 export const getUserById = async (request, response)=>{
     try {
         const uuid = request.params.uuid;
@@ -122,6 +144,8 @@ export const getUserById = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
+
+//controller method to get all user
 export const getUsers = async (request, response)=>{
     try {
         const users = await userService.getUsers();

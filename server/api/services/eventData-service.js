@@ -1,5 +1,6 @@
 import Event from '../models/eventList.js';
 
+//service method to add Event to db
 export const addEvent = async (newEvent) => {
     try{
         const event = new Event(newEvent)
@@ -8,6 +9,8 @@ export const addEvent = async (newEvent) => {
         throw error;
     }
 }
+
+//service method to get all events from db
 export const getEvents = async (query) => {
     try{
         const events = await Event.find(query);
@@ -17,6 +20,7 @@ export const getEvents = async (query) => {
     }
 } 
 
+//service method to get Event by db from db
 export const getEventById = async (eventId) => {
     try{
         const event = await Event.find({eventId: eventId});
@@ -26,6 +30,7 @@ export const getEventById = async (eventId) => {
     }
 }
 
+//service method to delete event by eventId
 export const deleteEventById = async (id) => {
     try{
         const event = await Event.findOneAndDelete({eventId: id})
@@ -35,6 +40,7 @@ export const deleteEventById = async (id) => {
     }
 }
 
+//service method to count the number of users registered for a given event
 export const countOfRegisteredUsers = async (id) => {
     try{
         const findEvent = await Event.findOne({eventId: id})

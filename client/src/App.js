@@ -8,16 +8,21 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import { setUserToStoreOnRefresh } from './Store/Actions/LoginAction';
 //toast.configure();
+
+//Mapping dispatch to Props
 const mapDisptchToProps = (dispatch) => {
   return {
     setUserToStoreOnRefresh : (reduxUser) => dispatch(setUserToStoreOnRefresh(reduxUser)),
   }
 } 
+
+//Mapping Store to Props
 const mapStateToProps = (state) => {
   return {
     currentUserDetails : state.Login.currentUserDetails,
   }
 }
+//Gets the Logged In User details and gets the status.
 const App = (props) => {
   const [userSet, setUserSet] = useState(false);
   useEffect(() => {
@@ -28,6 +33,7 @@ const App = (props) => {
     getUserStats();
   }, [])
 
+  //HTML Representation of the Application.
   return (
     <div className='App'>
       <ThemeProvider theme={mainTheme}>
