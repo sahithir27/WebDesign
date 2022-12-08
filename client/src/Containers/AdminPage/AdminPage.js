@@ -35,15 +35,50 @@ const AdminPage= (props) => {
     const time = document.getElementById('time').value;
     const imgUrl = document.getElementById('imgUrl').value;
     const locationUrl = document.getElementById('locationUrl').value;
-    const payload = {
-      eventDate: date,
-      eventName: name,
-      eventId: id,
-      eventImage: imgUrl,
-      eventDescription: description,
-      eventTime: time,
-      eventLocation: locationUrl
+    let payload={
+
     }
+    if(!locationUrl && !description){
+        payload = {
+        eventDate: date,
+        eventName: name,
+        eventId: id,
+        eventImage: imgUrl,
+        eventTime: time
+      }
+    }
+    else if(!locationUrl){
+       payload = {
+        eventDate: date,
+        eventName: name,
+        eventId: id,
+        eventImage: imgUrl,
+        eventDescription: description,
+        eventTime: time
+      }
+    }
+    else if(!description){
+       payload = {
+        eventDate: date,
+        eventName: name,
+        eventId: id,
+        eventImage: imgUrl,
+        eventTime: time,
+        eventLocation: locationUrl
+      }
+    }
+    else{
+        payload = {
+        eventDate: date,
+        eventName: name,
+        eventId: id,
+        eventImage: imgUrl,
+        eventDescription: description,
+        eventTime: time,
+        eventLocation: locationUrl
+      }
+    }
+    
     dispatch(addEventAction(url, payload))
   }
 

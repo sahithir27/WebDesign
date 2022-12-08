@@ -34,7 +34,7 @@ const EventInfo = () => {
         </div>
         <p className='event-description'>{event.eventDescription}</p>
         
-        <Maps/>
+        <Maps eventLocation = {event.eventLocation}/>
       </div>
     </div>
   );

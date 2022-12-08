@@ -3,7 +3,9 @@ import './Maps.scss'
 export class Maps extends Component {
     constructor() {
         super(); 
-        this.state = { showMap: false }
+        this.state = { 
+            showMap: false
+        }
     }
   
     _showMap = () => {
@@ -24,7 +26,8 @@ export class Maps extends Component {
             <button className='viewMapBtn' onClick={this._showMap.bind(null)}>View Map</button>
             <div>
             { this.state.showMap && (
-                    <iframe title="map" width="979" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Northeastern%20University&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                    <iframe title="map" width="979"
+                     height="500" id="gmap_canvas" src={this.props.eventLocation}></iframe>
             )}   
             </div>
         </div>

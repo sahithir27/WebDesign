@@ -23,12 +23,21 @@ export class BlogFormComponent extends Component {
         const description = document.getElementById('description').value;
         const author = document.getElementById('author').value;
         const imgUrl = document.getElementById('imgUrl').value;
-        const payload = {
-          blogTitle: title,
-          description: description,
-          author: author,
-          //imgUrl: "http://event360.com/wp-content/uploads/2012/01/iStock-858790856-e1537308976623.jpg"
-          imgUrl: imgUrl
+        let payload = {}
+        if(!imgUrl){
+           payload = {
+            blogTitle: title,
+            description: description,
+            author: author,
+          }
+        }
+        else{
+          payload = {
+            blogTitle: title,
+            description: description,
+            author: author,
+            imgUrl: imgUrl
+          }
         }
         console.log(JSON.stringify(payload))
         this.props.add("http://localhost:9002/blogsData/", payload)
