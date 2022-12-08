@@ -1,8 +1,8 @@
 import {userService}  from "../services/index.js";
+import { eventData } from './../services/index.js';
 import { httpUtils } from "../utils/index.js";
 import { encryptField } from "../models/user.js";
 import nodemailer from 'nodemailer';
-import { request } from "express";
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -77,6 +77,7 @@ export const saveRegisteredEvent = async (request, response)=>{
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
         const user = await userService.saveRegisteredEvent(uuid, eventId);
+        const event = await eventData.countOfRegisteredUsers(eventId);
         httpUtils.setSuccessResponse(user, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);

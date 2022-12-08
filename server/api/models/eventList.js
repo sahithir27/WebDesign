@@ -14,6 +14,7 @@ const eventSchema = new mongoose.Schema({
     eventId: {
         type: String,
         required: "eventId is required",
+        unique:true,
     },
 
     eventImage: {
@@ -34,6 +35,11 @@ const eventSchema = new mongoose.Schema({
     eventLocation: {
         type: String,
         default: "https://maps.google.com/maps?q=Northeastern%20University&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    },
+
+    NumberOfUsersRegistered: {
+        type: Number,
+        default: 0
     }
 })
 const model = mongoose.model('eventMasterData', eventSchema);

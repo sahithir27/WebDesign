@@ -73,13 +73,21 @@ class LoginComponent extends React.Component{
                 }
             render(){
                         let loginError = '';
-                        if(this.props.isUserLoggedIn){
+                        if(this.props.isUserLoggedIn && this.props.currentUserDetails.roles[0] ==="admin"){
                             {this.notify()}
                             return(
-                            <Navigate replace to="/">
+                            <Navigate replace to="/admin">
                             </Navigate>
                             )
-                        } else if (this.props.loginError === 'No user found'){
+                        }
+                        else if(this.props.isUserLoggedIn && this.props.currentUserDetails.roles[0] === "user"){
+                                {this.notify()}
+                                return(
+                                <Navigate replace to="/">
+                                </Navigate>
+                                ) 
+                        }
+                        else if (this.props.loginError === 'No user found'){
                                         loginError  = "Sorry,there is no user with this username and password"
                         } else if (this.props.loginError === 'Incorrect Password!'){
                                         loginError = "Sorry, password is incorrect!"

@@ -6,7 +6,6 @@ import  Delete from "@mui/icons-material/Delete"
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { ToastContainer, toast } from 'react-toastify';
 import './MyEvents.scss'
-
 import './InterestedEvents.scss'
 import { Link } from "react-router-dom";
 
@@ -15,7 +14,6 @@ const mapStoreToProps = (state) => ( state.myEventlist )
 const mapDispatchToProps = dispatch => bindActionCreators({
     unbookmark: (url, eventid, callingComponent) => dispatch(updateUserEventUnbookmarkDetails(url, eventid, callingComponent))
   },dispatch);
-
 export class InterestedEventsComponent extends Component {
     constructor(props) {
         super(props)
@@ -31,10 +29,8 @@ export class InterestedEventsComponent extends Component {
     componentDidMount(){
         this.callApi();
     }
-
     componentDidUpdate(prevProps, prevState){
         if(prevState.interestedEvents.length !== this.state.interestedEvents.length) {
-
         }
     }
     async callDelete(eventId) {
