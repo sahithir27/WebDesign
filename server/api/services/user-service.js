@@ -90,9 +90,6 @@ export const saveInterestedEvent = async (uuid, eventID) => {
                 { $push: { eventsInterested:  eventID} }, {returnDocument:'after'});
                 return {user: user, message: "Event Bookmarked Successfully"};
         }
-        else{
-            return {user: findUser, message: "Event Already Bookmarked"};
-        }
     } catch(error){
         throw error;
     }
