@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+
+//schema for Events
 const eventSchema = new mongoose.Schema({
     
     eventDate: {

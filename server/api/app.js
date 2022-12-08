@@ -5,7 +5,7 @@ import routes from './routes/index.js';
 
 const app = express();
 
-//add connection string
+//connection string
 mongoose.connect("mongodb+srv://websurfers:websurfers@nu-events.bbtsijg.mongodb.net/test", ()=>{
     console.log('connected to mongoDB');
 });

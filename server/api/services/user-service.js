@@ -1,5 +1,7 @@
 import User from '../models/user.js';
 import nodemailer from 'nodemailer';
+
+//transporter to send mail to signedup users
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -20,6 +22,8 @@ const transporter = nodemailer.createTransport({
         throw error
     }
 }
+
+//service method to login user
 export const login = async (uuid, pwd)=>{
     try {
     const user = await User.findOne({uuid:uuid});
@@ -33,6 +37,8 @@ export const login = async (uuid, pwd)=>{
         throw error
     }
 }
+
+//service method to verify Security Answer
 export const verifySecurityAnswer = async (uuid,question, answer)=>{
     try {
     const user = await User.findOne({uuid:uuid});
@@ -47,6 +53,8 @@ export const verifySecurityAnswer = async (uuid,question, answer)=>{
         throw error
     } 
 }
+
+//service method to update user by uuid
 export const updateUser = async (uuid, updatedUser) =>{
     try {
         const user = await User.findOneAndUpdate({uuid: uuid}, updatedUser , {returnDocument:'after'});
@@ -55,6 +63,8 @@ export const updateUser = async (uuid, updatedUser) =>{
         throw error;
     }
 }
+
+//service method to save registered event
 export const saveRegisteredEvent = async (uuid, eventID) => {
     try{
         const findUser = await User.findOne({uuid : uuid});
@@ -70,6 +80,8 @@ export const saveRegisteredEvent = async (uuid, eventID) => {
         throw error;
     }
 }
+
+//service method to save interested event
 export const saveInterestedEvent = async (uuid, eventID) => {
     try{
         const findUser = await User.findOne({uuid : uuid});
@@ -85,6 +97,8 @@ export const saveInterestedEvent = async (uuid, eventID) => {
         throw error;
     }
 }
+
+//service method to delete unregistered event
 export const unregisterEvent = async (uuid, eventID) => {
     try{
         const user = await User.findOneAndUpdate({uuid : uuid}, 
@@ -94,6 +108,8 @@ export const unregisterEvent = async (uuid, eventID) => {
         throw error;
     }
 }
+
+//service method to delete unbookmarked event
 export const unbookmarkEvent = async (uuid, eventID) => {
     try{
         const user = await User.findOneAndUpdate({uuid : uuid}, 
@@ -104,6 +120,7 @@ export const unbookmarkEvent = async (uuid, eventID) => {
     }
 }
 
+//service method to delete event from registered events
 export const deleteEventFromUser = async (event) => {
     try{
         const users = await getUsers()
@@ -140,6 +157,8 @@ export const deleteEventFromUser = async (event) => {
         throw error;
     }
 }
+
+//service method to get all Users
 export const getUsers = async () => {
     try {
         const users = await User.find({});
@@ -148,6 +167,8 @@ export const getUsers = async () => {
         throw error;
     }
 }
+
+//service method to get user by uuid
 export const getUserById = async (uuid) => {
     try {
         const user = await User.findOne({uuid: uuid});
