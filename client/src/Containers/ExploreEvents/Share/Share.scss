@@ -1,9 +1,10 @@
+@import '../../../Styles/variables.scss';
 .shareBtn{
-    background-color: #dd182d;
+    background-color: $text-red;
     height: 35px;
     width: 80px;
     border-radius: 5px;
-    color: white;
+    color: $white-colour;
     font-size: 14px;
     border: 0px;
     margin-left: 45%;

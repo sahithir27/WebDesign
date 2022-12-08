@@ -70,7 +70,21 @@ export const saveRegisteredEvent = async (uuid, eventID) => {
         throw error;
     }
 }
-
+export const saveInterestedEvent = async (uuid, eventID) => {
+    try{
+        const findUser = await User.findOne({uuid : uuid});
+        if(!findUser.eventsInterested.includes(eventID)){
+            const user = await User.findOneAndUpdate({uuid : uuid}, 
+                { $push: { eventsInterested:  eventID} }, {returnDocument:'after'});
+                return {user: user, message: "Event Bookmarked Successfully"};
+        }
+        else{
+            return {user: findUser, message: "Event Already Bookmarked"};
+        }
+    } catch(error){
+        throw error;
+    }
+}
 export const unregisterEvent = async (uuid, eventID) => {
     try{
         const user = await User.findOneAndUpdate({uuid : uuid}, 
@@ -78,6 +92,15 @@ export const unregisterEvent = async (uuid, eventID) => {
         return {user: user, message: "Event Unregistered Successfully"};
     } catch(error){
         throw error;
+    }
+}
+export const unbookmarkEvent = async (uuid, eventID) => {
+    try{
+        const user = await User.findOneAndUpdate({uuid : uuid}, 
+        { $pull: { eventsInterested:  eventID} }, {returnDocument:'after'});
+        return {user: user, message: "Event Unbookmarked Successfully"};
+    } catch(error){
+            throw error;
     }
 }
 

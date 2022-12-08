@@ -8,7 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import './MyEvents.scss'
 import './InterestedEvents.scss'
 import { Link } from "react-router-dom";
+
 const mapStoreToProps = (state) => ( state.myEventlist ) 
+
 const mapDispatchToProps = dispatch => bindActionCreators({
     unbookmark: (url, eventid, callingComponent) => dispatch(updateUserEventUnbookmarkDetails(url, eventid, callingComponent))
   },dispatch);

@@ -3,24 +3,44 @@ import './EventsSearchBar.scss'
 import { useNavigate } from "react-router-dom";
 import { id } from "date-fns/locale";
 import { Link } from "react-router-dom";
-import {updateUserEventDetails} from "../../../Store/Actions/LoginAction"
+import { updateUserEventDetails, updateUserInterestedEventDetails } from "../../../Store/Actions/LoginAction"
+
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
+import { AiFillClockCircle, AiOutlineClockCircle } from 'react-icons/ai';
+import { BsCalendar2Date, BsFillBookmarkFill } from 'react-icons/bs';
+
+import { css } from "@emotion/css";
+// import { View, Image, Text, LayoutAnimation } from 'react-native';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+
 export default function App() {
   let [searchParam, setSearchParam] = useState("");
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  let [data, setData] = useState([]);
+  let [filteredData, setFilteredData] = useState([]);
   const dispatch = useDispatch();
+  let [isBookmarked, setIsBookmarked] = useState(false);
+
   let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
+  const eventsInterested = loggedInUserDetails["eventsInterested"]
   function callRegister(eventId) {
     let uuid = loggedInUserDetails["uuid"]
     let payload = {
-      'eventId' : eventId
+      'eventId': eventId
     }
     dispatch(updateUserEventDetails(uuid, payload, "App"))
   }
+  function callInterested(eventId) {
+    let uuid = loggedInUserDetails["uuid"]
+    let payload = {
+      'eventId': eventId
+    }
+    dispatch(updateUserInterestedEventDetails(uuid, payload, "App"))
+    setIsBookmarked(!isBookmarked)
+  }
+
   useEffect(() => {
     fetch('http://localhost:9002/eventsData')
       .then((res) => res.json())
@@ -29,7 +49,7 @@ export default function App() {
         setFilteredData(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [isBookmarked]);
   useEffect(() => {
     if (searchParam !== "") {
       const filteredData = data.filter(
@@ -43,30 +63,26 @@ export default function App() {
       setFilteredData([...data]);
     }
   }, [searchParam]);
+
+  console.log(eventsInterested)
   return (
+
     <div className="App">
       <ToastContainer></ToastContainer>
-      
+
       <div className="search">
-      <TextField
-        className='search-bar'
+        <TextField
+          className='search-bar'
 
           label="&#128269; Search Events"
           onChange={(e) => {
             setSearchParam(e.target.value);
           }}
-          placeholder=  "search your event"
-          >
+          placeholder="search your event"
+        >
         </TextField>
       </div>
-      {/* <input
-        className="search-bar"
-        type="text"
-        onChange={(e) => {
-          setSearchParam(e.target.value);
-        }}
-        placeholder="search your event"
-      /> */}
+
       <div className="events">
         {filteredData.map((event, index) => {
           return (
@@ -74,26 +90,36 @@ export default function App() {
               <div className='eventDetails'>
                 <div className='details' >
                   {/* <img src={event.eventImage} alt="event" width="480" height="300" className='row__poster'/> */}
-                  <img src={event.eventImage} alt="event" width="295" height="200" className='row__poster' />
+                  <div className="bookmark-image-container">
+                    <button onClick={() => callInterested(event.eventId)} className="interestedBtn">
+                      <BsFillBookmarkFill className={eventsInterested.includes(event.eventId) ? "bookmark_icon_selected" : "bookmark_icon"} />
+                    </button>
+                    <img src={event.eventImage} alt="event" width="295" height="200" className='row__poster' />
+                  </div>
                   <p className="event-name">{event.eventName}</p>
                   <div className="event-date-time">
-                    <p className="event-date">{event.eventDate}</p>
-                    <p className="event-time">{event.eventTime}</p>
+                    <p className="event-date"> <BsCalendar2Date />&#160; {event.eventDate} </p>
+                    <p className="event-time"> <AiOutlineClockCircle /> {event.eventTime} </p>
                   </div>
                   <div className='buttons' >
                     <Link to={`/events/${event.eventId}`}>
                       <button className="viewBtn">View</button>
                     </Link>
                     {/* <button  className = "viewBtn">View</button> */}
-                    <button onClick={() => callRegister(event.eventId)} className = "registerBtn">Register</button> 
-                    {/* <button className = "interestedBtn">Interested</button> */}
+                    <button onClick={() => callRegister(event.eventId)} className="registerBtn">Register</button>
+                    {/* <button onClick={() => callInterested(event.eventId)} className = "interestedBtn"><BsFillBookmarkCheckFill/></button> */}
                   </div>
                 </div>
               </div>
             </div>
           );
-        })}
+        }
+
+        )}
+
       </div>
     </div>
+
   );
+
 }

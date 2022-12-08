@@ -1,3 +1,4 @@
+@import '../../Styles/variables.scss';
 .blogs-container {
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +8,7 @@
         margin: 20px;
         padding: 20px;
         border-radius: 10px;
-        background-color: white;
+        background-color: $white-colour;
         box-shadow: 0 0 25px #0000004d;
         position: relative;
         display: block;
@@ -35,7 +36,7 @@
 }
 
 .new-blog-form {
-    background-color: white;
+    background-color: $white-colour;
     padding: 10px;
     border-radius: 15px;
     color: black;
@@ -59,11 +60,11 @@
         }
     }
     .post-button {
-        background-color: #dd182d;
+        background-color: $text-red;
         height: 35px;
         width: 70px;
         border-radius: 5px;
-        color: white;
+        color: $white-colour;
         font-size: 14px;
         border: 0px;
         margin-left: 4%;
@@ -83,11 +84,11 @@
 }
 
 .write-blog-button {
-    background-color: #dd182d;
+    background-color: $text-red;
     height: 35px;
     width: 120px;
     border-radius: 5px;
-    color: white;
+    color: $white-colour;
     font-size: 14px;
     border: 0px;
     margin-left: 515px;

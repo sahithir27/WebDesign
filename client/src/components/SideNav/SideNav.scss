@@ -33,14 +33,14 @@
                         display: flex;
                         width: 100%;
                         .myprofile-icon, .explore-icon, .myevents-icon, .calendar-icon, .blogs-icon {
-                            color:#dd182d;
+                            color:$text-red;
                         }
                         svg {
                             width: 20%;
                         }
                         a {
                             width: 70%;
-                            color: white;
+                            color: $white-colour;
                             text-decoration: none;
                             font-size: 1.2vw;
                             margin: auto;
@@ -69,18 +69,34 @@
                     // z-index: 1;
                     h1 {
                         width: 90%;
-                        color: white;
+                        color: $white-colour;
                         text-align: center;
                     }
                     h1 ~ div {
-                        width: 10%;
-                        button {
-                            width: 90%;
+                        width: 12%;
+                        .bookmark {
+                            width: 50%;
                             height: 30px;
-                            background-color: #dd182d;
+                            background-color: $text-red;
                             border: black;
                             border-radius: 5px;
-                            color: white;
+                            color: $white-colour;
+                            color: aqua;
+                            font-size: 14px;
+                            margin-top: 35px;
+                            margin-right: 8px;
+                            background: transparent;
+                            svg{
+                                color: white;
+                            }
+                        }
+                        .logout{
+                            width: 90%;
+                            height: 30px;
+                            background-color: $text-red;
+                            border: black;
+                            border-radius: 5px;
+                            color: $white-colour;
                             font-size: 14px;
                             margin-top: 35px;
                         }
@@ -95,4 +111,10 @@
             } 
         }
     }
+}
+.header-buttons{
+    display: flex;
+    .bookmark{
+        width:10px;
+    }    
 }

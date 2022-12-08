@@ -1,3 +1,4 @@
+@import '../../Styles/variables.scss';
 .signUp-outer-container {
     background-color: black;
     display: flex;
@@ -16,7 +17,7 @@
 }
 
 .right-container {
-    color: white;
+    color: $white-colour;
     margin-left: 200px;
     margin-top: 100px;
 }
@@ -86,7 +87,7 @@
             margin-left: 50px;
         }
         div {
-            background-color: white;
+            background-color: $white-colour;
         }
         input {
             font-size: 14px;
@@ -103,17 +104,17 @@
     }
     div {
         border-radius: 5px;
-        background-color: white;
+        background-color: $white-colour;
         height: 100%;
         justify-content: space-around;
     }
     label{
         color: #757575;
-        font-family: 'semi bold';
+        // font-family: 'semi bold';
     }
 }
 .questionAnswerContainer {
-    background-color: white;
+    background-color: $white-colour;
     width: 98%;
     margin-left: 10px;
     margin-right: 10px;
@@ -152,11 +153,11 @@
         }
         button {
             border: 0px;
-            background-color: #dd182d;
+            background-color: $text-red;
             height: 35px;
             width: 100%;
             border-radius: 5px;
-            color: white;
+            color: $white-colour;
             font-size: 14px;
             margin: 0px;
             margin-top: 15px;
@@ -167,7 +168,7 @@
     width: 100%;
     h4 {
         a {
-            color: white;
+            color: $white-colour;
         }
     }
 }
