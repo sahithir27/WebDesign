@@ -7,6 +7,7 @@ const EventsReducer = (state=AppState, action) =>{
     const deleted_payload = action.deleted_payload;
     let newEventList;
     switch(type) {
+        //Case to get Event Data 
         case 'GET_DATA' :
             newEventList = []
             let eventlist = action.eventlist
@@ -15,10 +16,12 @@ const EventsReducer = (state=AppState, action) =>{
               });
             break;
         case EventsActionTypes.ADD_EVENT: 
+        //Case to add a new Event
             newEventList = [...state.eventlist];
             newEventList.push(to_be_added_payload);
             break;
         case EventsActionTypes.DELETE_EVENT:
+            //Case to delete an event
             const filteredEventItem = state.eventlist.filter(e => e!= deleted_payload);
             newEventList = [...filteredEventItem];
         default:

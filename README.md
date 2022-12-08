@@ -95,11 +95,3 @@ npm start
 ```bash 
 npm run start
 ```
-
-
-
-
-
-
-
-

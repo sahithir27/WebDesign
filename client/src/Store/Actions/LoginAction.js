@@ -8,7 +8,10 @@ export const LoginActionTypes = {
     VERIFY_USER : "[User] verify user with uuid, security question and answer",
     UPDATE_USER : "[User] update user details"
 };
+
+//Notify is to display a message after any action is performed by the user.
 const notify = () => {
+    //Message for Profile Updation.
     toast.success('Profile Updated Successfully', {
         position: "top-right",
         autoClose: 5000,
@@ -20,6 +23,7 @@ const notify = () => {
     });
 }
 const notifyRegistration = (message) => {
+    //Message for Succesfull registration of a event
     toast.success(message, {
         position: "top-right",
         autoClose: 5000,
@@ -30,24 +34,32 @@ const notifyRegistration = (message) => {
         progress: undefined,
     });
 }
+
+//Action Method for SignUp of User
 const SignUpAction = (payload) => {
     return{
         type: LoginActionTypes.SIGNUP_USER, 
         payload : payload
     }
 }
+
+//Action Method to verify if the user entered details are correct or not.
 const verifyUserAction = (payload) => {
     return{
         type: LoginActionTypes.VERIFY_USER, 
         payload : payload
     }
 }
+
+//Action Method to verify is user is present or not.
 const loginAction = (payload) => {
     return {
         type: LoginActionTypes.LOGIN_USER,
         payload: payload
     }
 }
+
+//Updates the User Details and Notifies the user.
 const updateUserDetailsAction = (payload, callingComponent) => {
     if(callingComponent === 'UserProfile'){
         notify();
@@ -70,6 +82,8 @@ const updateUserDetailsAction = (payload, callingComponent) => {
         payload: payload.user
     }
 }
+
+//Method for Signup of a New User.
 export const signUpUser = (payload) => {
     return async(dispatch) => {
         try{
@@ -84,6 +98,8 @@ export const signUpUser = (payload) => {
         } 
     }
 }
+
+//Handles the User Verification by checking the username, password and the security questions.
 export const handleUserVerification = (payload) => {
     return async(dispatch) => {
         let username = payload.username;
@@ -97,12 +113,15 @@ export const handleUserVerification = (payload) => {
         }
     }
 }
+
+//Method for Login of a User.
 export const loginUser = (payload) => {
     return async (dispatch) => {
         let username = payload.username;
         try {
             const url = 'http://localhost:9002/users/login/' + username;
             const response = await HTTP.post(url, payload)
+            //If the user logins successfully then a success response is returned.
             if (response.status === 200) {
                 sessionStorage.setItem("isUserAuthenticated", response.data.authenticated )
                 sessionStorage.setItem("user", JSON.stringify(response.data.user));
@@ -114,6 +133,8 @@ export const loginUser = (payload) => {
         }
     }
 }
+
+//Method for Updating the user details using HTTP Put method and return Status 200 upon Success.
 export const updateUserDetails = (payload, callingComponent) => {
     return async (dispatch) => {
         let username = payload.uuid;
@@ -130,6 +151,8 @@ export const updateUserDetails = (payload, callingComponent) => {
         }
     }
 }
+
+//Method for Updating the Event details using HTTP Put method and return Status 200 upon Success.
 export const updateUserEventDetails = (uuid, payload, callingComponent) => {
     return async (dispatch) => {
         try {
@@ -145,6 +168,8 @@ export const updateUserEventDetails = (uuid, payload, callingComponent) => {
         }
     }
 }
+
+//Method for Updating the Interested Event details using HTTP Put method and return Status 200 upon Success.
 export const updateUserInterestedEventDetails = (uuid, payload, callingComponent) => {
     return async (dispatch) => {
         try {
@@ -161,6 +186,7 @@ export const updateUserInterestedEventDetails = (uuid, payload, callingComponent
     }
 }
 
+//Method for Updating the Unregistered Event details using HTTP Put method and return Status 200 upon Success.
 export const updateUserEventUnregisterDetails = (uuid, payload, callingComponent) => {
     return async (dispatch) => {
         try {
@@ -176,6 +202,8 @@ export const updateUserEventUnregisterDetails = (uuid, payload, callingComponent
         }
     }
 }
+
+//Method for Updating the Unbookmarked Event details using HTTP Put method and return Status 200 upon Success.
 export const updateUserEventUnbookmarkDetails = (uuid, payload, callingComponent) => {
     return async (dispatch) => {
         try {
@@ -192,6 +220,7 @@ export const updateUserEventUnbookmarkDetails = (uuid, payload, callingComponent
     }
 }
 
+//Method for Logout of an User.
 export const logout = () => {
     return async (dispatch, getState) => {
         try {
@@ -205,6 +234,8 @@ export const logout = () => {
         }
     }
 }
+
+//Retains the Same information upon refresh of a page.
 export const setUserToStoreOnRefresh = (reduxUser) => {
     return async (dispatch, getState) => {
         try {
