@@ -34,6 +34,7 @@ const SideNav = (props) => {
   //   setOpenNotif(false);
   // }
 
+  //HTML Representation of Side Bar Navigation.
   return (
     <div className="main-layout-container"> 
       <div className="layout-container">
@@ -43,6 +44,7 @@ const SideNav = (props) => {
                 <img src="images/NULogo.png"></img>
               </div>
                 <nav className="side-nav">
+                   {/*Side Navigation Bar is displayed */}
                     <Typography paddingRight={2} color='secondary.light'><FaUserEdit className="myprofile-icon" size="3.0vmin"/><Link to="/profile">Profile</Link></Typography>
                     <Typography paddingRight={2} color='secondary.light'><MdExplore className="explore-icon" size="3.0vmin"/><Link to="/">Explore</Link></Typography>
                     <Typography paddingRight={2} color='secondary.light'><BsFillStarFill className="myevents-icon" size="3.0vmin"/><Link to="/myevents">My Events</Link></Typography>
