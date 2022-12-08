@@ -19,7 +19,6 @@
         margin-top: 35px;
     }
 }
-
 .admin-event-form {
     background-color: white;
     padding: 10px;
@@ -65,5 +64,29 @@
     }
     .imgUrl, .locationUrl {
         width: 800px;
+    }
+}
+.deleteevent-button {
+    background-color: #dd182d;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    border: 0px;
+    margin-left: 4%;
+}
+.table-details {
+    width: 60%;
+    border: 1px solid black;
+    thead {
+        th {
+            border: 1px solid black;
+        }
+    }
+    tbody {
+        tr {
+            text-align: center;
+        }
     }
 }
