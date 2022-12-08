@@ -19,6 +19,7 @@ const AdminPage= (props) => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   const signoutClick =async()=>{
     let res = await props.logout();
     if(res){
@@ -45,6 +46,7 @@ const AdminPage= (props) => {
     }
     dispatch(addEventAction(url, payload))
   }
+
   const deleteEvent = async(eventId) => {
     const url = "http://localhost:9002/eventsData/" + eventId
     const payload = {
@@ -53,6 +55,7 @@ const AdminPage= (props) => {
     dispatch(deleteEventAction(url, payload))
     window.location.reload(false);
   }
+
   return (
     <div className="admin-event-form-outer">
       <div className="admin-header-container">

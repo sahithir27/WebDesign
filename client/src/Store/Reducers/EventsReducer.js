@@ -1,5 +1,6 @@
 import AppState from '../State';
 import { EventsActionTypes } from '../Actions/EventsAction.js';
+
 const EventsReducer = (state=AppState, action) =>{
     const type = action.type;
     const to_be_added_payload = action.to_be_added_payload;
