@@ -100,6 +100,7 @@ const AdminPage= (props) => {
               <th>Event Name</th>
               <th>Event Date</th>
               <th>Event Time</th>
+              <th>Number of Users Registered</th>
               <th></th>
             </tr>
           </thead>
@@ -111,6 +112,7 @@ const AdminPage= (props) => {
                     <td>{event.eventName}</td>
                     <td>{event.eventDate}</td>
                     <td>{event.eventTime}</td>
+                    <td>{event.NumberOfUsersRegistered}</td>
                     <td><button onClick={() => deleteEvent(event.eventId)}className="deleteevent-button">Delete</button></td>
                   </tr>
                 )
