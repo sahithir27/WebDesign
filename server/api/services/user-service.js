@@ -128,6 +128,10 @@ export const deleteEventFromUser = async (event) => {
                         console.log("sent :" + info.response);
                     })
             }
+            if(users[i].eventsInterested.includes(event.eventId)){
+                const user = await User.findOneAndUpdate({uuid : users[i].uuid}, 
+                    { $pull: { eventsInterested:  event.eventId} }, {returnDocument:'after'});
+            }
         }
         
         const updatedUsers = getUsers();
