@@ -10,10 +10,10 @@
 **Team Name:**  Web Surfers            
  
 **Team Members:**
-- Varsha Reddy Kumbham - 002762752​       
-- Devika Boddu - 002727628​           
-- Sindhura Bandaru -002727624​          
-- Sahithi Gaddam- 002766983​       
+- Varsha Reddy Kumbham - 002762752, kumbham.v@mortheastern.edu          ​       
+- Devika Boddu - 002727628​ , boddu.d@northeastern.edu          
+- Sindhura Bandaru -002727624​ , bandaru.si@northeastern.edu         
+- Sahithi Gaddam- 002766983​ , gaddam.sahi@northeastern.edu          
 
 **Repo Link**
 ```bash
@@ -57,6 +57,9 @@ A responsive web application has been created and styled using SASS which uses R
 - As a user, I can read/write blogs about the event attended which makes easier for people to get an overview about the happening.
 - As a user, I can view all my events under the event date displayed on the calender which makeseasier to keep a track of all the events.
 - As a user, I can unregister for an event from Myevents section so that event is no longer visible on the page.
+- As a Admin, I can create a new event.
+- As a Admin, I can delete an event.
+- As an Admin, I can get the number of registered users for an event.
 - As a user, I can sign out. 
          
 
