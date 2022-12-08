@@ -10,6 +10,7 @@ import UserProfile from './UserProfile/UserProfile.js';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import MyEvents from "./MyEvents/MyEvents.js";
+import InterestedEvents from './MyEvents/InterestedEvents.js';
 import Calendar from "./Calendar/Calendar.js";
 import EventInfo from "./ExploreEvents/EventInfo/EventInfo.js";
 import { Switch } from "@mui/material";
@@ -36,6 +37,9 @@ const RoutesComponent = (props) => {
             </Route>
             <Route path="/myevents" element = {<ProtectedRoute/>}>
               <Route path="/myevents" element = {<MyEvents/> }/>
+            </Route>
+            <Route path="/interestedevents" element = {<ProtectedRoute/>}>
+              <Route path="/interestedevents" element = {<InterestedEvents/> }/>
             </Route>
             <Route path="/blogs" element = {<ProtectedRoute/>}>
               <Route path="/blogs" element = {<Blogs/> }/>

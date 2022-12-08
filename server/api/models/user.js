@@ -54,6 +54,10 @@ const Schema = new mongoose.Schema({
     eventsRegistered:{
         type: Array,
         default: []
+    },
+    eventsInterested: {
+        type: Array,
+        default: []
     }
 })
 

@@ -82,12 +82,31 @@ export const saveRegisteredEvent = async (request, response)=>{
         httpUtils.setErrorResponse(error, response);
     }
 }
-
+export const saveInterestedEvent = async (request, response)=>{
+    try{
+        const uuid = request.params.uuid;
+        const eventId = Object.values(request.body)[0];
+        const user = await userService.saveInterestedEvent(uuid, eventId);
+        httpUtils.setSuccessResponse(user, response);
+    }catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+}
 export const unregisterEvent = async (request, response)=>{
     try{
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
         const user = await userService.unregisterEvent(uuid, eventId);
+        httpUtils.setSuccessResponse(user, response);
+    }catch (error) {
+        httpUtils.setErrorResponse(error, response);
+    }
+} 
+export const unbookmarkEvent = async (request, response)=>{
+    try{
+        const uuid = request.params.uuid;
+        const eventId = Object.values(request.body)[0];
+        const user = await userService.unbookmarkEvent(uuid, eventId);
         httpUtils.setSuccessResponse(user, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);

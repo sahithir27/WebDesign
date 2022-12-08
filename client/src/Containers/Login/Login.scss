@@ -1,3 +1,4 @@
+@import '../../Styles/variables.scss';
 .login-outer-container {
     background-color: black;
     display: flex;
@@ -12,7 +13,7 @@
     h1,p {
         text-align: center;
         a {
-            color: white;
+            color: $white-colour;
         }
     }
 }
@@ -30,11 +31,11 @@
     padding: 0px;
     button {
         border: 0px;
-        background-color: #dd182d;
+        background-color: $text-red;
         height: 35px;
         width: 100%;
         border-radius: 5px;
-        color: white;
+        color: $white-colour;
         font-size: 14px;
         margin: 10px;
     }

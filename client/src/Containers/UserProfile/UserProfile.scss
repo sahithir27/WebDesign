@@ -1,3 +1,4 @@
+@import '../../Styles/variables.scss';
 .header {
     h2 {
         text-align: center;
@@ -30,7 +31,7 @@
     }
     .input-holder {
         button {
-            background-color: #dd182d;
+            background-color: $text-red;
             height: 35px;
             border-radius: 5px;
             color: white;
@@ -47,7 +48,7 @@
     button {
         width: 10%;
         margin: 10px;
-        background-color: #dd182d;
+        background-color: $text-red;
         border: 0px;
         border-radius: 5px;
         height: 30px;
