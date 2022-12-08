@@ -1,7 +1,8 @@
 @import '../../Styles/variables.scss';
+@import '../../Styles/mixins.scss';
 .signUp-outer-container {
-    background-color: black;
-    display: flex;
+    background-color: $black-colour;
+    @include display;
     height: 1000px;
 }
 
@@ -53,15 +54,15 @@
     @extend .userName_Container
 }
 .userName_email_Container {
-    display: flex;
-    width: 100%;
+    @include display;
+    width: $width;
     div {
         width: 50%;
     }
 }
 
 .form-input{
-    width: 100%;
+    width: $width;
     height: 35px;
     border-radius: 5px;
     font-size: 14px;
@@ -105,12 +106,12 @@
     div {
         border-radius: 5px;
         background-color: $white-colour;
-        height: 100%;
+        height: $height;
         justify-content: space-around;
     }
     label{
         color: #757575;
-        // font-family: 'semi bold';
+        font-family: 'semi bold';
     }
 }
 .questionAnswerContainer {
@@ -155,7 +156,7 @@
             border: 0px;
             background-color: $text-red;
             height: 35px;
-            width: 100%;
+            width: $width;
             border-radius: 5px;
             color: $white-colour;
             font-size: 14px;
@@ -165,7 +166,7 @@
 }
 .SignUp-Container {
     padding: 10px;
-    width: 100%;
+    width: $width;
     h4 {
         a {
             color: $white-colour;
