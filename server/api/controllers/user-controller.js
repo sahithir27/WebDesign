@@ -88,10 +88,11 @@ export const updateUser = async (request, response)=>{
 //controller method to save event registered by user
 export const saveRegisteredEvent = async (request, response)=>{
     try{
+        const isRegistered = true
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
         const user = await userService.saveRegisteredEvent(uuid, eventId);
-        const event = await eventData.countOfRegisteredUsers(eventId);
+        const event = await eventData.countOfRegisteredUsers(eventId, isRegistered);
         httpUtils.setSuccessResponse(user, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
@@ -113,9 +114,11 @@ export const saveInterestedEvent = async (request, response)=>{
 //controller method to delete event unregistered by user
 export const unregisterEvent = async (request, response)=>{
     try{
+        const isRegistered = false
         const uuid = request.params.uuid;
         const eventId = Object.values(request.body)[0];
         const user = await userService.unregisterEvent(uuid, eventId);
+        const event = await eventData.countOfRegisteredUsers(eventId, isRegistered);
         httpUtils.setSuccessResponse(user, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);

@@ -41,14 +41,21 @@ export const deleteEventById = async (id) => {
 }
 
 //service method to count the number of users registered for a given event
-export const countOfRegisteredUsers = async (id) => {
+export const countOfRegisteredUsers = async (id, isRegistered) => {
     try{
         const findEvent = await Event.findOne({eventId: id})
-        const event = await Event.findOneAndUpdate({eventId: id}, 
-            {NumberOfUsersRegistered: findEvent.NumberOfUsersRegistered+1}, 
-            {returnDocument:'after'})
-
-        return event;
+        if(isRegistered === true) {
+            const event = await Event.findOneAndUpdate({eventId: id}, 
+                {NumberOfUsersRegistered: findEvent.NumberOfUsersRegistered+1}, 
+                {returnDocument:'after'})
+            return event;
+        }
+        else {
+            const event = await Event.findOneAndUpdate({eventId: id}, 
+                {NumberOfUsersRegistered: findEvent.NumberOfUsersRegistered-1}, 
+                {returnDocument:'after'})
+            return event;
+        }
     }catch(error){
         throw error;
     }
