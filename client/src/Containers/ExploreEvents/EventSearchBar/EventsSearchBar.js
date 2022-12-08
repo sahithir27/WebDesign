@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './EventsSearchBar.scss'
 import { Link } from "react-router-dom";
-import { updateUserEventDetails, updateUserInterestedEventDetails } from "../../../Store/Actions/LoginAction"
+import { updateUserEventDetails, updateUserInterestedEventDetails, updateUserEventUnbookmarkDetails } from "../../../Store/Actions/LoginAction"
 
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,7 +17,7 @@ export default function App() {
   let [data, setData] = useState([]);
   let [filteredData, setFilteredData] = useState([]);
   const dispatch = useDispatch();
-  let [isBookmarked, setIsBookmarked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
   const eventsInterested = loggedInUserDetails["eventsInterested"]
@@ -33,8 +33,14 @@ export default function App() {
     let payload = {
       'eventId': eventId
     }
-    dispatch(updateUserInterestedEventDetails(uuid, payload, "App"))
-    setIsBookmarked(!isBookmarked)
+    if(isBookmarked && eventsInterested.includes(eventId)){
+      dispatch(updateUserEventUnbookmarkDetails(uuid, payload, "App"))
+      setIsBookmarked(isBookmarked)
+    }
+    else {
+      dispatch(updateUserInterestedEventDetails(uuid, payload, "App"))
+      setIsBookmarked(!isBookmarked)
+    }
   }
 
   useEffect(() => {
