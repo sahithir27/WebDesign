@@ -92,7 +92,9 @@
                             margin-right: 8px;
                             background: transparent;
                             svg{
-                                color: white;
+                                color: $text-red;
+                                height: 1.5em;
+                                width: 1.5em;
                             }
                         }
                         .logout{
@@ -111,7 +113,6 @@
                 }
             }
             .header-wrapper ~ div {
-
                 width: 95%;
                 height: 100vh;
                 margin: 30px;
