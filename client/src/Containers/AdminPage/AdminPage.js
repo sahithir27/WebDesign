@@ -1,15 +1,24 @@
 import React from 'react'
 import './AdminPage.scss'
 import './../../components/SideNav/SideNav.scss'
+import { useEffect, useState } from "react";
 import { logout } from "../../Store/Actions/LoginAction";
-import { addEventAction } from "../../Store/Actions/EventsAction"
+import { addEventAction, deleteEventAction } from "../../Store/Actions/EventsAction"
 import { connect } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 const AdminPage= (props) => {
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
   const dispatch = useDispatch();
+  useEffect(() => {
+    fetch('http://localhost:9002/eventsData')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   const signoutClick =async()=>{
     let res = await props.logout();
     if(res){
@@ -36,7 +45,14 @@ const AdminPage= (props) => {
     }
     dispatch(addEventAction(url, payload))
   }
-
+  const deleteEvent = async(eventId) => {
+    const url = "http://localhost:9002/eventsData/" + eventId
+    const payload = {
+      eventId : eventId
+    }
+    dispatch(deleteEventAction(url, payload))
+    window.location.reload(false);
+  }
   return (
     <div className="admin-event-form-outer">
       <div className="admin-header-container">
@@ -73,6 +89,32 @@ const AdminPage= (props) => {
         </ul>
         <button className='addevent-button' onClick={addEvent}>Add Event</button>
       </form>
+        <div className='eventDetails'>
+          <table className = "table-details">
+          <thead>
+            <tr>
+              <th>Event Id</th>
+              <th>Event Name</th>
+              <th>Event Date</th>
+              <th>Event Time</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((event, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{event.eventId}</td>
+                    <td>{event.eventName}</td>
+                    <td>{event.eventDate}</td>
+                    <td>{event.eventTime}</td>
+                    <td><button onClick={() => deleteEvent(event.eventId)}className="deleteevent-button">Delete</button></td>
+                  </tr>
+                )
+              })}
+          </tbody>
+          </table>
+        </div>
       </div>
   )
 }
@@ -81,5 +123,4 @@ const mapDispatchToProps = (dispatch) => {
       logout : () => dispatch(logout()),
   }
 }
-
 export default connect(null, mapDispatchToProps)(AdminPage);
