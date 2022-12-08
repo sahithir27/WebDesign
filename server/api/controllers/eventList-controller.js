@@ -54,8 +54,8 @@ export const deleteEventById = async(request, response) => {
     try{
         const eventId = request.params.eventId;
         const event = await eventData.deleteEventById(eventId);
-        const users = await userService.deleteEventFromUser(eventId);
-        httpUtils.setSuccessResponse(users, response);
+        const users = await userService.deleteEventFromUser(event);
+        httpUtils.setSuccessResponse(event, response);
     }catch (error) {
         httpUtils.setErrorResponse(error, response);
     }

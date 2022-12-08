@@ -1,4 +1,12 @@
 import User from '../models/user.js';
+import nodemailer from 'nodemailer';
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: "nuevents2022@gmail.com",
+        pass: "gmzlepiwqaizkgpq"
+    }
+});
 /**
  * Function to add a new user
  * @param {*} newUser 
@@ -73,26 +81,32 @@ export const unregisterEvent = async (uuid, eventID) => {
     }
 }
 
-export const deleteEventFromUser = async (eventId) => {
+export const deleteEventFromUser = async (event) => {
     try{
         const users = await getUsers()
 
         for(let i = 0; i<users.length; i++){
-            if(users[i].eventsRegistered.includes(eventId)){
+            if(users[i].eventsRegistered.includes(event.eventId)){
                 const user = await User.findOneAndUpdate({uuid : users[i].uuid}, 
-                    { $pull: { eventsRegistered:  eventId} }, {returnDocument:'after'});
+                    { $pull: { eventsRegistered:  event.eventId} }, {returnDocument:'after'});
+
+                    const options = {
+                        from: "nuevents2022@gmail.com",
+                        to: users[i].email,
+                        subject: `${event.eventName} is cancelled`,
+                        text: "Hi Unfortunately" + event.eventName +"has been cancelled"
+                    };
+
+                    transporter.sendMail(options, function (err, info) {
+                        if (err) {
+                            console.log(err);
+                            return;
+                        }
+                        console.log("sent :" + info.response);
+                    })
             }
         }
-        // users.forEach(user => {
-        //     let userEvents = user.eventsRegistered
-        //     // if(user.eventsRegistered.includes(eventId)){
-        //     //     const list = user.eventsRegistered.filter(event => event!=eventId)
-        //     //     console.log(list)
-        //     //     //user.eventsRegistered = [...list]
-        //     //     //user.update({eventsRegistered: [...list]})
-                
-        //     // }
-        // });
+        
         const updatedUsers = getUsers();
         return updatedUsers;
     }catch(error){
