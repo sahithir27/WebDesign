@@ -1,5 +1,6 @@
 @import '../../Styles/variables.scss';
 @import '../../Styles/mixins.scss';
+//Used variables,mixins and nested variables for styling of the page.
 .eventDetails_interested{
     @include display;
     width: $width;

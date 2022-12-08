@@ -1,3 +1,4 @@
+//Security Questions upon Forgot Password ans Signup
 const securityQuestions = ["What is your mother's maiden name?", 
                             "What was/is your first car?",
                             "What elementary school did you attend?",

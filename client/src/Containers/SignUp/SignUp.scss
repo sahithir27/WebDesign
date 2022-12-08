@@ -1,5 +1,6 @@
 @import '../../Styles/variables.scss';
 @import '../../Styles/mixins.scss';
+//Used variables,mixins for styling this page
 .signUp-outer-container {
     background-color: $black-colour;
     @include display;

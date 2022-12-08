@@ -10,12 +10,15 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
+
+//Maps Store to props.
 const mapStateToProps = (state) => ({
     isCorrectDetails : state.Login.isUserCorrectDetails,
     forgotPasswordUserDetails: state.Login.forgotPasswordUserDetails,
     isUserPasswordUpdated: state.Login.isUserUpdated
 })
 
+//Maps Dispatch to props.
 const mapDispatchToProps = (dispatch) => {
     return {
         handleUserVerification : (user) => dispatch(handleUserVerification(user)),
@@ -35,7 +38,7 @@ class ForgotPasswordComponent extends React.Component{
             password2 : ''
         }
     }
-
+    //Notify the user upon updating the passowrd.
     notify() {
         toast.success('Password Updation Successful', {
             position: "top-right",
@@ -200,6 +203,7 @@ class ForgotPasswordComponent extends React.Component{
 }
 
 render(){
+    //Verifies the user details and provides the message accordingly.
     let userDetailsError = '';
     let isCorrectDetails = false;
     if (this.props.isCorrectDetails) {
@@ -209,10 +213,11 @@ render(){
     }
     if (this.props.isUserPasswordUpdated) {
         { this.notify() }
+        //Navigates to login Page upon successful login
         return <Navigate replace to="/login"></Navigate>
     }
 
-
+//HTML Representation of Forgot Password and provides the question accordingly.
   return (
     <div className="forgotPassword-outer-container">
         <div className='left-container'>

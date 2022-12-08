@@ -22,14 +22,17 @@ import './Share.scss'
 //     }
 //     }
 // onClick={this._showShareButtons.bind(null)}
+
 const Share = () => {
     const eventlist = useSelector((state) => state.eventlist)
     const events = eventlist.eventlist
     const { id } = useParams();
+    //Finds the event id.
     const event = events.find(obj => {
       return obj.eventId === id;
     });
 
+    //HTML representation of sharing the events via facebook, Linkedin and Twitter.
     return (
         
         <div>

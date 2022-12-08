@@ -1,5 +1,6 @@
 @import '../../Styles/variables.scss';
 @import '../../Styles/mixins.scss';
+//Nested Variabled and mixins are used.
 .blogs-container {
     @include display;
     flex-wrap: wrap;

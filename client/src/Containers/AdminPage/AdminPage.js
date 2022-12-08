@@ -8,9 +8,11 @@ import { connect } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 const AdminPage= (props) => {
+  //Navigate is used to moved from one location to another.
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
+  //Use effect tell what the Component should after render
   useEffect(() => {
     fetch('http://localhost:9002/eventsData')
       .then((res) => res.json())
@@ -20,12 +22,15 @@ const AdminPage= (props) => {
       .catch((err) => console.log(err));
   }, []);
 
+  //Navigates to login Page upon Signout.
   const signoutClick =async()=>{
     let res = await props.logout();
     if(res){
       navigate("/login");
     }
   }
+
+  //Adds the event by getting the id,name,description,date,time,image and location url.
   const addEvent = async() => {
     const url = "http://localhost:9002/eventsData"
     const id = document.getElementById('id').value;
@@ -82,6 +87,7 @@ const AdminPage= (props) => {
     dispatch(addEventAction(url, payload))
   }
 
+  //Deletes the event with the event id
   const deleteEvent = async(eventId) => {
     const url = "http://localhost:9002/eventsData/" + eventId
     const payload = {
@@ -91,6 +97,7 @@ const AdminPage= (props) => {
     window.location.reload(false);
   }
 
+  //HTML Respresntation of the Admin Page
   return (
     <div className="admin-event-form-outer">
       <div className="admin-header-container">

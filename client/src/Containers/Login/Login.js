@@ -25,6 +25,7 @@ class LoginComponent extends React.Component{
                                 passwordError : ''
                         }
                 }
+                //Notifies the user upon successful login
             notify(){
                 toast.success('Login Successful', {
                     position: "top-right",
@@ -43,6 +44,7 @@ class LoginComponent extends React.Component{
                                 })
                     }
                 }
+                //Validates the Username
                 validateUsername(){
                         if(this.state.username.trim().length === 0){
                                 this.setState({
@@ -53,6 +55,7 @@ class LoginComponent extends React.Component{
                                 return true;
                         }
                 }
+                //Validates Password.
                 validatePassword(){
                         if(this.state.password.trim().length === 0){
                                 this.setState({
@@ -63,6 +66,7 @@ class LoginComponent extends React.Component{
                                 return true;
                         }
                 }
+        //Verifies the username and password combination
              handleSubmit(e){
                         e.preventDefault();
                         let validUserName =   this.validateUsername();
@@ -71,11 +75,14 @@ class LoginComponent extends React.Component{
                                  this.props.userLogin({username: this.state.username, password : this.state.password}); 
                         }  
                 }
+                //Upon Successful login Navigate to User/Admin Page Accordingly
             render(){
                         let loginError = '';
                         if(this.props.isUserLoggedIn && this.props.currentUserDetails.roles[0] ==="admin"){
+                                //Notifies the user
                             {this.notify()}
                             return(
+                                //navigate to admin url
                             <Navigate replace to="/admin">
                             </Navigate>
                             )
@@ -83,15 +90,18 @@ class LoginComponent extends React.Component{
                         else if(this.props.isUserLoggedIn && this.props.currentUserDetails.roles[0] === "user"){
                                 {this.notify()}
                                 return(
+                                        //Navigates to user url
                                 <Navigate replace to="/">
                                 </Navigate>
                                 ) 
                         }
+                        //If the username is not found then no user found else password is incorrect
                         else if (this.props.loginError === 'No user found'){
                                         loginError  = "Sorry,there is no user with this username and password"
                         } else if (this.props.loginError === 'Incorrect Password!'){
                                         loginError = "Sorry, password is incorrect!"
                         }
+                        //HTML Representation of the Login Page
                         return(
                                 <div className="login-outer-container">
                                         <div className='left-container'>

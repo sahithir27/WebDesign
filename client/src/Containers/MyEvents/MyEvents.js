@@ -8,6 +8,7 @@ import { BsCalendar2Date, BsFillBookmarkFill } from 'react-icons/bs';
 import './MyEvents.scss'
 import { Link } from "react-router-dom";
 
+//Maps and dispatch to props
 const mapStoreToProps = (state) => ( state.myEventlist ) 
 const mapDispatchToProps = dispatch => bindActionCreators({
     unregister: (url, eventid, callingComponent) => dispatch(updateUserEventUnregisterDetails(url, eventid, callingComponent))
@@ -17,6 +18,7 @@ export class MyEventsComponent extends Component {
     constructor(props) {
         super(props)
         let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
+        //Updates the state with the intrested events for the logged in users.
         this.state = {
             myEvents : [],
             eventsRegistered: loggedInUserDetails["eventsRegistered"],
@@ -25,10 +27,12 @@ export class MyEventsComponent extends Component {
         this.callApi = this.callApi.bind(this);
         //this.callUnregister = this.callUnregister.bind(this);
     }
+    //Calls the API after rendering
     componentDidMount(){
         this.callApi();
     }
 
+    //Updates the current state.
     componentDidUpdate(prevProps, prevState){
         if(prevState.myEvents.length !== this.state.myEvents.length) {
 
@@ -58,6 +62,7 @@ export class MyEventsComponent extends Component {
             myEvents : eventlist
         })
        }
+        //HTML Representation of the Intrested events.
     render() {
       console.log(this.state.myEvents)
         return(

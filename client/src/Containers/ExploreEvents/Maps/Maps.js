@@ -7,7 +7,7 @@ export class Maps extends Component {
             showMap: false
         }
     }
-  
+  //Toggle show map upon click of a button.
     _showMap = () => {
     if(this.state.showMap === true) {
         this.setState({
@@ -20,6 +20,7 @@ export class Maps extends Component {
         })
     }
     }
+    //Html Represntation of the Map functionality.
     render(){
     return (
         <div>

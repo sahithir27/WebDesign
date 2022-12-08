@@ -19,8 +19,10 @@ export default function App() {
   const dispatch = useDispatch();
   let [isBookmarked, setIsBookmarked] = useState(false);
 
+  //Gets the logged in user details
   let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
   const eventsInterested = loggedInUserDetails["eventsInterested"]
+  //Stores the registered event id in the payload
   function callRegister(eventId) {
     let uuid = loggedInUserDetails["uuid"]
     let payload = {
@@ -28,6 +30,7 @@ export default function App() {
     }
     dispatch(updateUserEventDetails(uuid, payload, "App"))
   }
+  //Stores the intrested events id in the payload
   function callInterested(eventId) {
     let uuid = loggedInUserDetails["uuid"]
     let payload = {
@@ -37,6 +40,7 @@ export default function App() {
     setIsBookmarked(!isBookmarked)
   }
 
+  //Useefect to fetch the events dataupon rendering the page.
   useEffect(() => {
     fetch('http://localhost:9002/eventsData')
       .then((res) => res.json())
@@ -61,9 +65,12 @@ export default function App() {
   }, [searchParam]);
 
   console.log(eventsInterested)
+
+  //HTML Representation of the Search Bar Functionality.
   return (
 
     <div className="App">
+      {/*Toast Container to notify the user of the action performed */}
       <ToastContainer></ToastContainer>
 
       <div className="search">

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export class EventDetails extends Component {
   render() {
+    //HTML representation of the Event Details.
     return (
         <div className='eventDetails'>
               
