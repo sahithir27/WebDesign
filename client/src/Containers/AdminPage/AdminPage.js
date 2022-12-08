@@ -136,7 +136,7 @@ const AdminPage= (props) => {
               <th>Event Date</th>
               <th>Event Time</th>
               <th>Number of Users Registered</th>
-              <th></th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
