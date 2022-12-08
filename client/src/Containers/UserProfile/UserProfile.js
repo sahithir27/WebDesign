@@ -166,6 +166,7 @@ class UserProfileComponent extends React.Component{
         }
     }
     cancelChanges = () => {
+       
         let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
         this.state = {
             userloggedIn: sessionStorage.getItem("user"),

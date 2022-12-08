@@ -21,6 +21,9 @@
     input {
         width: 90%;
         border: 1px solid $black-colour;
+        font-family: $cambria-font-family;
+        font-size: 16px;
+        font-weight: bold;
     }
 }
 
@@ -32,6 +35,14 @@
         width: 300px;
     }
     .input-holder {
+        font-family: $cambria-font-family;
+        font-size: 16px;
+        // font-weight: bold;
+            input{
+                font-family: $cambria-font-family;
+                font-size: 16px;
+                // font-weight: bold;
+            }
         button {
             background-color: $text-red;
             height: 35px;
@@ -40,6 +51,7 @@
             font-size: 14px;
             border: 0px;
             margin: 5px;
+            
         }
     }
 }
@@ -55,8 +67,10 @@
         border-radius: 5px;
         height: 30px;
         color: $white-colour;
-        font-size: 14px;
+        font-size: 18px;
         margin-top: 30px;
+        font-weight: bold;
+        font-family: $cambria-font-family;
     }
 }
 
