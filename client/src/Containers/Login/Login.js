@@ -95,6 +95,7 @@ class LoginComponent extends React.Component{
                         return(
                                 <div className="login-outer-container">
                                         <div className='left-container'>
+                                                <ToastContainer></ToastContainer>
                                             {/* <ToastContainer></ToastContainer> */}
                                                 <div className="left-inner">
                                                         <div className='logo-container'>

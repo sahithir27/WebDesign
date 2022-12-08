@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import { Navigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const mapStateToProps = (state) => ({
     isCorrectDetails : state.Login.isUserCorrectDetails,
@@ -208,7 +209,7 @@ render(){
     }
     if (this.props.isUserPasswordUpdated) {
         { this.notify() }
-        return <Navigate to="/login"></Navigate>
+        return <Navigate replace to="/login"></Navigate>
     }
 
 

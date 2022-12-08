@@ -30,6 +30,19 @@ const notifyRegistration = (message) => {
         progress: undefined,
     });
 }
+
+const notifyForgotPassword = () => {
+    toast.success("Password updated succesfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    });
+}
+
 const SignUpAction = (payload) => {
     return{
         type: LoginActionTypes.SIGNUP_USER, 
@@ -64,7 +77,6 @@ const updateUserDetailsAction = (payload, callingComponent) => {
         notifyRegistration(payload.message);
         window.location.reload(false);
     }
-
     return {
         type: LoginActionTypes.UPDATE_USER,
         payload: payload.user
