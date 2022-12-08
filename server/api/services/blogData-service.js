@@ -1,5 +1,6 @@
 import Blog from '../models/blogs.js';
 
+//service method to get all blogs from db
 export const getBlogs = async () => {
     try{
         const blogs = Blog.find({});
@@ -9,6 +10,7 @@ export const getBlogs = async () => {
     }
 }
 
+//service method to add blog to db
 export const addBlogs = (blogItem) => {
     try {
         const blog = new Blog(blogItem);
