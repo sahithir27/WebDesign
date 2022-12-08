@@ -4,9 +4,9 @@ export const EventsActionTypes = {
     ADD_EVENT : '[EventItem] Add Event item',
     UPDATE_EVENT : '[EventItem] Update Event item',
     SET_EVENTS_DATA: "SET_EVENTS_DATA",
-    SET_SAVED_EVENTS: "SET_SAVED_EVENTS"
+    SET_SAVED_EVENTS: "SET_SAVED_EVENTS",
+    DELETE_EVENT : '[EventItem] Delete Event item'
 }
-
 //Action method to Get Events to the api using Fetch
 export const getEvents = (url) => {
     return dispatch => {
@@ -20,7 +20,6 @@ export const getEvents = (url) => {
         })
     }
 }
-
 export const addEventAction = (url, payload) => {
     return dispatch => {
         return fetch(url,{
@@ -39,9 +38,17 @@ export const addEventAction = (url, payload) => {
         })
     }
 }
-
+export const deleteEventAction = (url, deleted_payload) => {
+    return dispatch => {
+        return fetch(url, {method: 'DELETE'}).then(() => {
+            dispatch({type : EventsActionTypes.DELETE_TODO,
+                deleted_payload})
+        }).catch(err => {
+            console.log('API failed')
+        })
+    }
+}
 export default getEvents
-
 export const setEventsData = (payload) => {
     return {
         type: EventsActionTypes.SET_EVENTS_DATA,
@@ -60,6 +67,5 @@ export const getEventBriteEvents = (inputText = "Badminton") => {
         } finally {
             dispatch(hideLoaderAction())
         }
-        
     }
 }
