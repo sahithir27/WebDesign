@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import './EventsSearchBar.scss'
-import { useNavigate } from "react-router-dom";
-import { id } from "date-fns/locale";
 import { Link } from "react-router-dom";
 import { updateUserEventDetails, updateUserInterestedEventDetails } from "../../../Store/Actions/LoginAction"
 
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import TextField from '@mui/material/TextField';
-import SearchIcon from '@mui/icons-material/Search';
-import { AiFillClockCircle, AiOutlineClockCircle } from 'react-icons/ai';
+import { AiOutlineClockCircle } from 'react-icons/ai';
 import { BsCalendar2Date, BsFillBookmarkFill } from 'react-icons/bs';
 
-import { css } from "@emotion/css";
 // import { View, Image, Text, LayoutAnimation } from 'react-native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
