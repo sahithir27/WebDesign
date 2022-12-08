@@ -1,12 +1,10 @@
 @import '../../../Styles/variables.scss';
+@import '../../../Styles/mixins.scss';
 .viewMapBtn{
-    background-color: $text-red;
-    height: 35px;
-    width: 80px;
-    border-radius: 5px;
-    color: $white-colour;
-    font-size: 14px;
-    border: 0px;
+    @include button;
+    @include button-container;
+    width: 100px;
     margin-left: 45%;
     margin-bottom: 50px;
+
 }

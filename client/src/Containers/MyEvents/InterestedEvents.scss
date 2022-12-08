@@ -1,10 +1,11 @@
 @import '../../Styles/variables.scss';
+@import '../../Styles/mixins.scss';
 .eventDetails_interested{
-    display: flex;
-    width: 100%;
+    @include display;
+    width: $width;
     border-style: double;
     .buttons_interested {
-        display: flex;
+        @include display;
         justify-content: space-around;
         button {
             color: $text-red;
@@ -15,6 +16,9 @@
     p {
         width: 90%;
         margin-left: 10px;
+        font-family: $cambria-font-family;
+        font-size: 20px;
+        font-weight: bold;
     }
     div {
         width: 10%;
@@ -22,6 +26,6 @@
     }
 }
 .eventDetails_interested_outer {
-    display: flex;
+    @include display;
     flex-direction: column;
 }

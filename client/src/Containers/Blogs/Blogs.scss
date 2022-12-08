@@ -1,8 +1,9 @@
 @import '../../Styles/variables.scss';
+@import '../../Styles/mixins.scss';
 .blogs-container {
-    display: flex;
+    @include display;
     flex-wrap: wrap;
-    width: 100%;
+    width: $width;
     .blogitem {
         width: 40%;
         margin: 20px;
@@ -21,7 +22,7 @@
         }
         img {
             display: block;
-            width: 100%;
+            width: $width;
             filter: brightness(50%);
         }
         .blogtitle {
@@ -39,7 +40,7 @@
     background-color: $white-colour;
     padding: 10px;
     border-radius: 15px;
-    color: black;
+    color: $black-colour;
     margin-top: 25px;
     box-shadow: 5px 5px 5px 5px rgb(0 0 0 / 10%);
     li {
@@ -74,7 +75,7 @@
     }
     .description {
         height:200px;
-        width: 100%;
+        width: $width;
         font-size:14pt;
         font-family: Arial;
     }
