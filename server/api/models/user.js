@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from "bcrypt";
 
+//schema for User
 const Schema = new mongoose.Schema({
     uuid:{
         type: String,
@@ -61,6 +62,7 @@ const Schema = new mongoose.Schema({
     }
 })
 
+//encrypt password and security answer using bcrypt
 export const encryptField = async(field) => {
     let newHash;
     try{

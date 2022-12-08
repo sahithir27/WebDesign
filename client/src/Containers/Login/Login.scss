@@ -1,5 +1,6 @@
 @import '../../Styles/variables.scss';
 @import '../../Styles/mixins.scss';
+//Used variables, mixins and nested variables to style this page.
 .login-outer-container {
     background-color: $black-colour;
    @include display;

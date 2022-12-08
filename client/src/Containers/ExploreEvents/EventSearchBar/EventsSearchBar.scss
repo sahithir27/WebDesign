@@ -1,5 +1,6 @@
 @import '../../../Styles/variables.scss';
 @import '../../../Styles/mixins.scss';
+//Used mixins, nested variables and CSS to style the Events search bar functionality.
 .events{
     @include display;
     flex-wrap: wrap;

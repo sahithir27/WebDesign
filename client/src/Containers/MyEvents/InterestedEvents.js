@@ -9,7 +9,10 @@ import './MyEvents.scss'
 import './InterestedEvents.scss'
 import { Link } from "react-router-dom";
 
+//Maps store to props
 const mapStoreToProps = (state) => ( state.myEventlist ) 
+
+//Maps dispatch to props
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     unbookmark: (url, eventid, callingComponent) => dispatch(updateUserEventUnbookmarkDetails(url, eventid, callingComponent))
@@ -18,6 +21,7 @@ export class InterestedEventsComponent extends Component {
     constructor(props) {
         super(props)
         let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
+        //Updates the state with the intrested events for the logged in users.
         this.state = {
             interestedEvents : [],
             eventsInterested: loggedInUserDetails["eventsInterested"],
@@ -26,9 +30,11 @@ export class InterestedEventsComponent extends Component {
         this.callApi = this.callApi.bind(this);
         //this.callUnregister = this.callUnregister.bind(this);
     }
+    //Calls the API after rendering
     componentDidMount(){
         this.callApi();
     }
+    //Updates the current state.
     componentDidUpdate(prevProps, prevState){
         if(prevState.interestedEvents.length !== this.state.interestedEvents.length) {
         }
@@ -57,6 +63,7 @@ export class InterestedEventsComponent extends Component {
             interestedEvents : interestedEventlist
         })
        }
+       //HTML Representation of the Intrested events.
     render() {
       console.log(this.state.myEvents)
         return(

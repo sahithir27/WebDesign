@@ -23,6 +23,7 @@ const RoutesComponent = (props) => {
   //   }
   //   events.push(input)
   // });
+  //Several Routes for navigating to different pages.
     return (
       <Router>
         <Routes>

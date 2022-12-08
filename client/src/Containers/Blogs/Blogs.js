@@ -19,6 +19,7 @@ class BlogsComponent extends Component {
     this.state = { showForm: false }
   }
   
+  //Method to post a new Blog
   postBlog() {
     if (this.state.showForm === true) {
       this.setState({
@@ -32,6 +33,7 @@ class BlogsComponent extends Component {
     }
   }
 
+  //Calls the same Url after the page is rendered
   componentDidMount() {
     this.callApi();
   }
@@ -48,6 +50,7 @@ class BlogsComponent extends Component {
     blogitem={blog} 
     index={i}>
     </BlogItem>)
+    //HTML Representation of the entire Blogs Page.
     return (
       <div>
         <div className='blogs-container'>

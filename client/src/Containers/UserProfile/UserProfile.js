@@ -10,6 +10,7 @@ import { Genders} from './Utils.js';
 import axios from "axios";
 import MiniLoader from "../../components/Loader/MiniLoader";
 import { ToastContainer } from 'react-toastify';
+//Maps Store and Dispatch to Props
 const mapStateToProps = (state) => ({
     isUserUpdated: state.Login.isUserUpdated,
     currentUserDetails: state.Login.currentUserDetails
@@ -103,6 +104,7 @@ class UserProfileComponent extends React.Component{
     }
     fileUploadHandler = () => {
     }
+    //Validates Phone Number
     validatePhoneNumber(){
             if(this.state.phonenumber){
                 var phoneno = /^\d{10}$/;
@@ -124,6 +126,7 @@ class UserProfileComponent extends React.Component{
                 return true;
             }      
     }
+    //Validates Email
     validateEmail() {
         if (this.state.email.trim().length === 0) {
             this.setState({
@@ -143,6 +146,7 @@ class UserProfileComponent extends React.Component{
             return true;
         }
     }
+    //Updates User Profile
     updateUserProfile = () => {
         let validatePhoneNumber = this.validatePhoneNumber();
         let validateEmail = this.validateEmail();
@@ -165,7 +169,9 @@ class UserProfileComponent extends React.Component{
                 });
         }
     }
+    //Cancel the Changes
     cancelChanges = () => {
+       
         let loggedInUserDetails = JSON.parse(sessionStorage.getItem("user"));
         this.state = {
             userloggedIn: sessionStorage.getItem("user"),
@@ -185,6 +191,7 @@ class UserProfileComponent extends React.Component{
             profileImageUrl: loggedInUserDetails["profilePicture"]
         }
     }
+    //HTML Represntation of the User Profile Page.
     render(){
         if (this.state.userloggedIn) {
         //if (true) {

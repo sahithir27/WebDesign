@@ -1,5 +1,6 @@
 @import '../../Styles/_variables.scss';
 @import '../../Styles/_mixins.scss';
+//Nested Variables and include has been implemented
 .main-layout-container {
     width: $width;
     .layout-container {

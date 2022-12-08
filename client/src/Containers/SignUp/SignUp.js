@@ -37,6 +37,7 @@ class SignUpComponent extends React.Component{
         }
     }
     notify() {
+         //Notifies the user upon successful Signup
         toast.success('SignUp Successful', {
             position: "top-right",
             autoClose: 5000,
@@ -54,6 +55,7 @@ class SignUpComponent extends React.Component{
                 })
         }
     }
+     //Validates the Username
     validateUsername(){
         if(this.state.uuid.trim().length === 0){
             this.setState({
@@ -67,6 +69,7 @@ class SignUpComponent extends React.Component{
             return true;
         }
     }
+    //Validates Email.
     validateEmail(){
         if(this.state.email.trim().length === 0){
             this.setState({
@@ -86,6 +89,7 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
+    //Validates Firstname.
     validateFirstname(){
         if(this.state.firstName.trim().length === 0){
             this.setState({
@@ -99,6 +103,7 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
+    //Validates Last name.
     validateLastname(){
         if(this.state.lastName.trim().length === 0){
             this.setState({
@@ -112,6 +117,7 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
+    //Validates DOB.
     validateDob(){
         if(!this.state.dateOfBirth){
             this.setState({
@@ -125,6 +131,7 @@ class SignUpComponent extends React.Component{
             return true;
         }
     }
+    //Validates Gender.
     validateGender(){
         if(this.state.gender.trim().length === 0){
             this.setState({
@@ -138,6 +145,7 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
+    //Validates Password.
     validatePassword(){
         if(this.state.password.trim().length === 0){
             this.setState({
@@ -156,6 +164,7 @@ class SignUpComponent extends React.Component{
                 return true;
         }
     }
+    //Validates Security Question.
     validateSecurityQuestion(){
         if(this.state.securityQuestion.trim().length === 0){
             this.setState({
@@ -169,6 +178,7 @@ class SignUpComponent extends React.Component{
             return true;
         }
     }
+    //Validates Security Answers.
     validateAnswer(){
         if(this.state.securityAnswer.trim().length === 0){
             this.setState({
@@ -209,6 +219,7 @@ class SignUpComponent extends React.Component{
             }
     }
     render(){
+        //Navigates to Login Page upon Signup
         let signUpError = '';
         if (this.props.isUserSignedUp) {
             {this.notify()}
@@ -217,6 +228,7 @@ class SignUpComponent extends React.Component{
         } else if (this.props.signedUpUserDetails === 'username already exists') {
             signUpError = "Sorry,couldn't signUp, username already existing"
         }
+        //VHTML Represntation of Sign up Page.
         return(
             <div className="signUp-outer-container">
                     <div className='left-container'>

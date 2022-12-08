@@ -17,12 +17,14 @@ const EventInfo = () => {
     return obj.eventId === id;
   });
 
+  //HTML Representation of the Event Info Page alond with the evnt name, description, time and location.
   return (
     
     <div className='event-info-outer'>
       <div className='event-info-inner'>
         <div className='view-header'>
         <div><button className='backBtn' onClick={() => navigate("/")}>Go back</button></div>
+        {/*Share Functionality to share the events via Social Media Apps */}
         <div className='share-container'><Share/></div>
         </div>
         <div className="event-wrap">
@@ -33,7 +35,7 @@ const EventInfo = () => {
           </div>
         </div>
         <p className='event-description'>{event.eventDescription}</p>
-        
+        {/*Maps Functionality to navigate to the event location*/}
         <Maps eventLocation = {event.eventLocation}/>
       </div>
     </div>

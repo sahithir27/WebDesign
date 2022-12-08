@@ -1,6 +1,7 @@
  
 @import '../../Styles/variables.scss';
 @import '../../Styles/mixins.scss';
+//Used variables,mixins and nested variables for styling of the page.
 .events{
     @include display;
     flex-wrap: wrap;

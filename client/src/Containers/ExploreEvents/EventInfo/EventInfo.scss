@@ -1,5 +1,6 @@
 @import '../../../Styles/variables.scss';
 @import '../../../Styles/mixins.scss';
+//Mixins are implemented for styling the Event Info.
 .event-info-outer {
     @include display;
     margin: auto;

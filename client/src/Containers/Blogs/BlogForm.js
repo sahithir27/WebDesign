@@ -18,6 +18,7 @@ export class BlogFormComponent extends Component {
         }
       }
 
+    //Adds new Blogs with title,description,author and Image url.
     addNewBlog() {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
@@ -42,6 +43,7 @@ export class BlogFormComponent extends Component {
         console.log(JSON.stringify(payload))
         this.props.add("http://localhost:9002/blogsData/", payload)
       }
+      //HTML Representation of the Blog Form
   render() {
     return (
         <form className="new-blog-form" method="get">

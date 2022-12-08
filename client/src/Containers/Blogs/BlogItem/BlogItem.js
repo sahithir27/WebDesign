@@ -8,6 +8,7 @@ export class BlogItemComponent extends Component {
     // constructor() {
     //   super(); 
     // }
+    //HTML Representaion of the Blogs Page.
     render() {
         return (
         <div className='blogitem'>
@@ -16,6 +17,7 @@ export class BlogItemComponent extends Component {
                     <img src={this.props.blogitem.imgUrl}></img>
                     <div className='blogtitle'>{this.props.blogitem.blogTitle}</div>
                 </div>
+                {/*Read more Component is used for the Blog Description */}
                 <ReadMore id='blogdescription' className='blogdescription'>{this.props.blogitem.description}</ReadMore>
             </div>
             <p>Author : {this.props.blogitem.author}</p>
