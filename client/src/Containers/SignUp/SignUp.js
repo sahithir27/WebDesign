@@ -119,7 +119,7 @@ class SignUpComponent extends React.Component{
     }
     //Validates DOB.
     validateDob(){
-        if(this.state.dateOfBirth.trim().length === 0){
+        if(!this.state.dateOfBirth){
             this.setState({
                 dobError : "Date Of Birth is required"
             })
