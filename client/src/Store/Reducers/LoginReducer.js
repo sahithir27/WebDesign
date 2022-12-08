@@ -1,5 +1,6 @@
 import { LoginActionTypes } from "../Actions/LoginAction"
 const getInitialState = () => {
+  //Initial State of all the details upon Login
     return {
       isUserLoggedIn: false, 
       currentUserDetails : null,
@@ -12,6 +13,8 @@ const getInitialState = () => {
       isUserUpdated : false,
     };
   }
+
+  //Reducer function for signup,login,verify anf Update User functionality.
 const LoginReducer = (state = getInitialState(), action) => {
     const type = action.type;
     switch(type){

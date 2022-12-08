@@ -10,6 +10,7 @@ export const MyEventsActionTypes = {
 //     }
 // }
 
+//Method to get the Event Id's 
 const getEventByIdAction = (payload) => {
     
     return{
@@ -17,6 +18,8 @@ const getEventByIdAction = (payload) => {
         payload : payload
     }
 }
+
+//Method to get the Event Details by Id.
 export const getEventById = (url) => {
 
     return async(dispatch) => {

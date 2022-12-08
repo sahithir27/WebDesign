@@ -12,6 +12,7 @@ const MyInterestedEventsReducer = (state=getInitialState(), action) => {
     let temp=[];
     let newMyInterestedEventList = []
     switch(type){
+        //Case to get the list of all Interested events
         case MyEventsActionTypes.GET_INTERESTEDEVENT:
             temp = [...state.interestedEventlist]
             let eventItem = action.payload;
@@ -21,6 +22,7 @@ const MyInterestedEventsReducer = (state=getInitialState(), action) => {
             newMyInterestedEventList = [...state.interestedEventlist];
             break;
     }
+    //Stores the Interested events into an array.
     temp.forEach(function (item) {
         newMyInterestedEventList.push(item);
       });

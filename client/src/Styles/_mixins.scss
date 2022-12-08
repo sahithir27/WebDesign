@@ -1,26 +1,28 @@
 
 
-@mixin flexType($flexDirection, $alignItems, $justifyContent) {
-    display: flex;
-    flex-direction: $flexDirection;
-    align-items: $alignItems;
-    justify-content: $justifyContent;
-}
-
-@mixin redButton() {
-    background-color: #cc3d38;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
+@mixin button() {
     cursor: pointer;
 }
-
+@mixin button-container(){
+    background-color: $text-red;
+    height: 35px;
+    border-radius: 5px;
+    color: $white-colour;
+    font-size: 18px;
+    border: 0px;
+    padding: 5px;
+    font-family: $cambria-font-family;
+    font-weight: bold;
+}
 @mixin loginOuterContainerLayout($display, $height, $borderWidth, $borderColor){
     display: $display;
     grid-template-columns: repeat(5, 1fr);
     height:$height;
     overflow: auto;
     border: $borderWidth $borderColor;
+}
+@mixin display(){
+    display: flex;
 }
 
 @mixin loginLeftContainer($colSpan, $rowSpan, $cols, $rows, $display, $backgroundColor){

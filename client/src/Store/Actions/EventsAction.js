@@ -20,6 +20,8 @@ export const getEvents = (url) => {
         })
     }
 }
+
+//Action Method to add New Event
 export const addEventAction = (url, payload) => {
     return dispatch => {
         return fetch(url,{
@@ -39,6 +41,7 @@ export const addEventAction = (url, payload) => {
     }
 }
 
+//Action Method to delete an event.
 export const deleteEventAction = (url, deleted_payload) => {
     return dispatch => {
         return fetch(url, {method: 'DELETE'}).then(() => {
@@ -51,6 +54,8 @@ export const deleteEventAction = (url, deleted_payload) => {
 }
 
 export default getEvents
+
+
 export const setEventsData = (payload) => {
     return {
         type: EventsActionTypes.SET_EVENTS_DATA,

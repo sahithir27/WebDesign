@@ -6,6 +6,7 @@ const BlogsReducer = (state=AppState, action) =>{
     const to_be_added_payload = action.to_be_added_payload;
     let newBlogs;
     switch(type) {
+        //Case to get the Blog Data.
         case 'GET_BLOG_DATA' :
             newBlogs = []
             let blogs = action.blogs
@@ -14,10 +15,12 @@ const BlogsReducer = (state=AppState, action) =>{
               });
             break;
         case BlogActionType.ADD_TODO:
+            //Case to Add a new Blog Item.
             newBlogs = [...state.todolist];
             newBlogs.push(to_be_added_payload);
             break;
         default:
+            //Default Case to display if any field input is missing.
             newBlogs = [...state.blogs];
             break;
     }

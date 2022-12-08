@@ -9,11 +9,11 @@
 
 **Team Name:**  Web Surfers            
  
-**Team Members**
-1. Varsha Reddy Kumbham                        
-2. Devika Boddu                    
-3. Sindhura Bandaru               
-4. Sahithi Gaddam           
+**Team Members:**
+- Varsha Reddy Kumbham - 002762752​       
+- Devika Boddu - 002727628​           
+- Sindhura Bandaru -002727624​          
+- Sahithi Gaddam- 002766983​       
 
 **Repo Link**
 ```bash
@@ -47,6 +47,8 @@ A responsive web application has been created and styled using SASS which uses R
 - As a user, I can update my profile at any time.
 - As a user, I have access to events dashboard page with details about several happenings in the University.
 - As a user, I can search/explore for a specific event based upon the Event Name.
+- As a user, I can bookmark for an event I am interested in so that I can checkout later.
+- As a user, I can see the bookmarked items and delete it later from the list.
 - As a user, I can register for a single/multiple events which matches my Interest.
 - As a user, I have a section for Myevents where all the events registered making easier to keep a track of them.
 - As a user, I can view the event info in detail.
@@ -79,7 +81,8 @@ A responsive web application has been created and styled using SASS which uses R
 - mongoose - v6.7.2 or (LTS)
 - express: v4.18.2 or (LTS)
 - nodemailer: v6.8.0 or (LTS)
-- 
+
+
 **Steps to run**
 
 - Install the above mentioned dependencies.
@@ -92,12 +95,3 @@ npm start
 ```bash 
 npm run start
 ```
-
-
-
-
-
-
-
-
-

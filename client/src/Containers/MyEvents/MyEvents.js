@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {updateUserEventUnregisterDetails} from "./../../Store/Actions/LoginAction"
 import { ToastContainer, toast } from 'react-toastify';
+import {  AiOutlineClockCircle } from 'react-icons/ai';
+import { BsCalendar2Date, BsFillBookmarkFill } from 'react-icons/bs';
 import './MyEvents.scss'
 import { Link } from "react-router-dom";
 
@@ -70,8 +72,8 @@ export class MyEventsComponent extends Component {
                   <img src={event.eventImage} alt="event" width="295" height="200" className='row__poster' />
                   <p className="event-name">{event.eventName}</p>
                   <div className="event-date-time">
-                    <p className="event-date">{event.eventDate}</p>
-                    <p className="event-time">{event.eventTime}</p>
+                    <p className="event-date"><BsCalendar2Date/>&#160;  {event.eventDate}</p>
+                    <p className="event-time"><AiOutlineClockCircle/> {event.eventTime}</p>
                   </div>
                   <div className='buttons' >
                     <Link to={`/events/${event.eventId}`}>

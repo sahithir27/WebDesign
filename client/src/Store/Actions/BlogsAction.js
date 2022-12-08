@@ -3,6 +3,7 @@ export const BlogActionType = {
     UPDATE_BLOG : '[BlogItem] Update Blog item'
 }
 
+//Method to add New Blogs.
 export const addTodoItemAction = (url,payload) => {
     return dispatch => {
         return fetch(url,{

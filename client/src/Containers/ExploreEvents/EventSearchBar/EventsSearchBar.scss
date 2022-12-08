@@ -1,6 +1,7 @@
 @import '../../../Styles/variables.scss';
+@import '../../../Styles/mixins.scss';
 .events{
-    display: flex;
+    @include display;
     flex-wrap: wrap;
     margin-left: 5%;
 }
@@ -16,31 +17,25 @@
 
 .details {
     padding: 10px;
-    //border: 1px solid rgb(103, 100, 100);
     box-shadow: 0 0 25px #0000004d;
     background-color: $white-colour;
     transition: transform 450ms;
     border-radius: 10px;
-    // width: 500px;
-    // height: 400px;
     width: 300px;
     height: 350px;
     .event-name{
         text-align: center;
         font-family: $font-family;
-        //font-weight: bolder;
+        font-weight: bolder;
         font-size: large;
         margin-block-start:0em;
         margin-block-end: 0em;
-        // svg{
-        //     margin-bottom: 44px;
-        // }
     }
     .event-date-time{
-        display: flex;
+        @include display;
         justify-content: space-around;
         font-family: $font-family;
-        font-weight: semi-bold;
+        font-weight: bold;
         font-size: medium;
         svg{
             margin-bottom: -3px;
@@ -61,7 +56,7 @@
 }
 
 .buttons{
-    //margin-left: 50px;
+    
     button {
         border: 0px;
         background-color: $text-red;
@@ -69,13 +64,10 @@
         width: 70px;
         border-radius: 5px;
         color: $white-colour;
-        font-size: 14px;
+        font-size: 25px;
         margin: 3%;
-        //margin-left: -1%;
-    }
-    .interestedBtn{
-        width: 30px;
-        background-color: $text-red;
+        font-family: $cambria-font-family;
+        @include button;
     }
 }
 .search{
@@ -91,7 +83,7 @@
 
 .bookmark-image-container {
     position: relative;
-    width: 100%;
+    width: $width;
     max-width: 400px;
     button {
         position: absolute;
@@ -101,7 +93,7 @@
         -ms-transform: translate(-50%, -50%);
         background: transparent;
         color: white;
-        font-size: 16px;
+        font-size: 20px;
         padding: 12px 24px;
         border: none;
         cursor: pointer;
@@ -109,13 +101,13 @@
         text-align: center;
         .bookmark_icon {
             color: #b7a3a5;
-            width: 1.5em;
-            height: 1.5em;
+            width: 1.2em;
+            height: 1.4em;
         }
         .bookmark_icon_selected {
             color: $text-red;
-            width: 1.5em;
-            height: 1.5em;
+            width: 1.2em;
+            height: 1.4em;
         }
     }
 }

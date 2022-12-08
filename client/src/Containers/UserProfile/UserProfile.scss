@@ -1,12 +1,14 @@
 @import '../../Styles/variables.scss';
+@import '../../Styles/mixins.scss';
 .header {
     h2 {
         text-align: center;
+        font-family: $cambria-font-family;
     }
 }
 
 .innerContainer {
-    display: flex;
+    @include display;
     box-shadow: 0 0 25px #0000004d;
     border-radius: 5px;
     margin: 30px;
@@ -18,14 +20,14 @@
 .detailsContainer {
     input {
         width: 90%;
-        border: 1px solid black;
+        border: 1px solid $black-colour;
     }
 }
 
 .image-container {
     img{
-        max-width: 100%;
-        max-height: 100%;
+        max-width:$width;
+        max-height: $height;
         object-fit: cover;
         width: 300px;
     }
@@ -34,7 +36,7 @@
             background-color: $text-red;
             height: 35px;
             border-radius: 5px;
-            color: white;
+            color: $white-colour;
             font-size: 14px;
             border: 0px;
             margin: 5px;
@@ -43,8 +45,8 @@
 }
 
 .update-cancel-button-container {
-    display: flex;
-    width: 100%;
+    @include display;
+    width: $width;
     button {
         width: 10%;
         margin: 10px;
@@ -52,16 +54,16 @@
         border: 0px;
         border-radius: 5px;
         height: 30px;
-        color: white;
+        color: $white-colour;
         font-size: 14px;
         margin-top: 30px;
     }
 }
 
 .userName_email_Container_profile {
-    display: flex;
+    @include display;
     justify-content: space-evenly;
-    width: 100%;
+    width: $width;
     //margin-left: 40px;
     div {
         width: 45%;
@@ -73,7 +75,7 @@
 }
 
 .phone_Container_profile {
-    width: 100%;
+    width: $width;
     margin-left: 20px;
     input {
         margin: 2px;

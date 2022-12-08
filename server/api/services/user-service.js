@@ -117,7 +117,7 @@ export const deleteEventFromUser = async (event) => {
                         from: "nuevents2022@gmail.com",
                         to: users[i].email,
                         subject: `${event.eventName} is cancelled`,
-                        text: "Hi Unfortunately" + event.eventName +"has been cancelled"
+                        text: "Hi Unfortunately " + event.eventName +" has been cancelled"
                     };
 
                     transporter.sendMail(options, function (err, info) {
@@ -127,6 +127,10 @@ export const deleteEventFromUser = async (event) => {
                         }
                         console.log("sent :" + info.response);
                     })
+            }
+            if(users[i].eventsInterested.includes(event.eventId)){
+                const user = await User.findOneAndUpdate({uuid : users[i].uuid}, 
+                    { $pull: { eventsInterested:  event.eventId} }, {returnDocument:'after'});
             }
         }
         
